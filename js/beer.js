@@ -2,7 +2,7 @@ $(document).ready(function() {
     var $beer = $("#beer");
 
     function addBeer(beer) {
-        $beer.append("<li>Name: " + beer.namn + "</li>");
+        $beer.append("<li><span>" + beer.namn + "</span></li>");
     }
 
     $.ajax({
