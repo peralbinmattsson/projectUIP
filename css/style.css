@@ -1,16 +1,16 @@
-.startContainer {
+#startContainer {
     position: relative;
     width: 100%;
     height: 600px;
 }
-.beerContainer {
+#beerContainer {
     position: relative;
-    width: 100%;
     height: 600px;
-    margin-left: 200px;
     margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
-.upperLeft {
+#upperLeft {
     width: 100px;
     height: 100px;
     padding: 25px;
@@ -20,7 +20,7 @@
     margin-top: 200px;
     position: absolute;
 }
-.upperRight {
+#upperRight {
     width: 100px;
     height: 100px;
     padding: 25px;
@@ -30,7 +30,7 @@
     margin-top: 200px;
     position: absolute;
 }
-.lowerLeft {
+#lowerLeft {
     width: 100px;
     height: 100px;
     padding: 25px;
@@ -40,7 +40,7 @@
     margin-top: 410px;
     position: absolute;
 }
-.lowerRight {
+#lowerRight {
     width: 100px;
     height: 100px;
     padding: 25px;
@@ -56,19 +56,42 @@ a:link {
 a:active {
     color: black;
 }
-.footer {
+#footer {
     bottom: 0;
     width: 100%;
     height: 200px;
 }
-ul li {
+#leftList > li {
+    background-color: #A7A2A8;
     display: flex;
     width: 600px;
     height: 50px;
     border-radius: 8px;
     position: relative;
-    background-color: gray;
     border: 5px solid white;
     list-style-type: none;
     align-items: center;
+    padding: 5px;
+}
+#rightList > li {
+    background-color: #A7A2A8;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    position: relative;
+    border: 5px solid white;
+    list-style-type: none;
+    align-items: center;
+    margin-left: 700px; 
+    padding: 5px;
+}
+#leftSide {
+    position: absolute;
+}
+#rightSide {
+    position: absolute;
+}
+span {
+    width: 300px;
 }
