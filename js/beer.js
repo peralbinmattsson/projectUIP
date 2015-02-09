@@ -1,14 +1,17 @@
 $(document).ready(function() {
     var $beer = $('#leftList');
+    var $chosenBeer = $('#rightList');
 
     function addBeer(beer) {
-        $beer.append("<li><span>" + 
-            beer.namn +
-            "</span><span>" +
-            beer.pub_price +
-            " kr" + "</span>" +
-            "<button>Add to order</button>" +
-            "</li>");
+        if (beer.namn != "") {
+            $beer.append("<li><span>" + 
+                beer.namn +
+                "</span><span>" +
+                beer.pub_price +
+                " kr" + "</span>" +
+                "<button id=\"add\">Add to order</button>" +
+                "</li>");
+        }
     }
 
     $.ajax({
@@ -21,7 +24,7 @@ $(document).ready(function() {
             });
         }
     });
-    //$('#beerContainer').scroll(function() { 
-    //    $('#FixedDiv').css('top', $(this).scrollTop());
-    //});
+    $beer.delegate('#add', 'click', function() {
+        $chosenBeer.append("<li>dask</li>");
+    });
 });
