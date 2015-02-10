@@ -6,7 +6,7 @@ $(document).ready(function() {
         if (beer.namn != "") {
             $beer.append("<li><span>" + 
                 beer.namn + " " +
-                beer.namn2 +
+                beer.namn2 + " " +
                 "</span><span>" +
                 beer.count +
                  "</span>" +
