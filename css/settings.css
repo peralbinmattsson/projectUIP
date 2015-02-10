@@ -34,11 +34,11 @@ width:150px;
 line-height:50px;
 text-align:center;
 vertical-align:middle;
-background:url(boutonnoir.png) no-repeat;
+background:url(../img/boutonnoir.png) no-repeat;
 color:white;
 text-decoration:none;
 }
 #menu li a:hover
 {
-background:url(boutonnoirhover.png) no-repeat;
+background:url(../img/boutonnoirhover.png) no-repeat;
 }
