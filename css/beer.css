@@ -6,7 +6,7 @@
     margin-right: 150px;
 }
 #leftList > li {
-    background-color: #A7A2A8;
+    background-color: #DCDBD2;
     display: flex;
     width: 600px;
     height: 50px;
@@ -18,7 +18,7 @@
     padding: 5px;
 }
 #rightList > li {
-    background-color: #A7A2A8;
+    background-color: #DCDBD2;
     width: 200px;
     height: 50px;
     border-radius: 8px;
@@ -28,14 +28,19 @@
     list-style-type: none;
     align-items: center;
     padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 15px;
 }
 #leftSide {
     position: absolute;
 }
 #rightSide {
     position: fixed;
-    width: 220px;
+    width: 260px;
     margin-left: 700px;
+    background-color: #8B7CE4;
+    height: 400px;
+    overflow: scroll;
 }
 span {
     width: 300px;
