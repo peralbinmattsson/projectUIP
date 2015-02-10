@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var $beer = $('#stock_container');
-    var $chosenBeer = $('#user_container');
+    var $user = $('#user_container');
 
     function addSotckItem(beer) {
         if (beer.namn != "") {
