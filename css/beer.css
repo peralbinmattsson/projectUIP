@@ -1,0 +1,42 @@
+#beerContainer {
+    position: relative;
+    height: 600px;
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+#leftList > li {
+    background-color: #A7A2A8;
+    display: flex;
+    width: 600px;
+    height: 50px;
+    border-radius: 8px;
+    position: relative;
+    border: 5px solid white;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+}
+#rightList > li {
+    background-color: #A7A2A8;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    position: relative;
+    border: 5px solid white;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+}
+#leftSide {
+    position: absolute;
+}
+#rightSide {
+    position: fixed;
+    width: 220px;
+    margin-left: 700px;
+}
+span {
+    width: 300px;
+}
