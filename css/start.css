@@ -1,54 +1,49 @@
+/**************************************************************
+                (Eric Meyer's) Reset
+**************************************************************/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/*********************************** My styling ***********************************/
+
+
+
 #startContainer {
     position: relative;
     width: 100%;
     height: 600px;
 }
-#beerContainer {
-    position: relative;
-    height: 600px;
-    margin-top: 200px;
-    margin-left: 150px;
-    margin-right: 150px;
-}
-#upperLeft {
-    width: 100px;
-    height: 100px;
-    padding: 25px;
+#left {
+    width: 140px;
+    height: 140px;
     border: 6px solid black;
     border-radius: 8px;
     margin-left: 400px;
-    margin-top: 200px;
+    margin-top: 250px;
     position: absolute;
 }
-#upperRight {
-    width: 100px;
-    height: 100px;
-    padding: 25px;
+#right {
+    width: 140px;
+    height: 140px;
     border: 6px solid black;
     border-radius: 8px;
     margin-left: 610px;
-    margin-top: 200px;
+    margin-top: 250px;
     position: absolute;
 }
-#lowerLeft {
-    width: 100px;
-    height: 100px;
-    padding: 25px;
-    border: 6px solid black;
-    border-radius: 8px;
-    margin-left: 400px;
-    margin-top: 410px;
-    position: absolute;
-}
-#lowerRight {
-    width: 100px;
-    height: 100px;
-    padding: 25px;
-    border: 6px solid black;
-    border-radius: 8px;
-    margin-left: 610px;
-    margin-top: 410px;
-    position: absolute;
+#beerImg {
+    width: 140px;
+    height: 130px;
 }
 a:link {
     color: black;
@@ -60,39 +55,4 @@ a:active {
     bottom: 0;
     width: 100%;
     height: 200px;
-}
-#leftList > li {
-    background-color: #A7A2A8;
-    display: flex;
-    width: 600px;
-    height: 50px;
-    border-radius: 8px;
-    position: relative;
-    border: 5px solid white;
-    list-style-type: none;
-    align-items: center;
-    padding: 5px;
-}
-#rightList > li {
-    background-color: #A7A2A8;
-    width: 200px;
-    height: 50px;
-    border-radius: 8px;
-    float: left;
-    position: relative;
-    border: 5px solid white;
-    list-style-type: none;
-    align-items: center;
-    padding: 5px;
-}
-#leftSide {
-    position: absolute;
-}
-#rightSide {
-    position: fixed;
-    width: 220px;
-    margin-left: 700px;
-}
-span {
-    width: 300px;
 }
