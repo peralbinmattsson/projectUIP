@@ -37,11 +37,35 @@
 #rightSide {
     position: fixed;
     width: 260px;
+    height: 320px;
     margin-left: 700px;
     background-color: #8B7CE4;
-    height: 400px;
-    overflow: scroll;
+    overflow: auto;
+    border: 5px solid #8B7CE4;
+    border-radius: 5px;
 }
 span {
     width: 300px;
+}
+#payButton {
+    width: 60px;
+    height: 20px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+input.search {
+    height: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+#cost {
+    position: fixed;
+    margin-left: 700px;
+    margin-top: 340px;
 }
