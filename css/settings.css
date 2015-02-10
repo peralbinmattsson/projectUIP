@@ -38,10 +38,7 @@ background:url(../img/boutonnoirhover.png) no-repeat;
 
 .object {
     position: relative;
-    height: 600px;
-    margin-top: 200px;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin: 200px 150px 0px; 
 }
 
 .object > li {
