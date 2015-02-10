@@ -57,5 +57,7 @@ align-items: center;
 padding: 5px;
 }
 
-
+span {
+width: 300px;
+}
 
