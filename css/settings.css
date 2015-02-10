@@ -35,3 +35,19 @@ text-decoration:none;
 {
 background:url(../img/boutonnoirhover.png) no-repeat;
 }
+
+#stock_container {
+    position: relative;
+    height: 600px;
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#user_container {
+    position: relative;
+    height: 600px;
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
