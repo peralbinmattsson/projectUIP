@@ -41,7 +41,7 @@ $(document).ready(function() {
             });
         }
     });
-        $.ajax({
+    $.ajax({
         type: 'GET',
         url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=iou_get_all',
         success: function(object) {
@@ -51,7 +51,13 @@ $(document).ready(function() {
             });
         }
     });
-    $beer.delegate('#add', 'click', function() {
-        $chosenBeer.append("<li>dask</li>");
+    $user.hide();
+    $("#stock_btn").on("click", function () {
+        $beer.show();
+        $user.hide();
+    });
+    $("#user_btn").on("click", function () {
+        $user.show();
+        $beer.hide();
     });
 });
