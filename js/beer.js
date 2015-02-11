@@ -51,29 +51,25 @@ $(document).ready(function() {
         addCost(price);
     });
 
-    $('.search').keypress(function(e) {
-        if (e.which == parseInt("13")) {
-            value = $(this).val();
-            $('li').each(function() {
-                name = $(this).attr('name');
-                console.log(name);
-                if (value == "" || value == name || name == "undefined") {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
+    function partOf(value, name) {
+        index = 1;
+        valueLow = value.toLowerCase();
+        nameLow = name.toLowerCase();
+        if (nameLow.search(valueLow) == -1) {
+            return false;
         }
-        //if (e.which == parseInt("13")) {
-        //    $.ajax({
-        //        type: 'GET',
-        //        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
-        //        success: function(object) {
-        //            data = object['payload'];
-        //            $.each(data, function(i, beer) {
-        //            });
-        //        }
-        //    });
-        //}
+        return true;
+    }
+
+    $('.search').keypress(function(e) {
+        value = $(this).val();
+        $('li').each(function() {
+            name = $(this).attr('name');
+            if (value == "" || name == "undefined" || partOf(value, name)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
     });
 });
