@@ -15,8 +15,8 @@ $(document).ready(function() {
         }
     }
 
-    function chooseBeer(name, id) {
-        $rightList.append("<li data-id=" + id + ">" + name + "</li>");
+    function chooseBeer(id, name, price) {
+        $rightList.append("<li data-id=" + id + ">" + name + "<p><br>" + price + " kr</p></li>");
     }
 
     function addCost(price) {
@@ -44,7 +44,7 @@ $(document).ready(function() {
         name = $(this).attr('name');
         thisPrice = $(this).attr('price');
         if (beerList.indexOf(id) == parseInt("-1")) {
-            chooseBeer(name, id);
+            chooseBeer(id, name, thisPrice);
             beerList[index] = id;
         }
         price = price + parseInt(thisPrice);
