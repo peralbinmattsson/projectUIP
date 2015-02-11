@@ -51,15 +51,15 @@ $(document).ready(function() {
         addCost(price);
     });
 
-    $('.search').focus(function() {
-    });
-
     $('.search').keypress(function(e) {
         if (e.which == parseInt("13")) {
             value = $(this).val();
             $('li').each(function() {
                 name = $(this).attr('name');
-                if (value != name) {
+                console.log(name);
+                if (value == "" || value == name || name == "undefined") {
+                    $(this).show();
+                } else {
                     $(this).hide();
                 }
             });
