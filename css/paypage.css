@@ -1,42 +1,79 @@
-#Part1{
-    text-align: center;
-    margin-left: 500px;
-    margin-top: 150px;
-    position: absolute;
-
-}
-
 
 #Payment{
     position: relative;
     width: 100%;
     height: 600px;
 }
+.center {
+    height: 350px;
+    margin-left: 460px;
+
+
+}
+.right-box{
+    height: 500px;
+    margin-left: 900px;
+
+}
+.Part1 {
+    text-align: center;
+    font-family: "AR DELANEY";
+    font-size: 72px;
+}
+#part0 {
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px;
+    width: 300px;
+    border-radius: 25px;
+    position: absolute;
+}
+#txt{
+    font-family:"Segoe UI Black";
+    font-size: 26px;
+    line-height: 300%;
+}
+#otxt{
+    font-family:"AR BONNIE";
+    font-size: 30px;
+    text-align: center;
+    font-style:normal;
+    text-decoration:underline;
+
+}
 
 #CancelButton{
-    width: 120px;
+    width: 110px;
     height: 10px;
     padding: 25px;
-    border: 6px solid black;
     border-radius: 8px;
-    margin-left: 400px;
+    margin-left: 480px;
     margin-top: 400px;
     position: absolute;
-    text-align: center;
     line-height: 1px;
+    background-color: red;
+    /*text styles*/
+    text-align:center;
+    color: white;
+    font-style: italic;
+    /*hover*/
 }
 
 #PaymentButton{
-    width: 120px;
+    width: 110px;
     height: 10px;
     padding: 25px;
-    border: 6px solid black;
     border-radius: 8px;
-    margin-left: 610px;
+    margin-left: 660px;
     margin-top: 400px;
     position: absolute;
-    text-align: center;
     line-height: 1px;
+    background-color: green;
+    /*text style*/
+    text-align:center;
+    color: white;
+    font-style: italic;
+    /*hover*/
+
 }
 
 
