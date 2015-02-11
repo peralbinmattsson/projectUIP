@@ -16,7 +16,13 @@ $(document).ready(function() {
     }
 
     function chooseBeer(id, name, price) {
-        $rightList.append("<li data-id=" + id + ">" + name + "<p><br>" + price + " kr</p></li>");
+        if (name.length > 18) {
+            name = name.substring(0, 15).concat("...");
+        }
+        $rightList.append("<li data-id=" + id + 
+                ">" + name + " (1)<p><br>" + price +
+                " kr</p></li>"
+        );
     }
 
     function addCost(price) {
