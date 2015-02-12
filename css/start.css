@@ -17,8 +17,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 /*********************************** My styling ***********************************/
 
 .center{
-    max-width: 1024px;
-    margin: auto; 
+position: relative;
+height: 600px;
+margin-top: 200px;
+margin-left: 150px;
+margin-right: 150px; 
 }
 
 header{
