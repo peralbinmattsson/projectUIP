@@ -22,8 +22,15 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 header{
-    background-color: blue;
+
     margin-top: 50px !important;
+    font-size: 50px;
+    text-align: center;
+    padding:20px 0;
+    font-family: arial;
+    color: #035d41;
+    font-weight: bold;
+
 }
 #startContainer {
     position: relative;
