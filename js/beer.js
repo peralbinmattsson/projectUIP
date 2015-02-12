@@ -67,7 +67,7 @@ $(document).ready(function() {
         return true;
     }
 
-    $('.search').keypress(function(e) {
+    $('.search').keyup(function(e) {
         value = $(this).val();
         $('li').each(function() {
             name = $(this).attr('name');
