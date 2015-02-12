@@ -22,9 +22,11 @@
 
 #leftSide {
     position: relative;
+    float: left;
 }
 #rightSide {
     position: fixed;
+    margin-top: 55px;
     width: 260px;
     height: 320px;
     margin-left: 700px;
