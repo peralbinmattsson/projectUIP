@@ -39,15 +39,11 @@ span {
     width: 300px;
 }
 #payButton {
-    width: 60px;
-    height: 20px;
+    width: 64px;
+    height: 46px;
     background-color: white;
     border: 5px solid white;
     border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 80px;
-    margin-bottom: 10px;
-    text-align: center;
     font-weight: bold;
 }
 input.search {
@@ -60,4 +56,8 @@ input.search {
     position: fixed;
     margin-left: 700px;
     margin-top: 340px;
+}
+#add{
+    background-color: #FFF;
+    border: 0;
 }
