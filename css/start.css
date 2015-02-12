@@ -22,29 +22,33 @@ table { border-collapse: collapse; border-spacing: 0; }
 }
 
 header{
-
-    margin-top: 50px !important;
+    margin-top: 100px !important;
     font-size: 50px;
     text-align: center;
     padding:20px 0;
     font-family: arial;
-    color: #035d41;
+    color: #881306;
     font-weight: bold;
-
+    background-color: #FFBF71;
+    border: 6px solid black;
+    border-radius: 8px;
 }
-#startContainer {
+#container {
     position: relative;
     width: 1024px;
     height: 600px;
-    background-color: yellow;
+    background-color: #41382C;
+    border: 6px solid black;
+    border-radius: 8px;
+    margin-top: 20px;
 }
 #left {
     width: 140px;
     height: 140px;
     border: 6px solid black;
     border-radius: 8px;
-    margin-left: 400px;
-    margin-top: 250px;
+    margin-left: 345px;
+    margin-top: 100px;
     position: absolute;
 }
 #right {
@@ -52,8 +56,8 @@ header{
     height: 140px;
     border: 6px solid black;
     border-radius: 8px;
-    margin-left: 610px;
-    margin-top: 250px;
+    margin-left: 527px;
+    margin-top: 100px;
     position: absolute;
 }
 #beerImg {
