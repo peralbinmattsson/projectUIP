@@ -6,7 +6,7 @@
 }
 .center {
     height: 350px;
-    margin-left: 460px;
+    margin-left: 360px;
 
 
 }
@@ -32,14 +32,37 @@
     font-size: 26px;
     line-height: 300%;
 }
-#otxt{
+
+#rightSide {
+    position: fixed;
+    width: 260px;
+    height: 320px;
+    margin-left: 800px;
+    background-color: #8B7CE4;
+    overflow: auto;
+    border: 5px solid #8B7CE4;
+    border-radius: 5px;
+}
+span {
+    width: 300px;
+}
+
+/*#otxt{
     font-family:"AR BONNIE";
     font-size: 30px;
     text-align: center;
     font-style:normal;
     text-decoration:underline;
 
-}
+    position: fixed;
+    width: 260px;
+    height: 320px;
+    margin-left: 700px;
+    background-color: #8B7CE4;
+    overflow: auto;
+    border: 5px solid #8B7CE4;
+    border-radius: 5px;
+}*/
 
 #CancelButton{
     width: 110px;
