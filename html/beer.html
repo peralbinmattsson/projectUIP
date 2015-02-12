@@ -23,14 +23,6 @@
         </div>
         <div id="cost"></div>
     </div>
-    <?php
-    $files = glob("../js/*.js");
-    foreach ($files as $current) {
-        echo "<span class='test'>" . $current; . "</span>";
-        echo "<br>";
-    }
-    ?>
-    Hello
     <div id="footer"></div>
     <script src="../js/jquery.js"></script>
     <script src="../js/mustache.js"></script>
