@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     function addSotckItem(beer) {
         if (beer.namn != "") {
-            $beer.append("<li><span>" + 
+            $beer.append("<li class='listItem'><span>" + 
                 beer.namn + " " +
                 beer.namn2 + " " +
                 "</span><span>" +
