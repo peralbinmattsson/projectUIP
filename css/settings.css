@@ -40,7 +40,7 @@ background:url(../img/boutonnoirhover.png) no-repeat;
     position: relative;
     margin: 200px 150px 0px; 
 }
-
+/*
 .object > li {
 background-color: #DCDBD2;
 display: flex;
@@ -53,8 +53,14 @@ list-style-type: none;
 align-items: center;
 padding: 5px;
 }
-
+*/
 span {
 width: 300px;
+}
+
+input.search {
+height: 20px;
+margin-left: 10px;
+margin-bottom: 20px;
 }
 

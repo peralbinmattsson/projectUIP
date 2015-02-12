@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     function addSotckItem(beer) {
         if (beer.namn != "") {
-            $beer.append("<li><span>" + 
+            $beer.append("<li class='listItem'><span>" + 
                 beer.namn + " " +
                 beer.namn2 + " " +
                 "</span><span>" +
@@ -60,4 +60,25 @@ $(document).ready(function() {
         $user.show();
         $beer.hide();
     });
+    
+    function partOf(value, name) {
+        index = 1;
+        valueLow = value.toLowerCase();
+        nameLow = name.toLowerCase();
+        if (nameLow.search(valueLow) == -1) {
+            return false;
+        }
+        return true;
+    }
+    $('.search').keypress(function(e) {
+        value = $(this).val();
+        $('li').each(function() {
+        name = $(this).attr('name');
+        if (value == "" || name == "undefined" || partOf(value, name)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+});
 });
