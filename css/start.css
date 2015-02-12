@@ -32,16 +32,16 @@ header{
     text-align: center;
     padding:20px 0;
     font-family: "Old English";
-    color: #881306;
     font-weight: bold;
-    background-color: #FFBF71;
     border: 6px solid black;
     border-radius: 8px;
+    background-color: #192156;
+    color: white;
 }
 #container {
     position: relative;
     width: 1024px;
-    background-color: #41382C;
+    background-color: #8B7CE4;
     border: 6px solid black;
     border-radius: 8px;
     margin-top: 20px;
@@ -103,7 +103,7 @@ body{
     margin:0 auto;
     border-radius:5px;
     /*border:solid 1px #261319;*/
-    background: #261319;
+    background: #881306;
     text-align:center;
     padding:10px;
 
@@ -126,15 +126,17 @@ body{
 }
 
 li.listItem{
-    background-color:#A67246;
+    background-color: #192156;
+    color: white;
     display: flex;
     width: 600px;
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid #41382C;
+    border: 5px solid #8B7CE4;
     list-style-type: none;
     align-items: center;
     padding: 5px;
     margin-left: 5px;
+    font-weight: bold;
 }

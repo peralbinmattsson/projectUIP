@@ -31,9 +31,9 @@
     width: 260px;
     height: 320px;
     margin-left: 700px;
-    background-color: #8B7CE4;
+    background-color: white;
     overflow: auto;
-    border: 5px solid #8B7CE4;
+    border: 5px solid white;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
 }
