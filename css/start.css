@@ -28,10 +28,10 @@ html{
 
 header{
     margin-top: 100px !important;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     padding:20px 0;
-    font-family: arial;
+    font-family: "Old English";
     color: #881306;
     font-weight: bold;
     background-color: #FFBF71;
@@ -41,7 +41,6 @@ header{
 #container {
     position: relative;
     width: 1024px;
-    height: 600px;
     background-color: #41382C;
     border: 6px solid black;
     border-radius: 8px;
@@ -131,8 +130,10 @@ li.listItem{
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid white;
+    border: 5px solid #41382C;
     list-style-type: none;
     align-items: center;
     padding: 5px;
+    font-weight: bold;
+    margin-left: 5px;
 }
