@@ -21,7 +21,8 @@ $(document).ready(function() {
         }
         $rightList.append("<li data-id=" + id + 
                 ">" + name + " (1)<p><br>" + price +
-                " kr</p></li>"
+                " kr</p> " +
+            "<button class='button' data-id="+id+" id=Cancel price="+price+">X</button></li>"
         );
     }
 
@@ -55,6 +56,22 @@ $(document).ready(function() {
         }
         price = price + parseInt(thisPrice);
         addCost(price);
+    });
+
+    $rightList.delegate('#Cancel', 'click', function(){
+        id = $(this).attr('data-id');
+        thisPrice = $(this).attr('price');
+        console.log ("price"+ thisPrice+ " pp " +price);
+        console.log("list"+beerList);
+        num = beerList.indexOf(id);
+        console.log(num+"id :"+id)
+        if (num > -1){
+            beerList.splice(num, 1);
+            $("ul li[data-id=" + id + "]").remove();
+            price = price-parseInt( thisPrice);
+            addCost(price);
+        }console.log("list"+beerList);
+
     });
 
     function partOf(value, name) {

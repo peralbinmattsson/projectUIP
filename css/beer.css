@@ -20,6 +20,20 @@
     margin-bottom: 15px;
 }
 
+#rightList > li > button {
+    background-color: darkred;
+    width: 60px;
+    height: 60px;
+    /*margin: 50px auto;*/
+    border-radius: 50% 50%;
+   /* position: relative;*/
+    margin-left: 230px;
+    margin-top : -55px;
+    font-weight: bold;
+    font-size: 35px;
+
+}
+
 #leftSide {
     position: relative;
     float: left;
@@ -28,15 +42,16 @@
 #rightSide {
     position: fixed;
     margin-top: 55px;
-    width: 260px;
+    width: 330px;
     height: 320px;
-    margin-left: 700px;
+    margin-left: 650px;
     background-color: #8B7CE4;
     overflow: auto;
     border: 5px solid #8B7CE4;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
 }
+
 span {
     width: 300px;
 }
