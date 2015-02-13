@@ -21,6 +21,10 @@ html{
     font-family: Impact;
 }
 
+body {
+    overflow: scroll;
+}
+
 .center{
     max-width: 1024px;
     margin: 0 auto; 
