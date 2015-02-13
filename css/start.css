@@ -31,7 +31,6 @@ header{
     font-size: 40px;
     text-align: center;
     padding:20px 0;
-    font-family: "Old English";
     font-weight: bold;
     border: 6px solid black;
     border-radius: 8px;
@@ -46,7 +45,7 @@ header{
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
-    min-height: 400px;
+    min-height: 460px;
 }
 #left {
     width: 140px;

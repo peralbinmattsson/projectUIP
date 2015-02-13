@@ -6,7 +6,6 @@
     margin-right: 150px;
 }
 #rightList > li {
-    background-color: #DCDBD2;
     width: 200px;
     height: 50px;
     border-radius: 8px;
@@ -18,6 +17,9 @@
     padding: 5px;
     margin-left: 15px;
     margin-bottom: 15px;
+    background-color: #192156;
+    color: white;
+    font-weight: bold;
 }
 
 #leftSide {
@@ -27,7 +29,7 @@
 }
 #rightSide {
     position: fixed;
-    margin-top: 55px;
+    margin-top: 10px;
     width: 260px;
     height: 320px;
     margin-left: 700px;
@@ -58,9 +60,20 @@ input.search {
 #cost {
     position: fixed;
     margin-left: 700px;
-    margin-top: 340px;
+    margin-top: 360px;
+    position: fixed;
+    width: 260px;
+    height: 40px;
+    background-color: white;
+    overflow: auto;
+    border: 5px solid white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
 }
 #add{
     background-color: #FFF;
     border: 0;
+}
+#cost p {
+    font-weight: bold;
 }
