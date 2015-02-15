@@ -2,16 +2,15 @@ $(document).ready(function() {
     var $beer = $('#stock_container');
     var $user = $('#user_container');
 
-    function addSotckItem(beer) {
-        if (beer.namn != "") {
-            $beer.append("<li class='listItem'><span>" + 
-                beer.namn + " " +
-                beer.namn2 + " " +
-                "</span><span>" +
-                beer.count +
-                 "</span>" +
-                "<button id=\"add\">Edit</button>" +
-                "</li>");
+ var stockItem =
+		"<li id='item' class='listItem' name='{{namn}}'><span>{{namn}} </span>"+
+		"<span>{{namn2}} </span>" + "<span>{{count}}</span>" +
+         + "<button id=\"add\">Edit</button>" +
+        "</li>";
+
+    function addStockItem(item) {
+	if (beer.namn != "") {
+            $beer.append(Mustache.render(stockItem, beer));
         }
     }
 
@@ -37,7 +36,7 @@ $(document).ready(function() {
         success: function(object) {
             data = object['payload'];
             $.each(data, function(i, beer) {
-                addSotckItem(beer);
+                addStockItem(beer);
             });
         }
     });
@@ -51,6 +50,7 @@ $(document).ready(function() {
             });
         }
     });
+// function to hide and show user and stock on a click
     $user.hide();
     $("#stock_btn").on("click", function () {
         $beer.show();
@@ -61,6 +61,7 @@ $(document).ready(function() {
         $beer.hide();
     });
     
+//function to perform a search
     function partOf(value, name) {
         index = 1;
         valueLow = value.toLowerCase();
