@@ -27,13 +27,6 @@ width:150px;
 line-height:50px;
 text-align:center;
 vertical-align:middle;
-background:url(../img/boutonnoir.png) no-repeat;
-color:white;
-text-decoration:none;
-}
-#menu li a:hover
-{
-background:url(../img/boutonnoirhover.png) no-repeat;
 }
 
 .object {
@@ -60,6 +53,7 @@ width: 300px;
 
 input.search {
 height: 20px;
+margin-top: 10px;
 margin-left: 10px;
 margin-bottom: 20px;
 }
