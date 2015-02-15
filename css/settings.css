@@ -2,13 +2,13 @@
 	height: 2.1em ;
 	width: 700px;
 	margin: 10px;
-	margin-right: 50px;
 	list-style-type: none;
 }
 #menu li
 {
 	font-family: Arial,sans-serif;
 	font-size: 1.3em;
+	margin-right: 50px;
 	float: left ;
 /*
 	text-shadow: 0px 1px 0px white;
