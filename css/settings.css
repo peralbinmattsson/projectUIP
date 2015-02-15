@@ -52,16 +52,13 @@ padding: 5px;
 }
 */
 .object > li > button {
-background-color: darkred;
-width: 60px;
-height: 60px;
-/*margin: 50px auto;*/
-border-radius: 50% 50%;
-/* position: relative;*/
-margin-left: 230px;
-margin-top : -55px;
+ width: 64px;
+height: 40px;
+background-color: white;
+border: 5px solid white;
+border-radius: 5px;
 font-weight: bold;
-font-size: 35px;
+margin-bottom: 10px;
 }
 
 span {
