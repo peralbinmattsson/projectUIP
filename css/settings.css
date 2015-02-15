@@ -1,8 +1,7 @@
 #menu {
 	height: 2.1em ;
 	width: 700px;
-	margin-top:5px;
-	margin-left: 10px;
+	margin: 10px;
 	list-style-type: none;
 }
 #menu ul
