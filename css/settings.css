@@ -51,6 +51,19 @@ align-items: center;
 padding: 5px;
 }
 */
+.object > li > button {
+background-color: darkred;
+width: 60px;
+height: 60px;
+/*margin: 50px auto;*/
+border-radius: 50% 50%;
+/* position: relative;*/
+margin-left: 230px;
+margin-top : -55px;
+font-weight: bold;
+font-size: 35px;
+}
+
 span {
 width: 300px;
 }
