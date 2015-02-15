@@ -15,19 +15,16 @@ $(document).ready(function() {
         }
     }
 
+ var userList =
+"<li id='item' class='listItem' name='{{username}}'><span>{{username}} </span>"+
+"<span>{{first_name}} </span>" + "<span>{{last_name}}</span>" + "<span>{{assets}}</span>" +
+"<button class='button' data-id='{{beer_id}}' name='{{username}}' " +
+" id='add'>Edit</button>" +
+"</li>";
+
         function addUser(user) {
         if (user.namn != "") {
-            $user.append("<li><span>" + 
-                user.username +  
-                "</span><span>" +
-                user.first_name +
-                "</span><span>" +
-                user.last_name +
-                "</span><span>" +
-                user.assets +
-                 "</span>" +
-                "<button id=\"add\">Edit</button>" +
-                "</li>");
+            $user.append(Mustache.render(userList, user));
         }
     }
 
