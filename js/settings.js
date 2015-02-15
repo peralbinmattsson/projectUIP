@@ -5,9 +5,8 @@ $(document).ready(function() {
  var stockItem =
 	"<li id='item' class='listItem' name='{{namn}}'><span>{{namn}} </span>"+
 	"<span>{{namn2}} </span>" + "<span>{{count}}</span>" +
-        + "<button id=\"add\">Edit</button>" +
-        "<button class='button' data-id='{{beer_id}}' name='{{namn}}' price='{{pub_price}}'" +
-	" id='add'>Add to order</button>" +
+        "<button class='button' data-id='{{beer_id}}' name='{{namn}}' name2='{{namn2}}'" +
+	" id='add'>Edit</button>" +
         "</li>";
 
     function addStockItem(beer) {
