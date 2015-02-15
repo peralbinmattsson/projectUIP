@@ -51,15 +51,6 @@ align-items: center;
 padding: 5px;
 }
 */
-.object > li > button {
- width: 64px;
-height: 40px;
-background-color: white;
-border: 5px solid white;
-border-radius: 5px;
-font-weight: bold;
-margin-bottom: 10px;
-}
 
 span {
 width: 300px;
