@@ -2,13 +2,8 @@
 	height: 2.1em ;
 	width: 700px;
 	margin: 10px;
+	margin-right: 20px;
 	list-style-type: none;
-}
-#menu ul
-{
-	list-style-type: none ;
-	text-align: center;
-	margin-top: 2%;
 }
 #menu li
 {
