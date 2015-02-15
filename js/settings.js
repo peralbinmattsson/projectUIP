@@ -8,7 +8,7 @@ $(document).ready(function() {
          + "<button id=\"add\">Edit</button>" +
         "</li>";
 
-    function addStockItem(item) {
+    function addStockItem(beer) {
 	if (beer.namn != "") {
             $beer.append(Mustache.render(stockItem, beer));
         }
