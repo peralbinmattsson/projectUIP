@@ -10,6 +10,11 @@ $(document).ready(function() {
         " id='add'>Add to order</button>" +
         "</li>";
 
+    var rightListItem = 
+        "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
+        "{{price}} kr</p><button class='button' data-id='{{id}}'" +
+        "id=Cancel price='{{price}}'>X</button></li>";
+
     //INDEPENDENT FUNCTIONS
     function partOf(value, name) {
         index = 1;
@@ -31,18 +36,31 @@ $(document).ready(function() {
         } 
     };
     var order = {
-        orderList: [],
+        orderList: {},
         //Methods
-        addBeer: function(id, name, price) {
-            if (name.length > 18) {
-                name = name.substring(0, 15).concat("...");
+        addBeer: function(id, name, price, exists) {
+            if (exists == false) {
+                if (name.length > 18) {
+                    name = name.substring(0, 15).concat("...");
+                }
+                this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
+                $rightList.append(Mustache.render(rightListItem, this.orderList[id]));
+            } else {
+                this.orderList[id]['amount'] += 1;
+                $('#' + this.orderList[id]['id'] + '').text("(" + this.orderList[id]['amount'] + ")");
             }
-            $rightList.append("<li data-id=" + id + 
-                    ">" + name + " (1)<p><br>" + price +
-                    " kr</p> " +
-                "<button class='button' data-id="+id+" id=Cancel price="+price+">X</button></li>"
-            );
-        } 
+        },
+        removeBeer: function(id) {
+            var thisOrder = this.orderList[id];
+            if (thisOrder['amount'] == 1) {
+                delete this.orderList[id];
+                $("ul li[data-id=" + id + "]").remove();
+            } else {
+                thisOrder['amount'] -= 1;
+                $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
+            }
+            console.log(this.orderList);
+        }
     };
     var price = {
         total: 0,
@@ -76,28 +94,27 @@ $(document).ready(function() {
         });
     });
 
-    var index = parseInt("0");;
     //TODO: Store the number of times a specific beer has been chosen
     $leftList.delegate('#add', 'click', function() {
         id = $(this).attr('data-id');
-        index = index + parseInt("1");
         name = $(this).attr('name');
         thisPrice = $(this).attr('price');
-        if (order.orderList.indexOf(id) == parseInt("-1")) {
-            order.addBeer(id, name, thisPrice);
-            order.orderList[index] = id;
-            price.total = price.total + parseInt(thisPrice);
-            price.addCost();
+        thisOrder = order.orderList[id];
+        if (thisOrder == undefined) {
+            order.addBeer(id, name, thisPrice, false);
+        } else {
+            order.addBeer(id, name, thisPrice, true);
         }
+        price.total = price.total + parseInt(thisPrice);
+        price.addCost();
     });
 
     $rightList.delegate('#Cancel', 'click', function(){
         id = $(this).attr('data-id');
         thisPrice = $(this).attr('price');
-        num = order.orderList.indexOf(id);
-        if (num > -1){
-            order.orderList.splice(num, 1);
-            $("ul li[data-id=" + id + "]").remove();
+        thisOrder = order.orderList[id];
+        if (thisOrder != undefined){
+            order.removeBeer(id);
             price.total = price.total-parseInt(thisPrice);
             price.addCost(price);
         };
