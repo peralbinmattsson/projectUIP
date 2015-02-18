@@ -32,9 +32,9 @@ header{
     text-align: center;
     padding:20px 0;
     font-family: "Old English";
-    color: #881306;
+    color: #26C6B0;
     font-weight: bold;
-    background-color: #FFBF71;
+    background-color: #41382C;
     border: 6px solid black;
     border-radius: 8px;
 }
@@ -46,7 +46,7 @@ header{
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
-    min-height: 400px;
+    min-height: 420px;
 }
 #left {
     width: 140px;
@@ -126,7 +126,7 @@ body{
 }
 
 li.listItem{
-    background-color:#A67246;
+    background-color: #C072A5;
     display: flex;
     width: 600px;
     height: 50px;
@@ -137,4 +137,7 @@ li.listItem{
     align-items: center;
     padding: 5px;
     margin-left: 5px;
+}
+.listItem:hover {
+    background-color: #26C6B0;
 }

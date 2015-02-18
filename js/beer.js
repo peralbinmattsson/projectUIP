@@ -27,7 +27,7 @@ $(document).ready(function() {
     }
 
     function addCost(price) {
-        $('#cost').html("<p cost=" + price + ">Total: " + price + "</p>");
+        $('#cost').html("<p>---</p><p cost=" + price + ">Total: " + price + "</p>");
     }
 
     $.ajax({

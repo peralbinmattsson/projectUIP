@@ -6,13 +6,13 @@
     margin-right: 150px;
 }
 #rightList > li {
-    background-color: #DCDBD2;
+    background-color: #C072A5;
     width: 200px;
     height: 50px;
     border-radius: 8px;
     float: left;
     position: relative;
-    border: 5px solid white;
+    border: 5px solid #5D003C;
     list-style-type: none;
     align-items: center;
     padding: 5px;
@@ -41,7 +41,7 @@
 }
 #rightSide {
     position: fixed;
-    margin-top: 55px;
+    margin-top: 10px;
     width: 330px;
     height: 320px;
     margin-left: 650px;
@@ -72,10 +72,21 @@ input.search {
 }
 #cost {
     position: fixed;
-    margin-left: 700px;
-    margin-top: 340px;
+    margin-left: 650px;
+    margin-top: 360px;
+    position: fixed;
+    width: 330px;
+    height: 40px;
+    background-color: #8B7CE4;
+    overflow: auto;
+    border: 5px solid #8B7CE4;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
 }
 #add{
     background-color: #FFF;
     border: 0;
+}
+#cost p {
+    font-weight: bold;
 }
