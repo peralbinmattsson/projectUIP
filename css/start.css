@@ -34,14 +34,14 @@ header{
     font-family: "Old English";
     color: #26C6B0;
     font-weight: bold;
-    background-color: #41382C;
+    background-color: #2C2C33;
     border: 6px solid black;
     border-radius: 8px;
 }
 #container {
     position: relative;
     width: 1024px;
-    background-color: #41382C;
+    background-color: #2C2C33;
     border: 6px solid black;
     border-radius: 8px;
     margin-top: 20px;
@@ -132,7 +132,7 @@ li.listItem{
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid #41382C;
+    border: 5px solid #2C2C33;
     list-style-type: none;
     align-items: center;
     padding: 5px;
