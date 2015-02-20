@@ -12,8 +12,7 @@ $(document).ready(function(){
 });
 
 function authentification(login, pass, ref) {
-  $.post('http://pub.jamaica-inn.net/fpdb/api.php?username=' + login + '&password='password + '&action=iou_get',
-  function(data) {
+  $.post('http://pub.jamaica-inn.net/fpdb/api.php?username=' + login + '&password='password + '&action=iou_get', function(data) {
     if(data.type != "error"){
       //TO DO: get id
         document.location.href=ref; 
@@ -21,5 +20,5 @@ function authentification(login, pass, ref) {
     else {
       alert('Error: ' + data.payload.msg);
     }
-        });
   });
+};
