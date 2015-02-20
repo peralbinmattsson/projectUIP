@@ -15,6 +15,7 @@
 #password-wrapper {
   margin-top: 50px;
   margin-bottom: 50px;
+  position: relative;
   /*margin:0 auto;*/
 }
 
