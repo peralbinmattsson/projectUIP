@@ -8,7 +8,7 @@
 }
 .payCenter {
     height: 350px;
-    margin-left: 310px;
+    margin-left: 100px;
     color: #FFFFFF
 
 
@@ -19,7 +19,8 @@
 
 }
 .Part1 {
-    text-align: center;
+   /* text-align: center;*/
+    margin-left: 150px;
     font-family: "AR DELANEY";
     font-size: 72px;
     color: #FFFFFF
@@ -37,18 +38,48 @@
     line-height: 300%;
 }
 
-#rightSide {
-    position: fixed;
-    width: 260px;
-    height: 320px;
-    margin-left: 800px;
-    background-color: #4EB1BA;
-    overflow: auto;
-    border: 5px solid #4EB1BA;
-    border-radius: 5px;
-}
+
 span {
     width: 300px;
+}
+
+#title{
+    margin-left: 650px;
+    margin-top: -50px;
+    font-family: "AR DELANEY";
+    font-size: 50px;
+    color: #FFFFFF
+}
+
+#rightSide {
+    border-radius: 25px;
+    position: fixed;
+    margin-top: 10px;
+    width: 330px;
+    height: 320px;
+    margin-left: 600px;
+    background-color: #ACC8C8;
+    overflow: auto;
+    border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px black;
+
+}
+
+#rightList > li {
+    top :10px;
+    background-color: #DBFFDB;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    position: relative;
+    border: 2px solid black;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+    margin-left: 50px;
+    margin-bottom: 15px;
 }
 
 
@@ -66,7 +97,7 @@ span {
     font-style: italic;
     /*hover*/
     margin-top: 420px;
-    margin-left: 300px;
+    margin-left:100px;
     position: relative;
     display: inline-block;
 }

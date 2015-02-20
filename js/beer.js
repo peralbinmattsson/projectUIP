@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
+    var $rightSide = $('#rightSide');
 
     //HTML VARIABLES
     var leftListItem = 
@@ -108,6 +109,15 @@ $(document).ready(function() {
         price.total = price.total + parseInt(thisPrice);
         price.addCost();
     });
+
+    $rightSide.delegate('#payButton','click', function(){
+        obj = JSON.stringify(order.orderList);
+        console.log(obj)
+
+       localStorage.setItem("orderList", obj);
+
+    });
+
 
     $rightList.delegate('#Cancel', 'click', function(){
         id = $(this).attr('data-id');
