@@ -70,8 +70,11 @@ div#item_editer{
 	position: fixed;
 	top: 20%;
 	background: yellow;
-	left: 50%;
+	left: 25%;
 	padding: 10px;
+	width: 500px;
+	min-height: 450px;
+	text-align: center;
 }
 
 #user_btn, #stock_btn{
