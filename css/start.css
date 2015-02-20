@@ -141,3 +141,7 @@ li.listItem{
 .listItem:hover {
     background-color: #3B5998;
 }
+#add{
+    background-color: #FFF;
+    border: 0;
+}
