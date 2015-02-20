@@ -7,9 +7,14 @@
   margin-top: 100px;
 }
 
-.wrapper {
-  margin-top: 5px;
-  margin-bottom: 5px;
+#username-wrapper {
+  margin-top: 50px;
+  margin:0 auto;
+}
+
+#password-wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
   margin:0 auto;
 }
 
