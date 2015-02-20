@@ -9,13 +9,13 @@
 
 #username-wrapper {
   margin-top: 50px;
-  margin:0 auto;
+  /*margin:0 auto;*/
 }
 
 #password-wrapper {
   margin-top: 50px;
   margin-bottom: 50px;
-  margin:0 auto;
+  /*margin:0 auto;*/
 }
 
 .login-imput {
