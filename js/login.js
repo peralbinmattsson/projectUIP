@@ -8,6 +8,7 @@ $(document).ready(function(){
     alert("Please fill all fields...!!!!!!");
   }else {
     authentification(username, password, 'index2.html');
+  }
 });
 
 function authentification(login, pass, ref) {
