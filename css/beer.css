@@ -6,13 +6,13 @@
     margin-right: 150px;
 }
 #rightList > li {
-    background-color: #C072A5;
+    background-color: #639BF1;
     width: 200px;
     height: 50px;
     border-radius: 8px;
     float: left;
     position: relative;
-    border: 5px solid #5D003C;
+    border: 2px solid black;
     list-style-type: none;
     align-items: center;
     padding: 5px;
@@ -34,7 +34,7 @@
 
 }
 #rightList > li > button:hover {
-    color: #26C6B0; 
+    color: #639BF1;
 }
 #leftSide {
     position: relative;
@@ -47,9 +47,9 @@
     width: 330px;
     height: 320px;
     margin-left: 650px;
-    background-color: #8B7CE4;
+    background-color: #4EB1BA;
     overflow: auto;
-    border: 5px solid #8B7CE4;
+    border: 5px solid #4EB1BA;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
 }
@@ -79,9 +79,9 @@ input.search {
     position: fixed;
     width: 330px;
     height: 40px;
-    background-color: #8B7CE4;
+    background-color: #4EB1BA;
     overflow: auto;
-    border: 5px solid #8B7CE4;
+    border: 5px solid #4EB1BA;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
 }
