@@ -7,7 +7,7 @@ $(document).ready(function(){
   if( username =='' || password ==''){
     alert("Please fill all fields...!!!!!!");
   }else {
-    authentification(username, password, 'index2.html')
+    authentification(username, password, 'index2.html');
 });
 
 function authentification(login, pass, ref) {
