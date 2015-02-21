@@ -38,6 +38,9 @@ $(document).ready(function() {
     var order = {
         orderList: {},
         //Methods
+        //load: function() {
+        //    this.orderList.forEach(this.addBeer(item.id, item.name, item.price, true), item); 
+        //},
         addBeer: function(id, name, price, exists) {
             if (exists == false) {
                 if (name.length > 18) {
