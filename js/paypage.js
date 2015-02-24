@@ -5,7 +5,7 @@
    var $var = localStorage.getItem("lastname");
     console.log($var);
     **/
-if (typeof (Storage) !== undefined)
+/*if (typeof (Storage) !== undefined)
 {
     localStorage.purchase = "???"
     document.getElementById("result").innerHTML = "purchase: " + localStorage.purchase;
@@ -16,7 +16,6 @@ if (typeof (Storage) !== undefined)
     //warning if local storage doesn't support
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 
-}
 $(document).ready(function() {
     var $rightList = $('#rightList');
     orderlistJson = localStorage.getItem("orderList");
@@ -40,4 +39,8 @@ $(document).ready(function() {
         $rightList.append(rightListItem);
     }
 
+});*/
+$(document).ready(function() {
+    console.log("Order List");
+console.log( localStorage.getItem('count'));
 });
