@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
+    var $rightSide = $('#rightSide');
 
     //HTML VARIABLES
     var leftListItem = 
@@ -38,16 +39,21 @@ $(document).ready(function() {
     var order = {
         orderList: {},
         //Methods
-        addBeer: function(id, name, price, exists) {
-            if (exists == false) {
-                if (name.length > 18) {
-                    name = name.substring(0, 15).concat("...");
-                }
-                this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
-                $rightList.append(Mustache.render(rightListItem, this.orderList[id]));
-            } else {
+        load: function() {
+            orderObj = this;
+            $rightList.empty();
+            $.each(this.orderList, function(key, value) {
+                $rightList.append(Mustache.render(rightListItem, value));
+            }); 
+        },
+        addBeer: function(id, name, price) {
+            if (name.length > 18) {
+                name = name.substring(0, 15).concat("...");
+            }
+            if (this.orderList[id] != undefined) {
                 this.orderList[id]['amount'] += 1;
-                $('#' + this.orderList[id]['id'] + '').text("(" + this.orderList[id]['amount'] + ")");
+            } else {
+                this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
             }
         },
         removeBeer: function(id) {
@@ -59,8 +65,10 @@ $(document).ready(function() {
                 thisOrder['amount'] -= 1;
                 $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
             }
-            console.log(this.orderList);
-        }
+        },
+        getOrderList: function() {
+            return this.orderList;
+        },
     };
     var price = {
         total: 0,
@@ -94,17 +102,13 @@ $(document).ready(function() {
         });
     });
 
-    //TODO: Store the number of times a specific beer has been chosen
     $leftList.delegate('#add', 'click', function() {
         id = $(this).attr('data-id');
         name = $(this).attr('name');
         thisPrice = $(this).attr('price');
         thisOrder = order.orderList[id];
-        if (thisOrder == undefined) {
-            order.addBeer(id, name, thisPrice, false);
-        } else {
-            order.addBeer(id, name, thisPrice, true);
-        }
+        order.addBeer(id, name, thisPrice);
+        order.load();
         price.total = price.total + parseInt(thisPrice);
         price.addCost();
     });
@@ -118,6 +122,16 @@ $(document).ready(function() {
             price.total = price.total-parseInt(thisPrice);
             price.addCost(price);
         };
+    });
+
+    $('#payButton').on('click', function() {
+        var count = 0;
+        $.each(order.orderList, function(key, value) {
+            var valueString = "" + value["id"] + ", " + value["name"] + ", " + value["price"] + ", " + value["amount"];
+            localStorage.setItem(key, valueString); 
+            count += 1;
+        });
+        localStorage.setItem('count', count.toString());
     });
 
 });
