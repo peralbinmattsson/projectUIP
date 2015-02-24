@@ -96,7 +96,7 @@ body{
 
 
 .button {
-
+    
     position:relative;
     width:200px;
     color:#000;
@@ -116,7 +116,8 @@ body{
     -webkit-box-shadow: 0px 3px 0px #261319;
     -moz-box-shadow: 0px 3px 0px #261319;
     box-shadow: 0px 3px 0px #261319;
-
+    background-color: #FFF;
+    border: 0;
 }
 .button:active{
 

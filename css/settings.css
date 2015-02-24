@@ -57,13 +57,12 @@ input.search {
 }
 
 div#black_wrapper{
-	background-color: blue;
+	background-color: rgba(0, 0, 0, 0.7);
 	width: 100%;
 	height: 100%;
 	display: block;
 	position: fixed;
 	top:0;
-	opacity: 0.6;
 }
 div#item_editer{
 	color: red;
@@ -80,4 +79,14 @@ div#item_editer{
 #user_btn, #stock_btn{
 	background-color: #FFF;
  	   border: 0;
+}
+
+.hidden{
+	visibility: hidden;
+	display: none;
+}
+
+.showing{
+	visibility: visible;
+	display: block;
 }
