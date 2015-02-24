@@ -125,13 +125,7 @@ $(document).ready(function() {
     });
 
     $('#payButton').on('click', function() {
-        var count = 0;
-        $.each(order.orderList, function(key, value) {
-            var valueString = "" + value["id"] + ", " + value["name"] + ", " + value["price"] + ", " + value["amount"];
-            localStorage.setItem(key, valueString); 
-            count += 1;
-        });
-        localStorage.setItem('count', count.toString());
+        localStorage.setItem("order", JSON.stringify(order.orderList));
     });
 
 });
