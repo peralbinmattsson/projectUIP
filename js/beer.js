@@ -14,7 +14,7 @@ $(document).ready(function() {
     var rightListItem = 
         "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
         "{{price}} kr</p><button class='button' data-id='{{id}}'" +
-        "id=Cancel price='{{price}}'>X</button></li>";
+        "id=remove price='{{price}}'>X</button></li>";
 
     //INDEPENDENT FUNCTIONS
     function partOf(value, name) {
@@ -55,6 +55,7 @@ $(document).ready(function() {
             } else {
                 this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
             }
+            return true;
         },
         removeBeer: function(id) {
             var thisOrder = this.orderList[id];
@@ -91,9 +92,9 @@ $(document).ready(function() {
     });
 
     $('.search').keyup(function(e) {
-        value = $(this).val();
+        var value = $(this).val();
         $('li').each(function() {
-            name = $(this).attr('name');
+            var name = $(this).attr('name');
             if (value == "" || name == "undefined" || partOf(value, name)) {
                 $(this).show();
             } else {
@@ -103,20 +104,22 @@ $(document).ready(function() {
     });
 
     $leftList.delegate('#add', 'click', function() {
-        id = $(this).attr('data-id');
-        name = $(this).attr('name');
-        thisPrice = $(this).attr('price');
-        thisOrder = order.orderList[id];
-        order.addBeer(id, name, thisPrice);
-        order.load();
+        var id = $(this).attr('data-id');
+        var name = $(this).attr('name');
+        var thisPrice = $(this).attr('price');
+        var thisOrder = order.orderList[id];
+        var success = order.addBeer(id, name, thisPrice);
+        if (success) {
+            order.load();
+        }
         price.total = price.total + parseInt(thisPrice);
         price.addCost();
     });
 
-    $rightList.delegate('#Cancel', 'click', function(){
-        id = $(this).attr('data-id');
-        thisPrice = $(this).attr('price');
-        thisOrder = order.orderList[id];
+    $rightList.delegate('#remove', 'click', function(){
+        var id = $(this).attr('data-id');
+        var thisPrice = $(this).attr('price');
+        var thisOrder = order.orderList[id];
         if (thisOrder != undefined){
             order.removeBeer(id);
             price.total = price.total-parseInt(thisPrice);
@@ -126,6 +129,7 @@ $(document).ready(function() {
 
     $('#payButton').on('click', function() {
         localStorage.setItem("order", JSON.stringify(order.orderList));
+        localStorage.setItem("total", price.total.toString());
     });
 
 });
