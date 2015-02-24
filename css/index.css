@@ -1,0 +1,20 @@
+#login {
+  width: 300px;
+  height: 200px;
+  border: 6px solid black;
+  border-radius: 8px;
+  margin:0 auto;
+  margin-top: 100px;
+}
+
+#username-wrapper {
+  margin-left: 30px;
+  margin-top: 45px;
+}
+
+#password_wrapper {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

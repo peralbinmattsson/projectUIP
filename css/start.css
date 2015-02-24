@@ -35,7 +35,10 @@ header{
     font-size: 40px;
     text-align: center;
     padding:20px 0;
+    font-family: "Old English";
+    color: #FFFFFF;
     font-weight: bold;
+    background-color: #222930;
     border: 6px solid black;
     border-radius: 8px;
     background-color: #192156;
@@ -43,13 +46,15 @@ header{
 }
 #container {
     position: relative;
-    width: 1024px;
-    background-color: #8B7CE4;
-    border: 6px solid black;
+    width: 2000px;
+    background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;
+    border: 3px #E0E0D1;
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
-    min-height: 460px;
+
+    min-height: 420px;
+    /*opacity: 0.6;*/
 }
 #left {
     width: 140px;
@@ -75,11 +80,11 @@ header{
 }
 a:link {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 a:active {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 #footer {
     bottom: 0;
@@ -129,17 +134,23 @@ body{
 }
 
 li.listItem{
-    background-color: #6958C7;
-    color: black;
+    background-color: #639BF1;
     display: flex;
     width: 600px;
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid #8B7CE4;
+    border: 5px solid #2C2C33;
     list-style-type: none;
     align-items: center;
     padding: 5px;
     margin-left: 5px;
     font-weight: bold;
+}
+.listItem:hover {
+    background-color: #3B5998;
+}
+#add{
+    background-color: #FFF;
+    border: 0;
 }

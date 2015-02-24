@@ -1,7 +1,9 @@
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
+    var $rightSide = $('#rightSide');
 
+    //HTML VARIABLES
     var leftListItem = 
         "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
         "</span><span>{{pub_price}} kr</span>" +
@@ -9,54 +11,12 @@ $(document).ready(function() {
         " id='add'>Add to order</button>" +
         "</li>";
 
-    function listBeer(beer) {
-        if (beer.namn != "") {
-            $leftList.append(Mustache.render(leftListItem, beer));
-        }
-    }
+    var rightListItem = 
+        "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
+        "{{price}} kr</p><button class='button' data-id='{{id}}'" +
+        "id=remove price='{{price}}'>X</button></li>";
 
-    function chooseBeer(id, name, price) {
-        if (name.length > 15) {
-            name = name.substring(0, 12).concat("...");
-        }
-        $rightList.append("<li data-id=" + id + 
-                ">" + name + " (1)<p><br>" + price +
-                " kr</p></li>"
-        );
-    }
-
-    function addCost(price) {
-        $('#cost').html("<p>---</p><p cost=" + price + ">Total: " + price + " kr</p>");
-    }
-
-    $.ajax({
-        type: 'GET',
-        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
-        success: function(object) {
-            data = object['payload'];
-            $.each(data, function(i, beer) {
-                listBeer(beer);
-            });
-        }
-    });
-
-    var price = parseInt("0");
-    var beerList = [];
-    var index = parseInt("0");;
-    //TODO: Store the number of times a specific beer has been chosen
-    $leftList.delegate('#add', 'click', function() {
-        id = $(this).attr('data-id');
-        index = index + parseInt("1");
-        name = $(this).attr('name');
-        thisPrice = $(this).attr('price');
-        if (beerList.indexOf(id) == parseInt("-1")) {
-            chooseBeer(id, name, thisPrice);
-            beerList[index] = id;
-        }
-        price = price + parseInt(thisPrice);
-        addCost(price);
-    });
-
+    //INDEPENDENT FUNCTIONS
     function partOf(value, name) {
         index = 1;
         valueLow = value.toLowerCase();
@@ -67,10 +27,74 @@ $(document).ready(function() {
         return true;
     }
 
+    //MAIN OBJECTS
+    var beerList = {
+        //Methods
+        listBeer: function(beer) {
+            if (beer.namn != "") {
+                $leftList.append(Mustache.render(leftListItem, beer));
+            }
+        } 
+    };
+    var order = {
+        orderList: {},
+        //Methods
+        load: function() {
+            orderObj = this;
+            $rightList.empty();
+            $.each(this.orderList, function(key, value) {
+                $rightList.append(Mustache.render(rightListItem, value));
+            }); 
+        },
+        addBeer: function(id, name, price) {
+            if (name.length > 18) {
+                name = name.substring(0, 15).concat("...");
+            }
+            if (this.orderList[id] != undefined) {
+                this.orderList[id]['amount'] += 1;
+            } else {
+                this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
+            }
+            return true;
+        },
+        removeBeer: function(id) {
+            var thisOrder = this.orderList[id];
+            if (thisOrder['amount'] == 1) {
+                delete this.orderList[id];
+                $("ul li[data-id=" + id + "]").remove();
+            } else {
+                thisOrder['amount'] -= 1;
+                $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
+            }
+        },
+        getOrderList: function() {
+            return this.orderList;
+        },
+    };
+    var price = {
+        total: 0,
+        //Methods
+        addCost: function() {
+            $('#cost').html("<p>---</p><p cost=" + this.total + ">Total: " + this.total + "</p>");
+        }
+    };
+
+    //AJAX REQUESTS AND JQUERY EVENTS
+    $.ajax({
+        type: 'GET',
+        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
+        success: function(object) {
+            data = object['payload'];
+            $.each(data, function(i, beer) {
+                beerList.listBeer(beer);
+            });
+        }
+    });
+
     $('.search').keyup(function(e) {
-        value = $(this).val();
+        var value = $(this).val();
         $('li').each(function() {
-            name = $(this).attr('name');
+            var name = $(this).attr('name');
             if (value == "" || name == "undefined" || partOf(value, name)) {
                 $(this).show();
             } else {
@@ -78,4 +102,34 @@ $(document).ready(function() {
             }
         });
     });
+
+    $leftList.delegate('#add', 'click', function() {
+        var id = $(this).attr('data-id');
+        var name = $(this).attr('name');
+        var thisPrice = $(this).attr('price');
+        var thisOrder = order.orderList[id];
+        var success = order.addBeer(id, name, thisPrice);
+        if (success) {
+            order.load();
+        }
+        price.total = price.total + parseInt(thisPrice);
+        price.addCost();
+    });
+
+    $rightList.delegate('#remove', 'click', function(){
+        var id = $(this).attr('data-id');
+        var thisPrice = $(this).attr('price');
+        var thisOrder = order.orderList[id];
+        if (thisOrder != undefined){
+            order.removeBeer(id);
+            price.total = price.total-parseInt(thisPrice);
+            price.addCost(price);
+        };
+    });
+
+    $('#payButton').on('click', function() {
+        localStorage.setItem("order", JSON.stringify(order.orderList));
+        localStorage.setItem("total", price.total.toString());
+    });
+
 });
