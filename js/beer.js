@@ -45,7 +45,6 @@ $(document).ready(function() {
             $.each(this.orderList, function(key, value) {
                 $rightList.append(Mustache.render(rightListItem, value));
             }); 
-            console.log(this.orderList);
         },
         addBeer: function(id, name, price) {
             if (name.length > 18) {
@@ -123,6 +122,13 @@ $(document).ready(function() {
             price.total = price.total-parseInt(thisPrice);
             price.addCost(price);
         };
+    });
+
+    $('#payButton').on('click', function() {
+        $.each(order.orderList, function(key, value) {
+            var valueString = "" + value["id"] + ", " + value["name"] + ", " + value["price"] + ", " + value["amount"];
+            localStorage.setItem(key, valueString); 
+        });
     });
 
 });
