@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Created by Maryam on 2/20/2015.
  */
@@ -18,7 +17,6 @@ if (typeof (Storage) !== undefined)
     document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
 
 }
-=======
 $(document).ready(function() {
     var $rightList = $('#rightList');
     orderlistJson = localStorage.getItem("orderList");
@@ -43,5 +41,3 @@ $(document).ready(function() {
     }
 
 });
-
->>>>>>> origin/master

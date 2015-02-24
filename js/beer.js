@@ -66,7 +66,10 @@ $(document).ready(function() {
                 thisOrder['amount'] -= 1;
                 $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
             }
-        }
+        },
+        getOrderList: function() {
+            return this.orderList;
+        },
     };
     var price = {
         total: 0,
@@ -110,11 +113,6 @@ $(document).ready(function() {
         price.total = price.total + parseInt(thisPrice);
         price.addCost();
     });
-
-
-
-
-
 
     $rightList.delegate('#Cancel', 'click', function(){
         id = $(this).attr('data-id');
