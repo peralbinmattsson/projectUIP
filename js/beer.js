@@ -12,6 +12,11 @@ $(document).ready(function() {
         " id='add'>Add to order</button>" +
         "</li>";
 
+    var leftListItemRed = 
+        "<li style='color:red;' id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
+        "</span><span>{{pub_price}} kr</span>" +
+        "</li>";
+
     var rightListItem = 
         "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
         "{{price}} kr</p><button class='button' data-id='{{id}}'" +
@@ -36,7 +41,11 @@ $(document).ready(function() {
         //Methods
         listBeer: function(beer) {
             if (beer.namn != "") {
-                $leftList.append(Mustache.render(leftListItem, beer));
+                if (beer.count < 1) {
+                    $leftList.append(Mustache.render(leftListItemRed, beer));
+                } else {
+                    $leftList.append(Mustache.render(leftListItem, beer));
+                }
             }
         } 
     };
