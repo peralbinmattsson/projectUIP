@@ -90,3 +90,8 @@ div#item_editer{
 	visibility: visible;
 	display: block;
 }
+
+.translation_menu{
+	float: right;
+}
+}
