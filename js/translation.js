@@ -1,3 +1,1 @@
-$(document).ready(function(){
-      $("#menu").i18n();
-});
+$("#menu").i18n();
