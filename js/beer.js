@@ -2,6 +2,7 @@ $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
     var $rightSide = $('#rightSide');
+    var $cost = $('#cost');
 
     //HTML VARIABLES
     var leftListItem = 
@@ -15,6 +16,9 @@ $(document).ready(function() {
         "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
         "{{price}} kr</p><button class='button' data-id='{{id}}'" +
         "id=remove price='{{price}}'>X</button></li>";
+
+    var costItem = 
+        "<p>---</p><p cost='{{total}}'>Total: {{total}} kr</p>";
 
     //INDEPENDENT FUNCTIONS
     function partOf(value, name) {
@@ -67,15 +71,13 @@ $(document).ready(function() {
                 $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
             }
         },
-        getOrderList: function() {
-            return this.orderList;
-        },
     };
     var price = {
         total: 0,
         //Methods
         addCost: function() {
-            $('#cost').html("<p>---</p><p cost=" + this.total + ">Total: " + this.total + "</p>");
+            var priceObject = this;
+            $cost.html(Mustache.render(costItem, priceObject));
         }
     };
 
