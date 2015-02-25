@@ -49,22 +49,78 @@ function insertItemValues (item, type) {
     var content = ''; 
     $("#drink_values, #user_values").empty();
     if (type == "user") {
-        content += '<span>Username: </span><span id="username">' + item.attr('username') + '</span><br/>';
+        content += '<span>Username: </span><span id="username">' + item.attr('data-id') + '</span><br/>';
         //content += '<span>Firstname: </span><span id="fname">' + item.attr('fname') + '</span><br/>';
         //content += '<span>Lastname: </span><span id="lname">' + item.attr() + '</span><br/>';
-        content += '<span>Assets: </span><input type="number" name="assets" id="assets" value="' + item.attr('assets') + '" /></span>';
+        content += '<span>Assets: </span><span id="assets">' + item.attr('assets') + '</span><br/>';
+        content += '<span>Add assets: </span><input type="number" name="new_assets" id="new_assets" />';
+        content += '<input id="user_name" type="hidden" value="' + item.attr("data-id") + '">';
     } else{
         content += '<span>Name: </span><span id="name">' + item.attr('name') + '</span><br/>';
         content += '<span>Name2: </span><span id="name2">' + item.attr('name2') + '</span><br/>';
-        content += '<span>Count: </span><input type="number" name="count" id="count" value="' + item.attr('count') + '" /></span>';
+        content += '<span>Count: </span><span id="count">' + item.attr('count') + '</span><br/>';
+        content += '<span>Subtract count: </span><input type="number" min="0" name="new_count" id="new_count" />';
         content += '<input id="drink_id" type="hidden" value="' + item.attr("data-id") + '">';
     };
     content += '<br/><br/><br/>';
-    //content += '<button class="button" id="' + type + '_save" onclick="saveItem(' + type + ')">Save</button>';
-    content += '<button class="button" id="' + type + '_save">Save</button>';
+    content += '<button class="button" id="' + type + '_save" onclick="saveItem(\'' + type + '\')">Save</button>';
+    //content += '<button class="button" id="' + type + '_save">Save</button>';
     $("#" + type + "_values").append(content);
 
 }
+
+function saveItem (arg) {
+    switch(arg){
+        case "user":
+            var user = $("#user_name").val();
+            var add = $("#new_assets").val();
+            //print(user);
+            var itemInList = $("#item_" + user + " span#assets");
+            var old_value = itemInList.text();
+            var id;
+            $.ajax({
+                type: 'GET',
+                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=' + user + '&password=' + user + '&action=iou_get',
+                success: function(data) {
+                    id = data.payload[0].user_id; 
+                    
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=payments_append&user_id='+id+'&amount='+add,
+                        success: function(data) {print("saved user succesfull");}
+                    });
+                }
+            });
+            //print(id);
+            var new_value = parseInt(old_value) + parseInt(add);
+            $(itemInList).text(new_value);
+            $("#item_" + user + " button.button").attr('assets', new_value);
+            $("#black_wrapper, #item_editer").fadeOut();
+            break;
+
+        case "drink":
+            var id = $("#drink_id").val();
+            var add = $("#new_count").val();
+            var itemInList = $("#item_" + id + " span#count");
+            var old_value = itemInList.text();
+            for (var i = 0; i < add; i++) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=purchases_append&beer_id=' + id,
+                    success: function(object) {print("saved drink succesfull");}
+                });
+            };
+            var new_value = parseInt(old_value) - parseInt(add);
+            $(itemInList).text(new_value);
+            $("#item_" + id + " button.button").attr('count', new_value);
+            $("#black_wrapper, #item_editer").fadeOut();
+            break;
+        
+        default: 
+            return false;
+    }
+}
+
 
 $(document).ready(function() {
 

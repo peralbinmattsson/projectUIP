@@ -10,12 +10,16 @@
 	<header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
 	<div class= "center" id = "container" >
 		<input class="search" placeholder="Search..." type="search"/>
+		<div class="translation_menu">
+			<button id="en">English</button>
+			<button id="sw">Svenska</button>
+		</div>
 		<div id="menu"> 
 			<li><a href="#">
-				<button class="button" id="stock_btn">STOCK</button>
+				<button class="button" id="stock_btn" data-i18n="menu.stock"></button>
 			</a></li>
 			<li><a href="#">
-				<button class="button" id="user_btn">USER</button>
+				<button class="button" id="user_btn" data-i18n="menu.user"></button>
 			</a></li>
 		</div>
 		<div class = "object" id = "stock_container"></div>
@@ -28,6 +32,7 @@
     </div>
     <script src="../js/jquery.js"></script>
     <script src="../js/mustache.js"></script>
+    <script src="../js/i18next-1.7.7.js"></script>
     <script src="../js/settings.js"></script>
 </body>
 
