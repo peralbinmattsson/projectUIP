@@ -8,26 +8,16 @@ var rightListItem =
 
 $(document).ready(function() {
 
-    //localStorage for beers
+
     orderList = JSON.parse( localStorage.getItem("order"));
     console.log(orderList);
+
     $.each(orderList, function(key, value) {
         $('#rightList').append(Mustache.render(rightListItem, value));
     });
-    $rightList.delegate('#remove', 'click', function(){
-        var id = $(this).attr('data-id');
-        var thisPrice = $(this).attr('price');
-        var thisOrder = order.orderList[id];
-        if (thisOrder != undefined){
-            order.removeBeer(id);
-            price.total = price.total-parseInt(thisPrice);
-            price.addCost(price);
-        };
 
-    //LocalStorage for total
+
     total = localStorage.getItem("total");
-    $cost.html(Mustache.render(costItem, priceObject));
-    };
 
 // The popup windows  after clicking on pay or cancel button
     $('#PaymentButton').on('click', function() {
@@ -42,10 +32,17 @@ $(document).ready(function() {
 
     });
 
-//Showing total and credit in left box
+
     var leftBoxItemCost=
         "<p cost='{{total}}'>Total: {{total}} kr</p>";
 
 
 });
+/*What we need today
+ <span>{{pub_price}} kr</span> //credit
+
+ var leftBoxItem //for total & credit
+ var leftBoxItemRed //if credit is minus
+
+ */
 
