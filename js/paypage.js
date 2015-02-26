@@ -40,7 +40,36 @@ $(document).ready(function() {
     }
 
 });*/
+var rightListItem =
+    "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
+    "{{price}} kr</p><button class='button' data-id='{{id}}'" +
+    "id=Cancel price='{{price}}'>X</button></li>";
+
+
+
 $(document).ready(function() {
-    console.log("Order List");
-console.log( localStorage.getItem('count'));
+
+
+    orderList = JSON.parse( localStorage.getItem("order"));
+    console.log(orderList);
+
+    $.each(orderList, function(key, value) {
+        $('#rightList').append(Mustache.render(rightListItem, value));
+    });
+
+    total = localStorage.getItem("total");
+
+    function payFunction()
+    {
+     alert("Thanks for your shopping :)");
+    }
+
 });
+/*What we need today
+ <span>{{pub_price}} kr</span> //credit
+
+ var leftBoxItem //for total & credit
+ var leftBoxItemRed //if credit is minus
+
+ */
+
