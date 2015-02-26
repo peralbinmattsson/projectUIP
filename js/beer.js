@@ -9,7 +9,7 @@ $(document).ready(function() {
         "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
         "</span><span>{{pub_price}} kr</span>" +
         "<button class='button' data-id='{{beer_id}}' name='{{namn}}' price='{{pub_price}}'" +
-        " id='add'>Add to order</button>" +
+        " id='add'>Add To Order</button>" +
         "</li>";
 
     var leftListItemRed = 

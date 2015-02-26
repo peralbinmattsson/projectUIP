@@ -5,54 +5,13 @@
     margin-left: 150px;
     margin-right: 150px;
 }
-#rightList > li {
-    background-color: #639BF1;
-    width: 200px;
-    height: 50px;
-    border-radius: 8px;
-    float: left;
-    position: relative;
-    border: 2px solid black;
-    list-style-type: none;
-    align-items: center;
-    padding: 5px;
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
 
-#rightList > li > button {
-    background-color: #2C2C33;
-    width: 60px;
-    height: 60px;
-    /*margin: 50px auto;*/
-    border-radius: 50% 50%;
-   /* position: relative;*/
-    margin-left: 230px;
-    margin-top : -55px;
-    font-weight: bold;
-    font-size: 35px;
-
-}
-#rightList > li > button:hover {
-    color: #639BF1;
-}
 #leftSide {
     position: relative;
     float: left;
     margin-bottom: 20px;
 }
-#rightSide {
-    position: fixed;
-    margin-top: 10px;
-    width: 330px;
-    height: 320px;
-    margin-left: 650px;
-    background-color: #4EB1BA;
-    overflow: auto;
-    border: 5px solid #4EB1BA;
-    border-radius: 5px;
-    box-shadow: 10px 10px 5px black;
-}
+
 
 span {
     width: 300px;
@@ -72,19 +31,7 @@ input.search {
     margin-left: 10px;
     margin-bottom: 20px;
 }
-#cost {
-    position: fixed;
-    margin-left: 650px;
-    margin-top: 360px;
-    position: fixed;
-    width: 330px;
-    height: 40px;
-    background-color: #4EB1BA;
-    overflow: auto;
-    border: 5px solid #4EB1BA;
-    border-radius: 5px;
-    box-shadow: 10px 10px 5px black;
-}
+
 #add{
     background-color: #FFF;
     border: 0;
