@@ -57,12 +57,26 @@ $(document).ready(function() {
         $('#rightList').append(Mustache.render(rightListItem, value));
     });
 
+
     total = localStorage.getItem("total");
 
-    function payFunction()
-    {
-     alert("Thanks for your shopping :)");
-    }
+// The popup windows  after clicking on pay or cancel button
+    $('#PaymentButton').on('click', function() {
+        alert("Thanks for your shopping :)");
+    });
+    $('#CancelButton').on('click', function() {
+        var x;
+        if (confirm("Are You sure that you want to finish transaction?!") == true) {
+            x = window.open("index.html");
+
+        }
+
+    });
+
+
+    var leftBoxItemCost=
+        "<p cost='{{total}}'>Total: {{total}} kr</p>";
+
 
 });
 /*What we need today
