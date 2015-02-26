@@ -35,14 +35,15 @@ header{
     color: #FFFFFF;
     font-weight: bold;
     background-color: #222930;
-    border: 6px solid black;
+    border: 5px solid black;
     border-radius: 8px;
 }
 #container {
     position: relative;
     width: 2000px;
-    background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;
-    border: 3px #E0E0D1;
+    /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
+    background-color: #222930;
+    border: 5px solid black;
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
@@ -87,7 +88,7 @@ a:active {
 }
 body{
     min-height: 100%;
-    background: url('../img/bg.jpg') no-repeat 0px 0px fixed;
+    background: url('../img/pints-of-beer.jpg') no-repeat 0px 0px fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -135,14 +136,14 @@ li.listItem{
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid #2C2C33;
+    border: 5px solid #222930;
     list-style-type: none;
     align-items: center;
     padding: 5px;
     margin-left: 5px;
 }
 .listItem:hover {
-    background-color: #3B5998;
+    background-color: #4EB1BA;
 }
 #add{
     background-color: #FFF;
@@ -203,4 +204,9 @@ li.listItem{
     border: 5px solid #4EB1BA;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
+}
+
+
+article#user_info{
+    background-color: yellow;
 }

@@ -38,12 +38,14 @@ $(document).ready(function() {
 
     //MAIN OBJECTS
     var beerList = {
+        stockCount: {}, 
         //Methods
         listBeer: function(beer) {
             if (beer.namn != "") {
                 if (beer.count < 1) {
                     $leftList.append(Mustache.render(leftListItemRed, beer));
                 } else {
+                    this.stockCount[beer.beer_id] = beer.count;
                     $leftList.append(Mustache.render(leftListItem, beer));
                 }
             }
@@ -119,12 +121,17 @@ $(document).ready(function() {
         var name = $(this).attr('name');
         var thisPrice = $(this).attr('price');
         var thisOrder = order.orderList[id];
-        var success = order.addBeer(id, name, thisPrice);
-        if (success) {
-            order.load();
+        if (beerList.stockCount[id] > 0) {
+            beerList.stockCount[id] -= 1;
+            var success = order.addBeer(id, name, thisPrice);
+            if (success) {
+                order.load();
+                price.total = price.total + parseInt(thisPrice);
+                price.addCost();
+            }
+        } else {
+            alert('No more of this beer in stock!'); 
         }
-        price.total = price.total + parseInt(thisPrice);
-        price.addCost();
     });
 
     $rightList.delegate('#remove', 'click', function(){
@@ -132,6 +139,7 @@ $(document).ready(function() {
         var thisPrice = $(this).attr('price');
         var thisOrder = order.orderList[id];
         if (thisOrder != undefined){
+            beerList.stockCount[id] += 1;
             order.removeBeer(id);
             price.total = price.total-parseInt(thisPrice);
             price.addCost(price);
