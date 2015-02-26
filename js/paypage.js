@@ -1,45 +1,4 @@
-/**
- * Created by Maryam on 2/20/2015.
- */
-/**$(document).ready(function(){
-   var $var = localStorage.getItem("lastname");
-    console.log($var);
-    **/
-/*if (typeof (Storage) !== undefined)
-{
-    localStorage.purchase = "???"
-    document.getElementById("result").innerHTML = "purchase: " + localStorage.purchase;
 
-}
-    else
-{
-    //warning if local storage doesn't support
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-
-$(document).ready(function() {
-    var $rightList = $('#rightList');
-    orderlistJson = localStorage.getItem("orderList");
-    orderList = JSON.parse(orderlistJson);
-    console.log(orderList);
-
-
-    for (key in orderList){
-
-        for (key2 in orderList[key]){
-            if (key2 == "name")
-                name =orderList[key][key2] ;
-            else if (key2 == "id")
-                id =  orderList[key][key2];
-            else if (key2 == "amount")
-                amount = orderList[key][key2];
-            else if (key2 == "price")
-                price= orderList[key][key2];
-        }
-        rightListItem = "<li data-id="+id +">"+name+" <span id="+id+">("+amount+")</span><p><br>" + price+"kr</p></li>";
-        $rightList.append(rightListItem);
-    }
-
-});*/
 var rightListItem =
     "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
     "{{price}} kr</p><button class='button' data-id='{{id}}'" +
@@ -49,16 +8,26 @@ var rightListItem =
 
 $(document).ready(function() {
 
-
+    //localStorage for beers
     orderList = JSON.parse( localStorage.getItem("order"));
     console.log(orderList);
-
     $.each(orderList, function(key, value) {
         $('#rightList').append(Mustache.render(rightListItem, value));
     });
+    $rightList.delegate('#remove', 'click', function(){
+        var id = $(this).attr('data-id');
+        var thisPrice = $(this).attr('price');
+        var thisOrder = order.orderList[id];
+        if (thisOrder != undefined){
+            order.removeBeer(id);
+            price.total = price.total-parseInt(thisPrice);
+            price.addCost(price);
+        };
 
-
+    //LocalStorage for total
     total = localStorage.getItem("total");
+    $cost.html(Mustache.render(costItem, priceObject));
+    };
 
 // The popup windows  after clicking on pay or cancel button
     $('#PaymentButton').on('click', function() {
@@ -73,17 +42,10 @@ $(document).ready(function() {
 
     });
 
-
+//Showing total and credit in left box
     var leftBoxItemCost=
         "<p cost='{{total}}'>Total: {{total}} kr</p>";
 
 
 });
-/*What we need today
- <span>{{pub_price}} kr</span> //credit
-
- var leftBoxItem //for total & credit
- var leftBoxItemRed //if credit is minus
-
- */
 
