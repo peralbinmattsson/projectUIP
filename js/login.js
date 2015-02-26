@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("#login-btn").click(function(){
+  $("#login-btn").on('click keydown', function(){
       var username = $("#username-input").val();
       var password = $("#password-input").val();
       // Checking for blank fields.
