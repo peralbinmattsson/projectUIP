@@ -39,7 +39,7 @@ header{
     color: #FFFFFF;
     font-weight: bold;
     background-color: #222930;
-    border: 6px solid black;
+    border: 5px solid black;
     border-radius: 8px;
     background-color: #192156;
     color: white;
@@ -47,8 +47,9 @@ header{
 #container {
     position: relative;
     width: 2000px;
-    background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;
-    border: 3px #E0E0D1;
+    /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
+    background-color: #222930;
+    border: 5px solid black;
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
@@ -93,7 +94,7 @@ a:active {
 }
 body{
     min-height: 100%;
-    background: url('../img/bg.jpg') no-repeat 0px 0px fixed;
+    background: url('../img/pints-of-beer.jpg') no-repeat 0px 0px fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -102,7 +103,7 @@ body{
 
 
 .button {
-
+    
     position:relative;
     width:200px;
     color:#000;
@@ -122,7 +123,8 @@ body{
     -webkit-box-shadow: 0px 3px 0px #261319;
     -moz-box-shadow: 0px 3px 0px #261319;
     box-shadow: 0px 3px 0px #261319;
-
+    background-color: #FFF;
+    border: 0;
 }
 .button:active{
 
@@ -140,7 +142,7 @@ li.listItem{
     height: 50px;
     border-radius: 8px;
     position: relative;
-    border: 5px solid #2C2C33;
+    border: 5px solid #222930;
     list-style-type: none;
     align-items: center;
     padding: 5px;
@@ -148,9 +150,70 @@ li.listItem{
     font-weight: bold;
 }
 .listItem:hover {
-    background-color: #3B5998;
+    background-color: #4EB1BA;
 }
 #add{
     background-color: #FFF;
     border: 0;
+}
+#rightList > li {
+    background-color: #639BF1;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    position: relative;
+    border: 2px solid black;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#rightList > li > button {
+    background-color: #2C2C33;
+    width: 60px;
+    height: 60px;
+    /*margin: 50px auto;*/
+    border-radius: 50% 50%;
+    /* position: relative;*/
+    margin-left: 230px;
+    margin-top : -55px;
+    font-weight: bold;
+    font-size: 35px;
+
+}
+#rightList > li > button:hover {
+    color: #639BF1;
+}
+#rightSide {
+    position: fixed;
+    margin-top: 10px;
+    width: 330px;
+    height: 320px;
+    margin-left: 650px;
+    background-color: #4EB1BA;
+    overflow: auto;
+    border: 5px solid #4EB1BA;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
+}
+#cost {
+    position: fixed;
+    margin-left: 650px;
+    margin-top: 360px;
+    position: fixed;
+    width: 330px;
+    height: 40px;
+    background-color: #4EB1BA;
+    overflow: auto;
+    border: 5px solid #4EB1BA;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
+}
+
+
+article#user_info{
+    background-color: yellow;
 }
