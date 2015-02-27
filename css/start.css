@@ -21,9 +21,9 @@ html{
     font-family: Impact;
 }
 
-body {
+/*body {
     overflow: scroll;
-}
+}*/
 
 .center{
     max-width: 1024px;
@@ -103,7 +103,7 @@ body{
 
 
 .button {
-    
+    cursor: pointer;   
     position:relative;
     width:200px;
     color:#000;

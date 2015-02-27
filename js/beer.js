@@ -49,7 +49,32 @@ $(document).ready(function() {
                     $leftList.append(Mustache.render(leftListItem, beer));
                 }
             }
-        } 
+        },
+        getAll: function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
+                success: function(object) {
+                    data = object['payload'];
+                    $.each(data, function(i, beer) {
+                        beerList.listBeer(beer);
+                    });
+                }
+            });
+        },
+        searchBind: function() {
+            $('.search').keyup(function(e) {
+                var value = $(this).val();
+                $('li').each(function() {
+                    var name = $(this).attr('name');
+                    if (value == "" || name == "undefined" || partOf(value, name)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        }
     };
     var order = {
         orderList: {},
@@ -61,26 +86,99 @@ $(document).ready(function() {
                 $rightList.append(Mustache.render(rightListItem, value));
             }); 
         },
-        addBeer: function(id, name, price) {
-            if (name.length > 18) {
-                name = name.substring(0, 15).concat("...");
-            }
-            if (this.orderList[id] != undefined) {
-                this.orderList[id]['amount'] += 1;
+        addOrder: function(id, name, thisPrice, undoRedo) {
+            if (beerList.stockCount[id] > 0) {
+                beerList.stockCount[id] -= 1;
+                if (name.length > 18) {
+                    name = name.substring(0, 15).concat("...");
+                }
+                if (this.orderList[id] != undefined) {
+                    this.orderList[id]['amount'] += 1;
+                } else {
+                    this.orderList[id] = {'id': id, 'name': name, 'price': thisPrice, 'amount': 1};
+                }
+                order.load();
+                price.total = price.total + parseInt(thisPrice);
+                price.addCost();
+                if (undoRedoStack.stack.length > 9) {
+                    undoRedoStack.stack.splice(0, 1); 
+                }
+                if (!undoRedo) {
+                    undoRedoStack.push({"type": "removeOrder", "data": [id, thisPrice]});
+                }
+                console.log(undoRedoStack.stack);
+                console.log(undoRedoStack.currentIndex);
             } else {
-                this.orderList[id] = {'id': id, 'name': name, 'price': price, 'amount': 1};
+                alert('No more of this beer in stock!'); 
             }
-            return true;
         },
-        removeBeer: function(id) {
+        removeOrder: function(id, thisPrice, undoRedo) {
             var thisOrder = this.orderList[id];
-            if (thisOrder['amount'] == 1) {
-                delete this.orderList[id];
-                $("ul li[data-id=" + id + "]").remove();
-            } else {
-                thisOrder['amount'] -= 1;
-                $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
-            }
+            if (thisOrder != undefined){
+                beerList.stockCount[id] += 1;
+                if (thisOrder['amount'] == 1) {
+                    delete this.orderList[id];
+                    $("ul li[data-id=" + id + "]").remove();
+                } else {
+                    thisOrder['amount'] -= 1;
+                    $('#' + thisOrder['id'] + '').text("(" + thisOrder['amount'] + ")");
+                }
+                price.total = price.total-parseInt(thisPrice);
+                price.addCost(price);
+                if (undoRedoStack.stack.length > 9) {
+                    undoRedoStack.stack.splice(0, 1); 
+                }
+                if (!undoRedo) {
+                    undoRedoStack.push({"type": "addOrder", "data": [id, thisOrder['name'], thisPrice]});
+                }
+                console.log(undoRedoStack.stack);
+                console.log(undoRedoStack.currentIndex);
+            };
+        },
+        addBind: function() {
+            $leftList.delegate('#add', 'click', function() {
+                var id = $(this).attr('data-id');
+                var name = $(this).attr('name');
+                var thisPrice = $(this).attr('price');
+                order.addOrder(id, name, thisPrice, false);
+            });
+        },
+        removeBind: function() {
+            $rightList.delegate('#remove', 'click', function(){
+                var id = $(this).attr('data-id');
+                var thisPrice = $(this).attr('price');
+                order.removeOrder(id, thisPrice, false);
+            });
+        },
+        payBind: function() {
+            $('#payButton').on('click', function() {
+                localStorage.setItem("order", JSON.stringify(order.orderList));
+                localStorage.setItem("total", price.total.toString());
+            });
+        },
+        undoBind: function() {
+            $('#undoButton').on('click', function() {
+                var action = undoRedoStack.undo();
+                if (action["type"] == "addOrder") {
+                    var data = action["data"];
+                    order.addOrder(data[0], data[1], data[2], true);
+                } else if(action["type"] == "removeOrder") {
+                    var data = action["data"];
+                    order.removeOrder(data[0], data[1], true);
+                }
+            });
+        },
+        redoBind: function() {
+            $('#redoButton').on('click', function() {
+                var action = undoRedoStack.redo();
+                if (action["type"] == "addOrder") {
+                    var data = action["data"];
+                    order.addOrder(data[0], data[1], data[2], true);
+                } else if(action["type"] == "removeOrder") {
+                    var data = action["data"];
+                    order.removeOrder(data[0], data[1], true);
+                }
+            });
         },
     };
     var price = {
@@ -91,64 +189,41 @@ $(document).ready(function() {
             $cost.html(Mustache.render(costItem, priceObject));
         }
     };
+    var undoRedoStack = {
+        stack: [],
+        currentIndex: 0,
+        //Methods
+        push: function(element) {
+             this.stack.push(element); 
+             this.currentIndex = this.stack.length-1;
+        },
+        undo: function() {
+            var result = this.stack[this.currentIndex]; 
+            this.currentIndex -= 1;
+            if (this.currentIndex < 0) {
+                this.currentIndex = 0;
+            }
+            return result;
+        },
+        redo: function() {
+            var result = this.stack[this.currentIndex]; 
+            this.currentIndex += 1;
+            if (this.currentIndex >= this.stack.length) {
+                this.currentIndex = this.stack.length-1;
+            }
+            return result;
+        }
+    };
 
     //AJAX REQUESTS AND JQUERY EVENTS
-    $.ajax({
-        type: 'GET',
-        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
-        success: function(object) {
-            data = object['payload'];
-            $.each(data, function(i, beer) {
-                beerList.listBeer(beer);
-            });
-        }
-    });
+    beerList.getAll();
+    beerList.searchBind();
+    order.addBind();
+    order.removeBind();
+    order.payBind();
+    order.undoBind();
+    order.redoBind();
 
-    $('.search').keyup(function(e) {
-        var value = $(this).val();
-        $('li').each(function() {
-            var name = $(this).attr('name');
-            if (value == "" || name == "undefined" || partOf(value, name)) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-    });
 
-    $leftList.delegate('#add', 'click', function() {
-        var id = $(this).attr('data-id');
-        var name = $(this).attr('name');
-        var thisPrice = $(this).attr('price');
-        var thisOrder = order.orderList[id];
-        if (beerList.stockCount[id] > 0) {
-            beerList.stockCount[id] -= 1;
-            var success = order.addBeer(id, name, thisPrice);
-            if (success) {
-                order.load();
-                price.total = price.total + parseInt(thisPrice);
-                price.addCost();
-            }
-        } else {
-            alert('No more of this beer in stock!'); 
-        }
-    });
-
-    $rightList.delegate('#remove', 'click', function(){
-        var id = $(this).attr('data-id');
-        var thisPrice = $(this).attr('price');
-        var thisOrder = order.orderList[id];
-        if (thisOrder != undefined){
-            beerList.stockCount[id] += 1;
-            order.removeBeer(id);
-            price.total = price.total-parseInt(thisPrice);
-            price.addCost(price);
-        };
-    });
-
-    $('#payButton').on('click', function() {
-        localStorage.setItem("order", JSON.stringify(order.orderList));
-        localStorage.setItem("total", price.total.toString());
-    });
 
 });
