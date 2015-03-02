@@ -1,0 +1,20 @@
+{
+  "username-input": {
+    "input_username" : "Ange användarnamn"
+  },
+  "password-input": {
+    "input_password" : "Ange lösenord"
+  },
+  "search": {
+    "search_input" : "Sök..."
+  },
+  "Part1": {
+    "payment" : "Betalning"
+  },
+  "total": {
+    "total" : "Totalt:"
+  },
+  "credit": {
+    "credit" : "Kredit:"
+  }
+}
