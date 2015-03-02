@@ -1,3 +1,4 @@
+/*Initialize i18n if a language has be already selected*/
         if (localStorage.getItem("language")){
             
             var options = {
@@ -13,7 +14,7 @@
                    $('#total').i18n();
                    $('#credit').i18n();
                    
-                   if (lng = "en"){
+                   if (options.lng == "en"){
                      $('#login-btn').text($.t('Login'));
                      $('#payButton').text($.t('PAY'));
                      $('#CancelButton').text($.t('Cancel'));
@@ -22,7 +23,7 @@
                      $('#user_btn').text($.t('User'));
                    }
                    
-                   if (lng = "sw"){
+                   if (options.lng == "sw"){
                      $('#login-btn').text($.t('Logga in'));
                      $('#payButton').text($.t('Betala'));
                      $('#CancelButton').text($.t('Avboka'));
@@ -33,7 +34,7 @@
         });
         
         }
-        
+/*function to select english*/        
     function changeE() {
           var options ={
            lng: "en",
@@ -58,10 +59,12 @@
                    $('#user_btn').text($.t('User'));
                    
         });
-        
+    /*Store english as a selected language*/     
         window.localStorage.setItem("language", "en");
     }
 
+
+/*function to select swedish*/  
     function changeS() {
           var options ={
            lng: "sw",
@@ -86,6 +89,6 @@
                    $('#user_btn').text($.t('Användaren'));
                    
         });
-        
+    /*Store swedish as a selected language*/   
         window.localStorage.setItem("language", "sw");
      }
