@@ -1,0 +1,20 @@
+{
+  "username-input": {
+    "input_username" : "Enter username"
+  },
+  "password-input": {
+    "input_password" : "Enter password"
+  },
+  "search": {
+    "search_input" : "Search..."
+  },
+  "Part1": {
+    "payment" : "Payment"
+  },
+  "total": {
+    "total" : "Total:"
+  },
+  "credit": {
+    "credit" : "Credit:"
+  }
+}
