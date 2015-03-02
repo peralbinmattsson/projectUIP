@@ -1,7 +1,7 @@
 
 .Payment{
     text-align: center;
-    position: absolute;
+    position: relative;
    /* width: 100%;
     height: 600px;
     */
@@ -21,13 +21,14 @@
     margin-left: 150px;
 
 }
-#part0 {
+/*#part0 {
     border: 2px solid #a1a1a1;
     padding: 10px 40px;
     width: 300px;
     border-radius: 25px;
     position: absolute;
 }
+*/
 #txt{
     font-family:"Segoe UI Black";
     font-size: 26px;
@@ -50,7 +51,7 @@
     filter:alpha(opacity=60); /* For IE8 and earlier */
 
 
-#txtOrder{
+/*#txtOrder{
     font-family: AR BONNIE;
     font-size: 30px;
     text-decoration: underline;
@@ -58,7 +59,7 @@
 }
 span {
     width: 300px;
-}
+}*/
 
 
 #CancelButton{
