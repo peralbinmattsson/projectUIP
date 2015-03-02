@@ -141,6 +141,7 @@ $(document).ready(function() {
                 var command = new addToOrder(order, id, name, price);
                 undoRedoStack.push(command);
                 button.click(command);
+                console.log(undoRedoStack);
             });
         },
         removeBind: function() {
@@ -151,6 +152,7 @@ $(document).ready(function() {
                 var command = new removeFromOrder(order, id, name, price);
                 undoRedoStack.push(command);
                 button.click(command);
+                console.log(undoRedoStack);
             });
         },
         undoBind: function() {
@@ -159,6 +161,7 @@ $(document).ready(function() {
                     var command = undoRedoStack.undo();
                     button.clickUndo(command);
                 }
+                console.log(undoRedoStack);
             });
         },
         redoBind: function() {
@@ -167,6 +170,7 @@ $(document).ready(function() {
                     var command = undoRedoStack.redo();
                     button.clickRedo(command);
                 }
+                console.log(undoRedoStack);
             });
         },
         payBind: function() {
