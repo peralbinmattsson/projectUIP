@@ -10,8 +10,8 @@ $(document).ready(function() {
     var leftListItem = 
         "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
         "</span><span>{{pub_price}} kr</span>" +
-        "<button class='button' data-id='{{beer_id}}' name='{{namn}}' price='{{pub_price}}'" +
-        " id='add'>Add To Order</button>" +
+        "<img draggable='true' ondragstart='drag(event)' class='shopping-cart' id='add'" + 
+        "data-id='{{beer_id}}' name='{{namn}}' price='{{pub_price}}' onclick='' src='../img/shopping_cart.png'/>" +
         "</li>";
 
     var leftListItemRed = 

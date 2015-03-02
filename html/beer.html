@@ -13,7 +13,7 @@
             <ul id="leftList">
             </ul>
         </div>
-        <div id="rightSide">
+        <div id="rightSide" ondrop="drop(event)" ondragover="allowDrop(event)">
             <button class="button" id="undoButton">UNDO</button>
             <a href="paypage.html">
                 <button class="button" id="payButton" data-i18n="button.pay">PAY</button>
@@ -28,6 +28,7 @@
     <script src="../js/jquery.js"></script>
     <script src="../js/i18next-1.7.7.js"></script>
     <script src="../js/i18next-1.7.7.min.js"></script>
+    <script src="../js/drag_and_drop.js"></script>
     <script src="../js/translation.js"></script>
     <script src="../js/mustache.js"></script>
     <script src="../js/beer.js"></script>
