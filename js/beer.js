@@ -1,3 +1,5 @@
+//var abstraction = require('./abs.js');
+
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
