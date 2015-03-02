@@ -10,5 +10,11 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    /*...TODO...;*/
+    if(data == "en"){
+        changeE();
+    }
+    if(data == "sw"){
+        changeS();
+    }
+    
 }
