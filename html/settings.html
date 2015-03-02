@@ -10,17 +10,13 @@
 	<header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
 	<article id="user_info" class="center"><label style="float:right" onclick="logout()">Log out</label> </article>
 	<div class= "center" id = "container" >
-		<input class="search" placeholder="Search..." type="search"/>
-		<div class="translation_menu">
-			<button id="en">English</button>
-			<button id="sw">Svenska</button>
-		</div>
+		<input class="search" placeholder="Search..." type="search" data-i18n="[placeholder]search.search_input"/>
 		<div id="menu"> 
 			<li><a href="#">
-				<button class="button" id="stock_btn" data-i18n="menu.stock"></button>
+				<button class="button" id="stock_btn" data-i18n="button.stock">Stock</button>
 			</a></li>
 			<li><a href="#">
-				<button class="button" id="user_btn" data-i18n="menu.user"></button>
+				<button class="button" id="user_btn" data-i18n="button.user">User</button>
 			</a></li>
 		</div>
 		<div class = "object" id = "stock_container"></div>
@@ -32,8 +28,10 @@
     	<div id="user_values" class="hidden"></div>
     </div>
     <script src="../js/jquery.js"></script>
-    <script src="../js/mustache.js"></script>
     <script src="../js/i18next-1.7.7.js"></script>
+    <script src="../js/i18next-1.7.7.min.js"></script>
+    <script src="../js/translation.js"></script>
+    <script src="../js/mustache.js"></script>
     <script src="../js/settings.js"></script>
     <script src="../js/start.js"></script>
 </body>
