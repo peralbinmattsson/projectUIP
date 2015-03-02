@@ -99,6 +99,14 @@ $(document).ready(function() {
             };
         },
     };
+    var priceObj = {
+        total: 0,
+        //Methods
+        addCost: function() {
+            var priceObject = this;
+            $cost.html(Mustache.render(costItem, priceObject));
+        }
+    };
     var jQueryBindings = {
         getAll: function() {
             $.ajax({
@@ -130,9 +138,9 @@ $(document).ready(function() {
                 var id = $(this).attr('data-id');
                 var name = $(this).attr('name');
                 var price = $(this).attr('price');
-                var command = new ur.addToOrder(order, id, name, price);
-                ur.undoRedoStack.push(command);
-                ur.button.click(command);
+                var command = new addToOrder(order, id, name, price);
+                undoRedoStack.push(command);
+                button.click(command);
             });
         },
         removeBind: function() {
@@ -140,24 +148,24 @@ $(document).ready(function() {
                 var id = $(this).attr('data-id');
                 var name = $(this).attr('name');
                 var price = $(this).attr('price');
-                var command = new ur.removeFromOrder(order, id, name, price);
-                ur.undoRedoStack.push(command);
-                ur.button.click(command);
+                var command = new removeFromOrder(order, id, name, price);
+                undoRedoStack.push(command);
+                button.click(command);
             });
         },
         undoBind: function() {
             $rightSide.delegate('#undoButton', 'click', function(){
-                if (!ur.undoRedoStack.isUnder()) {
-                    var command = ur.undoRedoStack.undo();
-                    ur.button.clickUndo(command);
+                if (!undoRedoStack.isUnder()) {
+                    var command = undoRedoStack.undo();
+                    button.clickUndo(command);
                 }
             });
         },
         redoBind: function() {
             $rightSide.delegate('#redoButton', 'click', function(){
-                if (!ur.undoRedoStack.isOver()) {
-                    var command = ur.undoRedoStack.redo();
-                    ur.button.clickRedo(command);
+                if (!undoRedoStack.isOver()) {
+                    var command = undoRedoStack.redo();
+                    button.clickRedo(command);
                 }
             });
         },

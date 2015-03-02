@@ -42,14 +42,6 @@ function removeFromOrder(theReceiver, theId, theName, thePrice) {
         this.receiver.removeOrder(this.id, this.price);
     };
 };
-var priceObj = {
-    total: 0,
-    //Methods
-    addCost: function() {
-        var priceObject = this;
-        $cost.html(Mustache.render(costItem, priceObject));
-    }
-};
 var undoRedoStack = {
     stack: [],
     stackPointer: 0,
