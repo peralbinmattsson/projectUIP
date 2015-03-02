@@ -7,10 +7,11 @@
 <body>
     <header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
     <div id="container" class="center">
-        <div class="Part1"> Payment</div>
+    
+        <div class="Part1" data-i18n="Part1.payment"> Payment</div>
         <div class="boxCenter" id="part0">
-            <div id="txt"> Total: </div>
-            <div id="txt"> credit: </div>
+            <div class=Payment-text id="total" data-i18n="total.total"> Total: </div>
+            <div class=Payment-text id="credit" data-i18n="credit.credit"> credit: </div>
         </div>
 
         <div class="Payment"></div>
@@ -22,12 +23,15 @@
         <div id="cost"></div>
 
 
-        <button class="button" id="CancelButton">Cancel</button></a>
+        <button class="button" id="CancelButton" data-i18n="button.cancel">Cancel</button></a>
 
-        <button class="button" id="PaymentButton">Pay Now</button>
+        <button class="button" id="PaymentButton" data-i18n="button.now">Pay Now</button>
     </div>
     <div id="footer"></div>
     <script src="../js/jquery.js"></script>
+    <script src="../js/i18next-1.7.7.js"></script>
+    <script src="../js/i18next-1.7.7.min.js"></script>
+    <script src="../js/translation.js"></script>
     <script src="../js/mustache.js"></script>
     <script src="../js/beer.js"></script>
     <script src="../js/paypage.js"></script>
