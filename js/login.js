@@ -26,7 +26,7 @@ function authentification(login, pass, ref) {
 $(document).ready(function(){
   localStorage.setItem("isLoggedIn", false);
 
-  $("#login-btn").on('submit', function(){
+  $("#login-btn").on('click', function(){
       var username = $("#username-input").val();
       var password = $("#password-input").val();
       // Checking for blank fields.
@@ -36,16 +36,4 @@ $(document).ready(function(){
         authentification(username, password, 'index2.html');
       };
   });
-
-  function authentification(login, pass, ref) {
-    $.post('http://pub.jamaica-inn.net/fpdb/api.php?username=' + login + '&password=' + pass + '&action=iou_get', function(data) {
-      if(data.type != "error"){
-        //TO DO: get id
-          document.location.href=ref; 
-      }
-      else {
-        alert('Error: ' + data.payload[0].msg);
-      };
-    });
-  };
 });
