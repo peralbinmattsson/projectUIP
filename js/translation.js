@@ -13,6 +13,8 @@
                    $('.Part1').i18n();
                    $('#total').i18n();
                    $('#credit').i18n();
+                   $('#drag_flag').i18n();
+                   $('#click_flag').i18n();
                    
                    if (options.lng == "en"){
                      $('#login-btn').text($.t('Login'));
@@ -45,6 +47,8 @@
                    $('#username-input').i18n();
                    $('#password-input').i18n();
                    $('#login-btn').text($.t('Login'));
+                   $('#drag_flag').i18n();
+                   $('#click_flag').i18n();
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
@@ -72,6 +76,8 @@
         };
 
         i18n.init(options, function(t) {
+                   $('#drag_flag').i18n();
+                   $('#click_flag').i18n();
                    $('#username-input').i18n();
                    $('#password-input').i18n();
                    $('#login-btn').text($.t('Logga in'));
