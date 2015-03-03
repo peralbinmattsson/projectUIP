@@ -1,8 +1,3 @@
-requirejs.config({
-    baseURL: 'js',
-});
-requirejs(['undoRedoAbs'],
-function(undoRedoAbs) {
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
@@ -192,5 +187,4 @@ $(document).ready(function() {
 
 
 
-});
 });
