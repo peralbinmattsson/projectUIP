@@ -67,51 +67,10 @@
     margin-top:50px ;
 }
 
-/*#rightSide {
-    position: absolute;
-    width: 350px;
-    height: 400px;
-    margin-left: 560px;
-    background-color: #CCFF66;
-    overflow: auto;
-    border: 2px solid #FFFFFF;
-    border-radius: 5px;
-    opacity: 1;
-}
-#transBox{
-    opacity: 0.6;
-    filter:alpha(opacity=60); /* For IE8 and earlier */
 
 
-/*#txtOrder{
-    font-family: AR BONNIE;
-    font-size: 30px;
-    text-decoration: underline;
-    text-align: center;
-}
-span {
-    width: 300px;
-}*/
 
 
-#CancelButton{
-    width: 200px;
-    height: 20px;
-    padding: 25px;
-
-    border-radius: 3px;
-    line-height: 1px;
-    background-color: red;
-    /*text styles*/
-    text-align:center;
-    color: white;
-    font-style: italic;
-    /*hover*/
-    margin-top: 420px;
-    margin-left: 300px;
-    position: relative;
-    display: inline-block;
-}
 
 
 
