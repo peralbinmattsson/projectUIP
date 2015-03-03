@@ -7,6 +7,10 @@ var rightListItem =
 
 
 $(document).ready(function() {
+    var $leftPay = $('#leftPay');
+    var leftPayItem =
+        "<li id='item' class='listItem' name='{{Total}}'><span>{{total}}" +
+        "</span><span>{{pub_price}} kr</span></li>";
 
 
     orderList = JSON.parse( localStorage.getItem("order"));

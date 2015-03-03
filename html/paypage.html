@@ -1,40 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/paypage.css">
     <link rel="stylesheet" type="text/css" href="../css/start.css">
+    <link rel="stylesheet" type="text/css" href="../css/paypage.css">
 </head>
 <body>
-    <header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
-    <div id="container" class="center">
-    
-        <div class="Part1" data-i18n="Part1.payment"> Payment</div>
-        <div class="boxCenter" id="part0">
-            <div class=Payment-text id="total" data-i18n="total.total"> Total: </div>
-            <div class=Payment-text id="credit" data-i18n="credit.credit"> credit: </div>
-        </div>
-
-        <div class="Payment"></div>
-        <div id="rightSide">
-
-            <ul id="rightList">
-            </ul>
-        </div>
-        <div id="cost"></div>
-
-
-        <button class="button" id="CancelButton" data-i18n="button.cancel">Cancel</button></a>
-
-        <button class="button" id="PaymentButton" data-i18n="button.now">Pay Now</button>
+<header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
+<!-- the gray box background-->
+<div id="container" class="center">
+    <div id="leftBox">
+        <button id ="paymentButton" data-i18n="button.pay">PAY NOW</button>
+        <a href="index.html" id="cancel" data-i18n="href.cancel">cancel</a>
+        <ul id="txt">
+            <li>Total:</li>
+            <li>Credit:</li>
+        </ul>
     </div>
-    <div id="footer"></div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/i18next-1.7.7.js"></script>
-    <script src="../js/i18next-1.7.7.min.js"></script>
-    <script src="../js/translation.js"></script>
-    <script src="../js/mustache.js"></script>
-    <script src="../js/beer.js"></script>
-    <script src="../js/paypage.js"></script>
-    <script src="../js/start.js"></script>
+    <div id="rightSide" >
+        <ul id="rightList">
+        </ul>
+    </div>
+    <div id="cost"></div>
+</div>
+<div id="footer"></div>
+<script src="../js/jquery.js"></script>
+<script src="../js/i18next-1.7.7.js"></script>
+<script src="../js/i18next-1.7.7.min.js"></script>
+<script src="../js/drag_and_drop.js"></script>
+<script src="../js/translation.js"></script>
+<script src="../js/mustache.js"></script>
+<script data-main="../js/beer.js" src="../js/require.js"></script>
+<script src="../js/start.js"></script>
 </body>
 </html>
