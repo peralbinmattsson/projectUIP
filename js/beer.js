@@ -1,5 +1,8 @@
-//var abstraction = require('./abs.js');
-
+requirejs.config({
+    baseURL: 'js',
+});
+requirejs(['undoRedoAbs'],
+function(undoRedoAbs) {
 $(document).ready(function() {
     var $leftList = $('#leftList');
     var $rightList = $('#rightList');
@@ -10,9 +13,8 @@ $(document).ready(function() {
     var leftListItem = 
         "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
         "</span><span>{{pub_price}} kr</span>" +
-        "<img draggable='true' ondragstart='drag(event)' class='shopping-cart' id='add'" + 
-        "data-id='{{beer_id}}' name='{{namn}}' price='{{pub_price}}' onclick='' src='../img/shopping_cart.png'/>" +
-        "</li>";
+        "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button'" +
+        "price='{{pub_price}}'>Add to cart</button></li>";
 
     var leftListItemRed = 
         "<li style='color:red;' id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
@@ -97,50 +99,6 @@ $(document).ready(function() {
             };
         },
     };
-    var button = {
-        //Methods
-        click: function(theCommand) {
-            theCommand.execute();
-        },
-        clickUndo: function(theCommand) {
-            theCommand.undo();
-        },
-        clickRedo: function(theCommand) {
-            theCommand.redo();
-        },
-    };
-    function addToOrder(theReceiver, theId, theName, thePrice) {
-        this.id = theId;
-        this.name = theName;
-        this.price = thePrice;
-        this.receiver = theReceiver;
-        //Methods
-        this.execute = function() {
-            this.receiver.addOrder(this.id, this.name, this.price);
-        };
-        this.undo = function() {
-            this.receiver.removeOrder(this.id, this.price);
-        };
-        this.redo = function() {
-            this.receiver.addOrder(this.id, this.name, this.price);
-        };
-    };
-    function removeFromOrder(theReceiver, theId, theName, thePrice) {
-        this.id = theId;
-        this.name = theName;
-        this.price = thePrice;
-        this.receiver = theReceiver;
-        //Methods
-        this.execute = function() {
-            this.receiver.removeOrder(this.id, this.price);
-        };
-        this.undo = function() {
-            this.receiver.addOrder(this.id, this.name, this.price);
-        };
-        this.redo = function() {
-            this.receiver.removeOrder(this.id, this.price);
-        };
-    };
     var priceObj = {
         total: 0,
         //Methods
@@ -148,53 +106,6 @@ $(document).ready(function() {
             var priceObject = this;
             $cost.html(Mustache.render(costItem, priceObject));
         }
-    };
-    var undoRedoStack = {
-        stack: [],
-        stackPointer: 0,
-        //Methods
-        lastCommand: null,
-        isUnder: function() {
-            if (this.stackPointer < 0) {
-                return true;
-            }
-            return false;
-        },
-        isOver: function() {
-            if (this.stackPointer > this.stack.length-1) {
-                return true;
-            }
-            return false
-        },
-        push: function(element) {
-            if (this.stack.length > 4) {
-                this.stack.splice(0, 1);
-            }
-            if (this.stack.length > this.stackPointer+1) { 
-                this.stack.splice(this.stackPointer+1, this.stack.length);
-            }
-            this.stack.push(element);
-            this.stackPointer = this.stack.length-1;
-            this.lastCommand = "push";
-        },
-        undo: function() {
-            if (this.lastCommand == "redo") {
-                this.stackPointer--;
-            } 
-            var result = this.stack[this.stackPointer];
-            this.stackPointer--;
-            this.lastCommand = "undo";
-            return result;
-        },
-        redo: function() {
-            if (this.lastCommand == "undo") {
-                this.stackPointer++;
-            } 
-            var result = this.stack[this.stackPointer];
-            this.stackPointer++;
-            this.lastCommand = "redo";
-            return result;
-        },
     };
     var jQueryBindings = {
         getAll: function() {
@@ -227,9 +138,6 @@ $(document).ready(function() {
                 var id = $(this).attr('data-id');
                 var name = $(this).attr('name');
                 var price = $(this).attr('price');
-                console.log(id);
-                console.log(name);
-                console.log(price);
                 var command = new addToOrder(order, id, name, price);
                 undoRedoStack.push(command);
                 button.click(command);
@@ -241,12 +149,10 @@ $(document).ready(function() {
                 var id = $(this).attr('data-id');
                 var name = $(this).attr('name');
                 var price = $(this).attr('price');
-                console.log(id);
-                console.log(name);
-                console.log(price);
                 var command = new removeFromOrder(order, id, name, price);
                 undoRedoStack.push(command);
                 button.click(command);
+                console.log(undoRedoStack);
             });
         },
         undoBind: function() {
@@ -255,6 +161,7 @@ $(document).ready(function() {
                     var command = undoRedoStack.undo();
                     button.clickUndo(command);
                 }
+                console.log(undoRedoStack);
             });
         },
         redoBind: function() {
@@ -263,6 +170,7 @@ $(document).ready(function() {
                     var command = undoRedoStack.redo();
                     button.clickRedo(command);
                 }
+                console.log(undoRedoStack);
             });
         },
         payBind: function() {
@@ -284,4 +192,5 @@ $(document).ready(function() {
 
 
 
+});
 });

@@ -16,5 +16,11 @@
   },
   "credit": {
     "credit" : "Kredit:"
+  },
+  "drag_flag": {
+    "drag" : "Dra flaggan här för att välja språk:"
+  },
+  "click_flag": {
+    "click" : "eller klicka på den här:"
   }
 }
