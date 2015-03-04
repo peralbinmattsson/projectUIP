@@ -13,7 +13,7 @@ var userList =
     "<span id='fname'>{{first_name}} </span>" + 
     "<span id='lname'>{{last_name}}</span>" + 
     "<span id='assets'>{{assets}}</span>" +
-    "<button class='button' data-id='{{username}}' data-type='user' name='{{username}}' assets='{{assets}}'' " +
+    "<button class='button' data-id='{{username}}' data-type='user' name='{{username}}' fname='{{first_name}}' lname='{{last_name}}'' assets='{{assets}}' " +
     " id='add'>Edit</button>" +
     "</li>";
 
@@ -50,8 +50,8 @@ function insertItemValues (item, type) {
     $("#drink_values, #user_values").empty();
     if (type == "user") {
         content += '<span>Username: </span><span id="username">' + item.attr('data-id') + '</span><br/>';
-        //content += '<span>Firstname: </span><span id="fname">' + item.attr('fname') + '</span><br/>';
-        //content += '<span>Lastname: </span><span id="lname">' + item.attr() + '</span><br/>';
+        content += '<span>Firstname: </span><span id="fname">' + item.attr('fname') + '</span><br/>';
+        content += '<span>Lastname: </span><span id="lname">' + item.attr('lname') + '</span><br/>';
         content += '<span>Assets: </span><span id="assets">' + item.attr('assets') + '</span><br/>';
         content += '<span>Add assets: </span><input type="number" name="new_assets" id="new_assets" />';
         content += '<input id="user_name" type="hidden" value="' + item.attr("data-id") + '">';
@@ -59,7 +59,7 @@ function insertItemValues (item, type) {
         content += '<span>Name: </span><span id="name">' + item.attr('name') + '</span><br/>';
         content += '<span>Name2: </span><span id="name2">' + item.attr('name2') + '</span><br/>';
         content += '<span>Count: </span><span id="count">' + item.attr('count') + '</span><br/>';
-        content += '<span>Subtract count: </span><input type="number" min="0" name="new_count" id="new_count" />';
+        content += '<span>Add/sub count: </span><input type="number" name="new_count" id="new_count" />';
         content += '<input id="drink_id" type="hidden" value="' + item.attr("data-id") + '">';
     };
     content += '<br/><br/><br/>';
@@ -82,35 +82,38 @@ function saveItem (arg) {
                 type: 'GET',
                 url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=' + user + '&password=' + user + '&action=iou_get',
                 success: function(data) {
-                    id = data.payload[0].user_id; 
-                    
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=payments_append&user_id='+id+'&amount='+add,
-                        success: function(data) {print("saved user succesfull");}
-                    });
+                    if(data.type != "error") {
+                        print("got user_id succesfull");
+                        id = data.payload[0].user_id; 
+                        $.ajax({
+                            type: 'GET',
+                            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=payments_append&user_id='+id+'&amount='+add,
+                            success: function(data2) {if(data2.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
+                        });
+                        var new_value = parseInt(old_value) + parseInt(add);
+                        $(itemInList).text(new_value);
+                        $("#item_" + user + " button.button").attr('assets', new_value);
+                    }else{
+                        print("Error: Didn't find user_id");
+                    };                    
                 }
             });
-            //print(id);
-            var new_value = parseInt(old_value) + parseInt(add);
-            $(itemInList).text(new_value);
-            $("#item_" + user + " button.button").attr('assets', new_value);
             $("#black_wrapper, #item_editer").fadeOut();
+            //http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=user_edit&new_username=sivo&new_password=sivo&first_name=Simon&last_name=Knorr&email=''&phone=''
             break;
 
         case "drink":
             var id = $("#drink_id").val();
             var add = $("#new_count").val();
             var itemInList = $("#item_" + id + " span#count");
-            var old_value = itemInList.text();
-            for (var i = 0; i < add; i++) {
-                $.ajax({
-                    type: 'GET',
-                    url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=purchases_append&beer_id=' + id,
-                    success: function(object) {print("saved drink succesfull");}
-                });
-            };
-            var new_value = parseInt(old_value) - parseInt(add);
+            var old_value = itemInList.text();            
+            var new_value = parseInt(old_value) + parseInt(add);
+            if (new_value<0) {add = parseInt(add) + Math.abs(new_value);new_value=0;}; 
+            $.ajax({
+                type: 'GET',
+                url: "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_append&beer_id=" + id + "&amount=" + add + "&price=''",
+                success: function(object) {if(data.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
+            });
             $(itemInList).text(new_value);
             $("#item_" + id + " button.button").attr('count', new_value);
             $("#black_wrapper, #item_editer").fadeOut();

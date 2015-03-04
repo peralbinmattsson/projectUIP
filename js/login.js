@@ -25,6 +25,7 @@ function authentification(login, pass, ref) {
 
 $(document).ready(function(){
   localStorage.setItem("isLoggedIn", false);
+  localStorage.setItem("language", "en");
 
   $("#login-btn").on('click', function(){
       var username = $("#username-input").val();
