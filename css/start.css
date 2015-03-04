@@ -147,7 +147,7 @@ li.listItem{
     align-items: center;
     padding: 5px;
     margin-left: 5px;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 .listItem:hover {
     background-color: #4EB1BA;
@@ -243,3 +243,4 @@ li.listItem{
 article#user_info{
     background-color: yellow;
 }
+
