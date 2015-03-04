@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" type="text/css" href="../css/start.css">
     <link rel="stylesheet" type="text/css" href="../css/beer.css">
@@ -14,11 +14,11 @@
             </ul>
         </div>
         <div id="rightSide" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <button class="button" id="undoButton">UNDO</button>
+            <img src="../img/undo-icon.png" style="width:30px;height:30px" id="undoButton">
             <a href="paypage.html">
                 <button class="button" id="payButton" data-i18n="button.pay">PAY</button>
             </a>
-            <button class="button" id="redoButton">REDO</button>
+            <img src="../img/redo-icon.png" style="width:30px;height:30px" id="redoButton">
             <ul id="rightList">
             </ul>
         </div>

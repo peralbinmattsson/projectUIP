@@ -17,10 +17,14 @@
             <li>Credit:</li>
         </ul>
     </div>
-    <div id="rightSide" >
+    <div id="rightSide" ondrop="drop(event)" ondragover="allowDrop(event)">
+       <!-- <button class="button" id="undoButton">UNDO</button>-->
+        <img src="../img/undo-icon.png" style="width:30px;height:30px" id="undoButton">
+    <!--<div id="rightSide" >-->
         <ul id="rightList">
         </ul>
     </div>
+
     <div id="cost"></div>
 </div>
 <div id="footer"></div>
@@ -33,6 +37,7 @@
 <script src="../js/start.js"></script>
 <script src="../js/undoRedoAbs.js"></script>
 <script src="../js/mainObjects.js"></script>
+<script src="../js/beer.js"></script>
 <script src="../js/paypage.js"></script>
 </body>
 </html>
