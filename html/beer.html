@@ -8,15 +8,16 @@
 
     <article id="user_info" class="center"><label style="float:right" onclick="logout()"></label>
         <div id="icon">
-            <div id="logout">
-                <button class="button" id= "logout-btn">Logout</button>
-            </div>
+
             <div id='trans_container'>
                 <div id='click_flag' data-i18n='click_flag.click'></div>
                 <div class="translation_menu">
                     <img class="icon_language" draggable='true' ondragstart='drag(event)' id='en' onclick='changeE();' src='../img/drapeau_anglais.jpg'/>
                     <img class="icon_language" draggable='true' ondragstart='drag(event)' id='sw' onclick='changeS();' src='../img/drapeau_suedois.jpg'/>
                 </div>
+            </div>
+            <div id="logout">
+                <button class="button" id= "logout-btn">Logout</button>
             </div>
         </div>
     </article>

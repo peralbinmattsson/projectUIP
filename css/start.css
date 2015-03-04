@@ -241,25 +241,24 @@ li.listItem{
 
 
 article#user_info{
-    background-color: yellow;
+    background-color: #639BF1;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 8px;
 }
 
-#logout{
-    float: right;
-    margin-top: -80px;
-    margin-right: 150px;
-}
 
 #logout > .button{
     width: 150px;
 }
 
-#trans_container{
+#icon>#trans_container{
     width: 135px;
     height: 60px;
-    margin-top: -100px;
+    float: right;
     float: right;
     margin-bottom: 5px;
+
 }
 
 .icon_language {
@@ -268,6 +267,13 @@ article#user_info{
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 10px;
+}
+#icon>#logout{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    float: right;
+
 }
 
 
