@@ -13,12 +13,12 @@
         <button id ="paymentButton" data-i18n="button.pay">PAY NOW</button>
         <a href="beer.html" id="cancel"  data-i18n="href.cancel">cancel</a>
         <div id="finalCost"></div>
-
-        <div id="credit">
-
-        </div>
+        <div id="credit"></div>
+        <p id="cancel" data-i18n="href.cancel" action="cancelFunction()">Cancel</p>
     </div>
-    <div id="rightSide" >
+    <div id="rightSide" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <button class="button" id="undoButton"></button>
+        <button class="button" id="redoButton"></button>
         <ul id="rightList">
         </ul>
     </div>
@@ -33,6 +33,7 @@
 <script src="../js/start.js"></script>
 <script src="../js/undoRedoAbs.js"></script>
 <script src="../js/mainObjects.js"></script>
+<script src="../js/beer.js"></script>
 <script src="../js/paypage.js"></script>
 </body>
 </html>

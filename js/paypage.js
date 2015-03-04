@@ -17,13 +17,9 @@ $(document).ready(function() {
     jQueryBindings.undoBind();
     jQueryBindings.redoBind();
 
-
     var $credit = $('#credit');
     $credit.html("<p>Credit: " + credit +"</p>");
-
-
-
-
+    
 $('#paymentButton').on('click', function(){
 
 
