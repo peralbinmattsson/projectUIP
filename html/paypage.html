@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../css/start.css">
     <link rel="stylesheet" type="text/css" href="../css/paypage.css">
+
 </head>
 <body>
 <header class="center">THE FLYING DUTCHMAN: BLACK SAILS</header>
@@ -11,16 +12,16 @@
 <div id="container" class="center">
     <div id="leftBox">
         <button id ="paymentButton" data-i18n="button.pay">PAY NOW</button>
-        <a href="index.html" id="cancel"  data-i18n="href.cancel">cancel</a>
+       <!-- <a href="index.html" id="cancel"  data-i18n="href.cancel">cancel</a>-->
+        <p id="cancel" data-i18n="href.cancel" action="cancelFunction()">Cancel</p>
         <ul id="txt">
             <li>Total:</li>
             <li>Credit:</li>
         </ul>
     </div>
     <div id="rightSide" ondrop="drop(event)" ondragover="allowDrop(event)">
-       <!-- <button class="button" id="undoButton">UNDO</button>-->
-        <img src="../img/undo-icon.png" style="width:30px;height:30px" id="undoButton">
-    <!--<div id="rightSide" >-->
+        <button class="button" id="undoButton"></button>
+        <button class="button" id="redoButton"></button>
         <ul id="rightList">
         </ul>
     </div>

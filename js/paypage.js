@@ -17,6 +17,7 @@ $(document).ready(function() {
     jQueryBindings.undoBind();
     jQueryBindings.redoBind();
 
+
     //$.each(orderList, function(key, value) {
     //    $('#rightList').append(Mustache.render(rightListItem, value));
     //    var price = {
