@@ -58,21 +58,19 @@
     position: absolute;
 }
 */
-#txt{
-    position: fixed;
-    font-family:"Segoe UI Black";
+#credit{
     font-size: 26px;
     line-height: 300%;
     margin-left: 70px;
-    margin-top:50px ;
+    margin-top: 20px ;
 }
 
-
-
-
-
-
-
+#finalCost{
+    font-size: 26px;
+    line-height: 300%;
+    margin-left: 70px;
+    margin-top: 10px ;
+}
 
 
 
