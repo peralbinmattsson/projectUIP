@@ -147,7 +147,9 @@ li.listItem{
     align-items: center;
     padding: 5px;
     margin-left: 5px;
+    /*
     font-weight: bold;
+    */
 }
 .listItem:hover {
     background-color: #4EB1BA;
@@ -212,8 +214,70 @@ li.listItem{
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
 }
+#undoButton {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    background-image:url("../img/Undo-icon.png");
+    background-position: center;
+}
+#redoButton {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    background-image:url("../img/Redo-icon.png");
+    background-position: center;
+}
 
 
 article#user_info{
-    background-color: yellow;
+    background-color: #639BF1;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 8px;
 }
+
+
+#logout > .button{
+    width: 150px;
+}
+
+#icon>#trans_container{
+    width: 135px;
+    height: 60px;
+    float: right;
+    float: right;
+    margin-bottom: 5px;
+
+}
+
+.icon_language {
+    width: 50px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+#icon>#logout{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    float: right;
+
+}
+
+
+
+

@@ -65,15 +65,18 @@ div#black_wrapper{
 	top:0;
 }
 div#item_editer{
-	color: red;
 	position: fixed;
 	top: 20%;
-	background: yellow;
 	left: 25%;
 	padding: 10px;
 	width: 500px;
 	min-height: 450px;
 	text-align: center;
+	background-color: #4EB1BA;
+    overflow: auto;
+    border: 5px solid #4EB1BA;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
 }
 
 #user_btn, #stock_btn{
@@ -93,5 +96,4 @@ div#item_editer{
 
 .translation_menu{
 	float: right;
-}
 }
