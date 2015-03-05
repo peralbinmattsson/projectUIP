@@ -167,6 +167,7 @@ var jQueryBindings = {
         $('#payButton').on('click', function() {
             localStorage.setItem("order", JSON.stringify(order.orderList));
             localStorage.setItem("total", priceObj.total.toString());
+            localStorage.setItem("stockCount", JSON.stringify(beerList.stockCount));
         });
     },
 };

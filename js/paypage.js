@@ -8,7 +8,9 @@ $(document).ready(function() {
     orderList = JSON.parse( localStorage.getItem("order"));
     totalPrice = JSON.parse( localStorage.getItem("total"));
     credit =  JSON.parse( localStorage.getItem("assets"));
+    stockCount =  JSON.parse( localStorage.getItem("stockCount"));
     order.orderList = orderList;
+    beerList.stockCount = stockCount;
     order.load();
     priceObj.total = totalPrice;
     priceObj.addCost();
