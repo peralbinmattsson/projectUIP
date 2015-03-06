@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     var $credit = $('#credit');
     $credit.html("<p>Credit: " + credit +"</p>");
-    
+
 $('#paymentButton').on('click', function(){
 
 
