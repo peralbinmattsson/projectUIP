@@ -1,0 +1,283 @@
+/**************************************************************
+                (Eric Meyer's) Reset
+**************************************************************/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+
+/*********************************** My styling ***********************************/
+
+html{
+    /* Our choise of font here */
+    font-family: Impact;
+}
+
+/*body {
+    overflow: scroll;
+}*/
+
+.center{
+    max-width: 1024px;
+    margin: 0 auto; 
+}
+
+header{
+    margin-top: 100px !important;
+    font-size: 40px;
+    text-align: center;
+    padding:20px 0;
+    font-family: "Old English";
+    color: #26C6B0;
+    font-weight: bold;
+    background-color: #222930;
+    border: 5px solid #610A3B;
+    border-radius: 8px;
+    background-color: #222930;
+}
+#container {
+    position: relative;
+    width: 2000px;
+    /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
+    background-color: #222930;
+    border: 5px solid #610A3B;
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: auto;
+
+    min-height: 420px;
+    /*opacity: 0.6;*/
+}
+#left {
+    width: 140px;
+    height: 140px;
+    border: 6px solid black;
+    border-radius: 8px;
+    margin-left: 345px;
+    margin-top: 100px;
+    position: absolute;
+}
+#right {
+    width: 140px;
+    height: 140px;
+    border: 6px solid black;
+    border-radius: 8px;
+    margin-left: 527px;
+    margin-top: 100px;
+    position: absolute;
+}
+#beerImg {
+    width: 140px;
+    height: 130px;
+}
+a:link {
+    text-decoration: none;
+    color: white;
+}
+a:active {
+    text-decoration: none;
+    color: white;
+}
+#footer {
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+}
+body{
+    min-height: 100%;
+    background: url('../img/80s1.png') no-repeat 0px 0px fixed;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.button {
+    cursor: pointer;   
+    position:relative;
+    width:200px;
+    color:#000;
+    display:block;
+    text-decoration:none;
+    margin:0 auto;
+    border-radius:5px;
+    /*border:solid 1px #261319;*/
+    background: #881306;
+    text-align:center;
+    padding:10px;
+
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+
+    -webkit-box-shadow: 0px 3px 0px #261319;
+    -moz-box-shadow: 0px 3px 0px #261319;
+    box-shadow: 0px 3px 0px #261319;
+    background-color: #FFF;
+    border: 0;
+}
+.button:active{
+
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    position:relative;
+    top:3px;
+}
+
+li.listItem{
+    background-color: #D76DA9;
+    display: flex;
+    width: 600px;
+    height: 50px;
+    border-radius: 8px;
+    position: relative;
+    border: 5px solid #222930;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+    margin-left: 5px;
+    /*
+    font-weight: bold;
+    */
+}
+.listItem:hover {
+    background-color: #26C6B0;
+}
+#add{
+    background-color: #FFF;
+    border: 0;
+}
+#rightList > li {
+    background-color: #D76DA9;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    float: left;
+    position: relative;
+    border: 2px solid #610A3B;
+    list-style-type: none;
+    align-items: center;
+    padding: 5px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+#rightList > li > button {
+    background-color: #2C2C33;
+    width: 60px;
+    height: 60px;
+    /*margin: 50px auto;*/
+    border-radius: 50% 50%;
+    /* position: relative;*/
+    margin-left: 230px;
+    margin-top : -55px;
+    font-weight: bold;
+    font-size: 35px;
+
+}
+#rightList > li > button:hover {
+    color: #26C6B0;
+}
+#rightSide {
+    position: fixed;
+    margin-top: 10px;
+    width: 330px;
+    height: 320px;
+    margin-left: 650px;
+    background-color: #4EB1BA;
+    overflow: auto;
+    border: 5px solid #4EB1BA;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
+}
+#cost {
+    position: fixed;
+    margin-left: 650px;
+    margin-top: 360px;
+    position: fixed;
+    width: 330px;
+    height: 40px;
+    background-color: #4EB1BA;
+    overflow: auto;
+    border: 5px solid #4EB1BA;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
+}
+#undoButton {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    background-image:url("../img/Undo-icon.png");
+    background-position: center;
+}
+#redoButton {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    background-image:url("../img/Redo-icon.png");
+    background-position: center;
+}
+
+
+article#user_info{
+    background-color: #639BF1;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 8px;
+}
+
+
+#logout > .button{
+    width: 150px;
+}
+
+#icon>#trans_container{
+    width: 135px;
+    height: 60px;
+    float: right;
+    float: right;
+    margin-bottom: 5px;
+
+}
+
+.icon_language {
+    width: 50px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+#icon>#logout{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    float: right;
+
+}
+
+
+
+
