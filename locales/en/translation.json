@@ -9,19 +9,25 @@
     "search_input" : "Search..."
   },
   "Part1": {
-    "payment" : "Payment"
+    "payment" : "Payment:"
   },
-  "total": {
-    "total" : "Total:"
+  "finalCost": {
+    "finalCost" : "Total:"
   },
   "credit": {
     "credit" : "Credit:"
   },
   "drag_flag": {
-    "drag" : "Drag flag here to chose the language:"
+    "drag" : "Drag the flag here to choose the language:"
   },
   "click_flag": {
-    "click" : "or click on it here:"
+    "click" : "or click on the flag"
+  },
+  "paymentbutton": {
+    "button.pay": "Pay Now"
+  },
+  "cancel" : {
+    "href.cancel" : "Cancel"
   }
-  
+
 }

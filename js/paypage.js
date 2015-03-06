@@ -20,7 +20,8 @@ $(document).ready(function() {
     jQueryBindings.redoBind();
 
     var $credit = $('#credit');
-    $credit.html("<p>Credit: " + credit +"</p>");
+    //$credit.html("<p>Credit: " + credit +"</p>");
+    $credit.html(credit);
 
 $('#paymentButton').on('click', function(){
 
@@ -33,11 +34,12 @@ $('#paymentButton').on('click', function(){
 
                 success: function (object) {
                     console.log("success");
-                   alert("Succesful purchase!");
+                 //  alert("Succesful purchase!");
                    // print("Bought drink succesfull");
                 }
             });
         }
+        alert("Succesful purchase!");
     });
 });
 });
