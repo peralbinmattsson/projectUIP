@@ -193,18 +193,17 @@ li.listItem{
     position: fixed;
     margin-top: 10px;
     width: 330px;
-    height: 320px;
+    height: 300px;
     margin-left: 650px;
     background-color: #4EB1BA;
     overflow: auto;
     border: 5px solid #4EB1BA;
     border-radius: 5px;
-    box-shadow: 10px 10px 5px black;
 }
 #cost {
     position: fixed;
     margin-left: 650px;
-    margin-top: 360px;
+    margin-top: 340px;
     position: fixed;
     width: 330px;
     height: 40px;
@@ -212,7 +211,6 @@ li.listItem{
     overflow: auto;
     border: 5px solid #4EB1BA;
     border-radius: 5px;
-    box-shadow: 10px 10px 5px black;
 }
 #undoButton {
     float: left;

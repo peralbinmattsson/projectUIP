@@ -171,6 +171,7 @@ li.listItem{
     padding: 5px;
     margin-left: 15px;
     margin-bottom: 15px;
+    box-shadow: 10px 10px 5px black;
 }
 
 #rightList > li > button {
@@ -184,7 +185,6 @@ li.listItem{
     margin-top : -55px;
     font-weight: bold;
     font-size: 35px;
-
 }
 #rightList > li > button:hover {
     color: #26C6B0;
