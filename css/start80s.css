@@ -240,12 +240,32 @@ li.listItem{
     background-position: center;
 }
 
-
 article#user_info{
+    position : fixed !important;
+    left:50%;
+    margin-left: -517px;
+    width: 2000px;
+    margin-top: -100px;
     background-color: #639BF1;
+    opacity: 0.5;
     height: 50px;
     border: 5px solid black;
     border-radius: 8px;
+    z-index: 10;
+}
+
+article#user_info:hover{
+    position : fixed !important;
+    left:50%;
+    margin-left: -517px;
+    width: 2000px;
+    margin-top: -100px;
+    background-color: #639BF1;
+    opacity: 1;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 8px;
+    z-index: 10;
 }
 
 
@@ -257,9 +277,7 @@ article#user_info{
     width: 135px;
     height: 60px;
     float: right;
-    float: right;
     margin-bottom: 5px;
-
 }
 
 .icon_language {
@@ -276,6 +294,49 @@ article#user_info{
     float: right;
 
 }
+.anim {
+    width: 50px;
+    height: 50px;
+
+    position: relative;
+
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: myfirst;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
+    /* Standard syntax */
+    animation-name: myfirst;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    0%   {left:480px; top:0px;}
+    50%  {left:-480px; top:0px;}
+    100% {left:480px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    0%   {left:480px; top:0px;}
+    50%  {left:-480px; top:0px;}
+    100% {left:480px; top:0px;}
+}
+
+#user_info > .profil {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
 
 
 
