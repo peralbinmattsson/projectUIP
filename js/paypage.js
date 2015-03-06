@@ -44,7 +44,7 @@ $('#paymentButton').on('click', function(){
 });
 
 $("#paymentButton").on("click", function () {
-    $("#black_wrapper, #confirm_editer").fadeIn().removeClass("hidden");    
+    $("#black_wrapper, #confirm_editer, #confirm_btn, #cancel_btn").fadeIn().removeClass("hidden");    
     //$("#black_wrapper, #confirm_editer").fadeIn().addClass("showing");    
     });
 
