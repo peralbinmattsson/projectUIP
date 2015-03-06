@@ -293,6 +293,42 @@ article#user_info:hover{
     float: right;
 
 }
+.anim {
+    width: 50px;
+    height: 50px;
+
+    position: relative;
+
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: myfirst;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
+    /* Standard syntax */
+    animation-name: myfirst;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    0%   {left:480px; top:0px;}
+    50%  {left:-480px; top:0px;}
+    100% {left:480px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    0%   {left:480px; top:0px;}
+    50%  {left:-480px; top:0px;}
+    100% {left:480px; top:0px;}
+}
 
 #user_info > .profil {
     margin-left: 10px;
