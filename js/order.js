@@ -171,4 +171,3 @@ var jQueryBindings = {
         });
     },
 };
-
