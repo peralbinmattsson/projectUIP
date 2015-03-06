@@ -54,6 +54,7 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
+                     $('#add.button').text($.t('Add to cart'));
                    
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));
@@ -63,6 +64,10 @@
                    
                    $('#stock_btn').text($.t('Stock'));
                    $('#user_btn').text($.t('User'));
+
+                    $('#loginas').html('<b>Login as : </b>'+ localStorage.getItem("user"));
+                    $('#assets').html('<b>Assets : </b>'+ localStorage.getItem("assets"));
+                    $('#logout-btn').text($.t('Logout'));
                    
         });
     /*Store english as a selected language*/     
@@ -86,6 +91,7 @@
                     
                    $('.search').i18n();
                    $('#payButton').text($.t('Betala'));
+                    $("#add.button").text($.t('lagg i varukorg'));
                    
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Totalsumma:'));
@@ -95,7 +101,10 @@
                    
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Användaren'));
-                   
+
+                    $('#loginas').html('<b>Logga in som : </b>'+ localStorage.getItem("user"));
+                    $('#assets').html('<b>Tillgangar : </b>'+ localStorage.getItem("assets"));
+                    $('#logout-btn').text($.t('Loggar ut'));
         });
     /*Store swedish as a selected language*/   
         window.localStorage.setItem("language", "sw");

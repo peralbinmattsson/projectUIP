@@ -17,12 +17,7 @@
   "credit": {
     "credit" : "Credit:"
   },
-  "drag_flag": {
-    "drag" : "Drag the flag here to choose the language:"
-  },
-  "click_flag": {
-    "click" : "or click on the flag"
-  },
+
   "paymentbutton": {
     "button.pay": "Pay Now"
   },

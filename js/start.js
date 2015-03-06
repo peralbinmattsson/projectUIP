@@ -16,9 +16,8 @@ $(document).ready(function() {
 		
 	}
     else{
-        $("#user_info").append("<div>Login as: " + localStorage.getItem("user") + "</div>");
-    	$("#user_info").append("<div>Assets : " + localStorage.getItem("assets") + "</div>");
-
+        $("#user_info").append("<div class='profil' id='loginas' data-i18n='loginas'><b>Login as : </b>" + localStorage.getItem("user") + "</div>");
+    	$("#user_info").append("<div class='profil' id='assets' data-i18n='assets'><b>Assets : </b>" + localStorage.getItem("assets") + "</div>");
     };
 
     $('#left, #right').hover(function() {

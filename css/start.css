@@ -243,10 +243,31 @@ li.listItem{
 
 
 article#user_info{
+    position : fixed !important;
+    left:50%;
+    margin-left: -517px;
+    width: 2000px;
+    margin-top: -100px;
     background-color: #639BF1;
+    opacity: 0.5;
     height: 50px;
     border: 5px solid black;
     border-radius: 8px;
+    z-index: 10;
+}
+
+article#user_info:hover{
+    position : fixed !important;
+    left:50%;
+    margin-left: -517px;
+    width: 2000px;
+    margin-top: -100px;
+    background-color: #639BF1;
+    opacity: 1;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 8px;
+    z-index: 10;
 }
 
 
@@ -258,9 +279,7 @@ article#user_info{
     width: 135px;
     height: 60px;
     float: right;
-    float: right;
     margin-bottom: 5px;
-
 }
 
 .icon_language {
@@ -277,6 +296,13 @@ article#user_info{
     float: right;
 
 }
+
+#user_info > .profil {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
 
 
 

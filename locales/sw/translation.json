@@ -17,12 +17,6 @@
   "credit": {
     "credit" : "Kredit:"
   },
-  "drag_flag": {
-    "drag" : "Dra flaggan hit för att välja språk:"
-  },
-  "click_flag": {
-    "click" : "klicka på flaggan"
-  },
   "paymentbutton": {
     "button.pay": "Betala nu"
   },
