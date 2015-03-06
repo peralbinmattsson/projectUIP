@@ -70,9 +70,6 @@ var order = {
                 this.orderList[id] = {'id': id, 'name': name, 'price': thisPrice, 'amount': 1};
             }
             order.load();
-               
-            console.log(this.orderList);
-
             priceObj.total = parseInt(priceObj.total) + parseInt(thisPrice);
             priceObj.addCost();
         } else {
