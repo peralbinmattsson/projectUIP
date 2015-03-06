@@ -1,5 +1,5 @@
 var stockItem =
-    "<li id='item_{{beer_id}}' class='listItem' name='{{namn}}'>"+
+    "<li id='item_{{beer_id}}' type='drink' class='listItem' name='{{namn}}' onclick='printInfo({{beer_id}})'>"+
     "<span id='name'>{{namn}} </span>"+
     "<span id='name2'>{{namn2}} </span>" + 
     "<span id='count'>{{count}}</span>" +
@@ -8,7 +8,7 @@ var stockItem =
     "</li>";
 
 var userList =
-    "<li id='item_{{username}}' class='listItem' name='{{username}}'>"+
+    "<li id='item_{{username}}' type='user' class='listItem' name='{{username}}'>"+
     "<span id='username'>{{username}} </span>"+
     "<span id='fname'>{{first_name}} </span>" + 
     "<span id='lname'>{{last_name}}</span>" + 
@@ -50,8 +50,8 @@ function insertItemValues (item, type) {
     $("#drink_values, #user_values").empty();
     if (type == "user") {
         content += '<span>Username: </span><span id="username">' + item.attr('data-id') + '</span><br/>';
-        content += '<span>Firstname: </span><span id="fname">' + item.attr('fname') + '</span><br/>';
-        content += '<span>Lastname: </span><span id="lname">' + item.attr('lname') + '</span><br/>';
+        content += '<span>Firstname: </span><input id="fname" value="' + item.attr('fname') + '" /><br/>';
+        content += '<span>Lastname: </span><input id="lname" value="' + item.attr('lname') + '" /><br/>';
         content += '<span>Assets: </span><span id="assets">' + item.attr('assets') + '</span><br/>';
         content += '<span>Add assets: </span><input type="number" name="new_assets" id="new_assets" />';
         content += '<input id="user_name" type="hidden" value="' + item.attr("data-id") + '">';
@@ -74,8 +74,13 @@ function saveItem (arg) {
         case "user":
             var user = $("#user_name").val();
             var add = $("#new_assets").val();
-            //print(user);
+            var fname = $("input#fname").val();
+            var lname = $("input#lname").val();
+            
             var itemInList = $("#item_" + user + " span#assets");
+            var itemInListFN = $("#item_" + user + " span#fname");
+            var itemInListLN = $("#item_" + user + " span#lname");
+            
             var old_value = itemInList.text();
             var id;
             $.ajax({
@@ -98,8 +103,20 @@ function saveItem (arg) {
                     };                    
                 }
             });
+            $.ajax({
+                type: 'GET',
+                url: "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=user_edit&new_username=" + user + "&new_password=" + user + "&first_name=" + fname + "&last_name=" + lname + "&email=''&phone=''",
+                success: function (data) {
+                    if(data.type != "error") {
+                        $(itemInListFN).text(fname);
+                        $(itemInListLN).text(lname);
+                        print("Update names succesfull");
+                    }else{
+                        print("Error: Didn't update names");
+                    };
+                }
+            });
             $("#black_wrapper, #item_editer").fadeOut();
-            //http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=user_edit&new_username=sivo&new_password=sivo&first_name=Simon&last_name=Knorr&email=''&phone=''
             break;
 
         case "drink":
@@ -124,6 +141,25 @@ function saveItem (arg) {
     }
 }
 
+function printInfo (id) {
+    $("#rightSide").empty();
+    $.ajax({
+        type: 'GET',
+        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
+        success: function (data) {
+            if (data.type != "error") {
+                var content = "<table>";
+                $.each(data['payload'][0], function (index, value) {
+                    content += "<tr><td>" + index + "</td><td>" + value + "</td></tr>";
+                });
+                content += "</table>";
+                $("#rightSide").html(content);
+            } else{
+                print("Error: Request fail");
+            };
+        }
+    });
+}
 
 $(document).ready(function() {
 
@@ -152,10 +188,12 @@ $(document).ready(function() {
     $("#stock_btn").on("click", function () {
         $beer.show();
         $user.hide();
+        $("#rightSide").show().text("Click on the dink for more info");
     });
     $("#user_btn").on("click", function () {
         $user.show();
         $beer.hide();
+        $("#rightSide").hide()
     });
     
     $('.search').keyup(function(e) {
