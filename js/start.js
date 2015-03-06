@@ -2,7 +2,8 @@ function logout () {
 	localStorage.removeItem("user");
 	localStorage.removeItem("assets");
 	localStorage.removeItem("user_id");
-	localStorage.removeItem("isAdmin");
+    localStorage.removeItem("isAdmin");
+	localStorage.removeItem("theme");
 	localStorage["isLoggedIn"] = false;
 	window.location.href = "index.html";
 

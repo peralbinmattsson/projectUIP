@@ -28,13 +28,23 @@ $(document).ready(function(){
   localStorage.setItem("language", "en");
 
   $("#login-btn").on('click', function(){
+      // Checking for blank fields.
       var username = $("#username-input").val();
       var password = $("#password-input").val();
-      // Checking for blank fields.
       if( username =='' || password ==''){
         alert("Please fill all fields...!!!!!!");
       }else {
         authentification(username, password, 'index2.html');
       };
   });
+  $("#password-input").focus(function (argument) {
+    $(this).keypress(function (k) {
+      var username = $("#username-input").val();
+      var password = $("#password-input").val();
+      if (k.which == 13) {
+        authentification(username, password, 'index2.html');
+        print("pressed enter!");
+      };
+    });
+  })
 });
