@@ -1,5 +1,5 @@
 /*Initialize i18n if a language has be already selected*/
-        /*
+        
         if (localStorage.getItem("language")){
               
               var options = {
@@ -37,7 +37,7 @@
             });
           
         }
-        */
+        
 /*function to select english*/        
     function changeE() {
           var options ={
