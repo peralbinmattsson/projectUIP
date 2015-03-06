@@ -7,7 +7,7 @@ var $finalCost = $('#finalCost');
 var leftListItem =
     "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
     "</span><span>{{pub_price}} kr</span>" +
-    "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button'-" +
+    "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button'" +
     "price='{{pub_price}}' data-i18n='addCart'>Add to cart</button></li>";
 
 var leftListItemRed = 
@@ -70,7 +70,10 @@ var order = {
                 this.orderList[id] = {'id': id, 'name': name, 'price': thisPrice, 'amount': 1};
             }
             order.load();
-            priceObj.total = priceObj.total + parseInt(thisPrice);
+               
+            console.log(this.orderList);
+
+            priceObj.total = parseInt(priceObj.total) + parseInt(thisPrice);
             priceObj.addCost();
         } else {
             alert('No more of this beer in stock!'); 
