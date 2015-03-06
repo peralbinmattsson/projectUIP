@@ -23,7 +23,7 @@ $(document).ready(function() {
     $credit.html("<p>Credit: " + credit +"</p>");
 
 
-$('#confir_btn').on('click', function(){
+$('#confirm_btn').on('click', function(){
     $.each(orderList, function(key,value) {
         for (var i = 0; i < value.amount; i++){
             $.ajax({
@@ -42,7 +42,7 @@ $('#confir_btn').on('click', function(){
 });
 
 $('#cancel_btn').on('click', function(){
-    "window.location.href='beer.html'"
+    window.location.href='beer.html';
 });
 
 $("#paymentButton").on("click", function () {
