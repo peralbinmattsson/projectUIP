@@ -53,11 +53,10 @@ var order = {
     orderList: {},
     //Methods
     load: function() {
-        orderObj = this;
         $rightList.empty();
         $.each(this.orderList, function(key, value) {
             $rightList.append(Mustache.render(rightListItem, value));
-        }); 
+        });
     },
     addOrder: function(id, name, thisPrice) {
         if (beerList.stockCount[id] > 0) {
@@ -136,7 +135,6 @@ var jQueryBindings = {
             var command = new addToOrder(order, id, name, price);
             undoRedoStack.push(command);
             button.click(command);
-            console.log(undoRedoStack);
         });
     },
     removeBind: function() {
@@ -147,7 +145,6 @@ var jQueryBindings = {
             var command = new removeFromOrder(order, id, name, price);
             undoRedoStack.push(command);
             button.click(command);
-            console.log(undoRedoStack);
         });
     },
     undoBind: function() {
@@ -156,7 +153,6 @@ var jQueryBindings = {
                 var command = undoRedoStack.undo();
                 button.clickUndo(command);
             }
-            console.log(undoRedoStack);
         });
     },
     redoBind: function() {
@@ -165,13 +161,13 @@ var jQueryBindings = {
                 var command = undoRedoStack.redo();
                 button.clickRedo(command);
             }
-            console.log(undoRedoStack);
         });
     },
     payBind: function() {
         $('#payButton').on('click', function() {
             localStorage.setItem("order", JSON.stringify(order.orderList));
             localStorage.setItem("total", priceObj.total.toString());
+            localStorage.setItem("stockCount", JSON.stringify(beerList.stockCount));
         });
     },
 };
