@@ -23,6 +23,9 @@
   },
   "cancel" : {
     "href.cancel" : "Cancel"
+  },
+  "add": {
+    "addCart" : "Add to cart"
   }
 
 }

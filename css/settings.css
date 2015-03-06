@@ -97,3 +97,17 @@ div#item_editer{
 .translation_menu{
 	float: right;
 }
+
+#rightSide{
+	margin-top: 0px;
+	height: 400px;
+}
+#rightSide table{
+	margin-left: 10px;
+}
+
+#confirm_button{
+	float: left;	
+}
+}
+

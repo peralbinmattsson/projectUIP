@@ -1,5 +1,5 @@
 /*Initialize i18n if a language has be already selected*/
-        /*
+        
         if (localStorage.getItem("language")){
               
               var options = {
@@ -54,7 +54,6 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
-                     $('#add.button').text($.t('Add to cart'));
                    
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));

@@ -36,20 +36,19 @@ header{
     text-align: center;
     padding:20px 0;
     font-family: "Old English";
-    color: #FFFFFF;
+    color: #26C6B0;
     font-weight: bold;
     background-color: #222930;
-    border: 5px solid black;
+    border: 5px solid #610A3B;
     border-radius: 8px;
-    background-color: #192156;
-    color: white;
+    background-color: #222930;
 }
 #container {
     position: relative;
     width: 2000px;
     /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
     background-color: #222930;
-    border: 5px solid black;
+    border: 5px solid #610A3B;
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
@@ -94,7 +93,8 @@ a:active {
 }
 body{
     min-height: 100%;
-    background: url('../img/pints-of-beer.jpg') no-repeat 0px 0px fixed;
+    background: url('../img/80s1.png') no-repeat 0px 0px fixed;
+    background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -136,7 +136,7 @@ body{
 }
 
 li.listItem{
-    background-color: #639BF1;
+    background-color: #D76DA9;
     display: flex;
     width: 600px;
     height: 50px;
@@ -152,25 +152,26 @@ li.listItem{
     */
 }
 .listItem:hover {
-    background-color: #4EB1BA;
+    background-color: #26C6B0;
 }
 #add{
     background-color: #FFF;
     border: 0;
 }
 #rightList > li {
-    background-color: #639BF1;
+    background-color: #D76DA9;
     width: 200px;
     height: 50px;
     border-radius: 8px;
     float: left;
     position: relative;
-    border: 2px solid black;
+    border: 2px solid #610A3B;
     list-style-type: none;
     align-items: center;
     padding: 5px;
     margin-left: 15px;
     margin-bottom: 15px;
+    box-shadow: 10px 10px 5px black;
 }
 
 #rightList > li > button {
@@ -184,26 +185,26 @@ li.listItem{
     margin-top : -55px;
     font-weight: bold;
     font-size: 35px;
-
 }
 #rightList > li > button:hover {
-    color: #639BF1;
+    color: #26C6B0;
 }
 #rightSide {
     position: fixed;
     margin-top: 10px;
     width: 330px;
-    height: 300px;
+    height: 320px;
     margin-left: 650px;
     background-color: #4EB1BA;
     overflow: auto;
     border: 5px solid #4EB1BA;
     border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
 }
 #cost {
     position: fixed;
     margin-left: 650px;
-    margin-top: 340px;
+    margin-top: 360px;
     position: fixed;
     width: 330px;
     height: 40px;
@@ -211,6 +212,7 @@ li.listItem{
     overflow: auto;
     border: 5px solid #4EB1BA;
     border-radius: 5px;
+    box-shadow: 10px 10px 5px black;
 }
 #undoButton {
     float: left;
@@ -241,31 +243,10 @@ li.listItem{
 
 
 article#user_info{
-    position : fixed !important;
-    left:50%;
-    margin-left: -517px;
-    width: 2000px;
-    margin-top: -100px;
     background-color: #639BF1;
-    opacity: 0.5;
     height: 50px;
     border: 5px solid black;
     border-radius: 8px;
-    z-index: 10;
-}
-
-article#user_info:hover{
-    position : fixed !important;
-    left:50%;
-    margin-left: -517px;
-    width: 2000px;
-    margin-top: -100px;
-    background-color: #639BF1;
-    opacity: 1;
-    height: 50px;
-    border: 5px solid black;
-    border-radius: 8px;
-    z-index: 10;
 }
 
 
@@ -277,7 +258,9 @@ article#user_info:hover{
     width: 135px;
     height: 60px;
     float: right;
+    float: right;
     margin-bottom: 5px;
+
 }
 
 .icon_language {
@@ -294,13 +277,6 @@ article#user_info:hover{
     float: right;
 
 }
-
-#user_info > .profil {
-    margin-left: 10px;
-    margin-top: 5px;
-    font-family: "Times New Roman", Georgia, Serif;
-}
-
 
 
 

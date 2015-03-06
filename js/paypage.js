@@ -20,12 +20,10 @@ $(document).ready(function() {
     jQueryBindings.redoBind();
 
     var $credit = $('#credit');
-    //$credit.html("<p>Credit: " + credit +"</p>");
-    $credit.html(credit);
-
-$('#paymentButton').on('click', function(){
+    $credit.html("<p>Credit: " + credit +"</p>");
 
 
+$('#confirm_btn').on('click', function(){
     $.each(orderList, function(key,value) {
         for (var i = 0; i < value.amount; i++){
             $.ajax({
@@ -42,6 +40,21 @@ $('#paymentButton').on('click', function(){
         alert("Succesful purchase!");
     });
 });
+
+$('#cancel_btn').on('click', function(){
+    window.location.href='beer.html';
+});
+
+$("#paymentButton").on("click", function () {
+    $("#black_wrapper, #confirm_editer, #confirm_btn, #cancel_btn").fadeIn().removeClass("hidden");    
+    //$("#black_wrapper, #confirm_editer").fadeIn().addClass("showing");    
+    });
+
+    //On background press, fade out the background
+    $("#black_wrapper").on("click", function () {
+        $("#black_wrapper, #confirm_editer").fadeOut();
+    });
+
 });
 
 

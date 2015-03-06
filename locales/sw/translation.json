@@ -22,5 +22,8 @@
   },
   "cancel" : {
     "href.cancel" : "Avbryt"
+  },
+  "add": {
+    "addCart" : "Lägg till varukorg"
   }
 }
