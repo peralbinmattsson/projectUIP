@@ -54,11 +54,12 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
-                   
+                   $('.add').text($.t('Add to cart'));
+
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));
                    $('#credit').text($.t('Credit:'));
-                   $('#cancelButton').text($.t('Cancel'));
+                   $('#cancel').text($.t('Cancel'));
                    $('#paymentButton').text($.t('Pay Now'));
                    
                    $('#stock_btn').text($.t('Stock'));
@@ -86,7 +87,8 @@
                     
                    $('.search').i18n();
                    $('#payButton').text($.t('Betala'));
-                   
+                   $('.add').text($.t('Lägg till varukorg'));
+
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Totalsumma:'));
                    $('#credit').text($.t('Kredit:'));

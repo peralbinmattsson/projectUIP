@@ -20,8 +20,8 @@ $(document).ready(function() {
     jQueryBindings.redoBind();
 
     var $credit = $('#credit');
-    //$credit.html("<p>Credit: " + credit +"</p>");
-    $credit.html(credit);
+    $credit.html("<p>Credit: " + credit +"</p>");
+
 
 $('#paymentButton').on('click', function(){
 
