@@ -53,8 +53,10 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
-                   
-                   $('.Part1').i18n();
+                $("#add.button").text($.t('Add to cart'));
+
+
+            $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));
                    $('#credit').text($.t('Credit:'));
                    $('#cancelButton').text($.t('Cancel'));
@@ -90,7 +92,7 @@
                    $('.search').i18n();
                    $('#payButton').text($.t('Betala'));
                     $("#add.button").text($.t('lagg i varukorg'));
-                   
+
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Totalsumma:'));
                    $('#credit').text($.t('Kredit:'));
