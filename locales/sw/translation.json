@@ -9,18 +9,27 @@
     "search_input" : "Sök..."
   },
   "Part1": {
-    "payment" : "Betalning"
+    "payment" : "Att betala:"
   },
-  "total": {
-    "total" : "Totalt:"
+  "finalCost": {
+    "finalCost" : "Totalt:"
   },
   "credit": {
     "credit" : "Kredit:"
   },
   "drag_flag": {
-    "drag" : "Dra flaggan här för att välja språk:"
+    "drag" : "Dra flaggan hit för att välja språk:"
   },
   "click_flag": {
-    "click" : "eller klicka på den här:"
+    "click" : "klicka på flaggan"
+  },
+  "paymentbutton": {
+    "button.pay": "Betala nu"
+  },
+  "cancel" : {
+    "href.cancel" : "Avbryt"
+  },
+  "add": {
+    "addCart" : "Lägg till varukorg"
   }
 }

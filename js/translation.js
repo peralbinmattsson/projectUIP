@@ -1,5 +1,5 @@
 /*Initialize i18n if a language has be already selected*/
-        /*
+        
         if (localStorage.getItem("language")){
               
               var options = {
@@ -37,7 +37,7 @@
             });
           
         }
-        */
+        
 /*function to select english*/        
     function changeE() {
           var options ={
@@ -54,12 +54,13 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
-                   
+                   $('.add').text($.t('Add to cart'));
+
                    $('.Part1').i18n();
-                   $('#total').i18n();
-                   $('#credit').i18n();
-                   $('#CancelButton').text($.t('Cancel'));
-                   $('#PaymentButton').text($.t('Pay Now'));
+                   $('#finalCost').text($.t('Total:'));
+                   $('#credit').text($.t('Credit:'));
+                   $('#cancel').text($.t('Cancel'));
+                   $('#paymentButton').text($.t('Pay Now'));
                    
                    $('#stock_btn').text($.t('Stock'));
                    $('#user_btn').text($.t('User'));
@@ -86,12 +87,13 @@
                     
                    $('.search').i18n();
                    $('#payButton').text($.t('Betala'));
-                   
+                   $('.add').text($.t('Lägg till varukorg'));
+
                    $('.Part1').i18n();
-                   $('#total').i18n();
-                   $('#credit').i18n();
-                   $('#CancelButton').text($.t('Avboka'));
-                   $('#PaymentButton').text($.t('Betala nu'));
+                   $('#finalCost').text($.t('Totalsumma:'));
+                   $('#credit').text($.t('Kredit:'));
+                   $('#cancel').text($.t('Avbryt'));
+                   $('#paymentButton').text($.t('Betala nu'));
                    
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Användaren'));

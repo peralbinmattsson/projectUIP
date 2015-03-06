@@ -4,11 +4,11 @@ var $rightSide = $('#rightSide');
 var $cost = $('#cost');
 var $finalCost = $('#finalCost');
 //HTML VARIABLES
-var leftListItem = 
+var leftListItem =
     "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
     "</span><span>{{pub_price}} kr</span>" +
     "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button'" +
-    "price='{{pub_price}}'>Add to cart</button></li>";
+    "price='{{pub_price}}' data-i18n='addCart'>Add to cart</button></li>";
 
 var leftListItemRed = 
     "<li style='color:red;' id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
@@ -70,7 +70,7 @@ var order = {
                 this.orderList[id] = {'id': id, 'name': name, 'price': thisPrice, 'amount': 1};
             }
             order.load();
-            priceObj.total = priceObj.total + parseInt(thisPrice);
+            priceObj.total = parseInt(priceObj.total) + parseInt(thisPrice);
             priceObj.addCost();
         } else {
             alert('No more of this beer in stock!'); 
