@@ -42,6 +42,17 @@ $('#paymentButton').on('click', function(){
         alert("Succesful purchase!");
     });
 });
+
+$("#paymentButton").on("click", function () {
+    $("#black_wrapper, #item_editer").fadeIn().removeClass("hidden");    
+    //$("#black_wrapper, #item_editer").fadeIn().addClass("showing");    
+    });
+
+    //On background press, fade out the background
+    $("#black_wrapper").on("click", function () {
+        $("#black_wrapper, #item_editer").fadeOut();
+    });
+
 });
 
 
