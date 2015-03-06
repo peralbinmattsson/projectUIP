@@ -7,7 +7,7 @@
   margin-top: 100px;
 }
 
-#trans_container{
+/*#trans_container{
   float: right;
 }
 
@@ -22,7 +22,7 @@
   border-radius: 8px;
   margin-top: 5px;
   
-}
+}*/
 
 /*.translation_menu{
   width: 135px;
@@ -42,18 +42,19 @@ img.icon_language {
 }*/
 
 #username-wrapper {
-  margin-left: 30px;
-  margin-top: 45px;
+    margin-left: 62px;
+    margin-top: 45px;
+    align-items: center;
 }
 
 #password-wrapper {
-  margin-left: 30px;
+  margin-left: 63px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-#password-wrapper {
+/*#password-wrapper {
   margin-left: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
-}
+}*/
