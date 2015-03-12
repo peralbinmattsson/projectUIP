@@ -8,12 +8,8 @@ var leftListItem =
     "<li id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
     "</span><span>{{pub_price}} kr</span>" +
     "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button' data-i18n='button.addtocart'" +
-    "price='{{pub_price}}' data-i18n='addCart'>Add to cart</button></li>";
-
-var leftListItemRed = 
-    "<li style='color:red;' id='item' class='listItem' name='{{namn}}'><span>{{namn}}" +
-    "</span><span>{{pub_price}} kr</span>" +
-    "</li>";
+    "price='{{pub_price}}' data-i18n='addCart'>Add to cart</button><img src='../img/beer-icon.png'" +
+    "height='40' width='40'></li>";
 
 var rightListItem = 
     "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
@@ -40,9 +36,7 @@ var beerList = {
     //Methods
     listBeer: function(beer) {
         if (beer.namn != "") {
-            if (beer.count < 1) {
-                $leftList.append(Mustache.render(leftListItemRed, beer));
-            } else {
+            if (beer.count > 0) {
                 this.stockCount[beer.beer_id] = beer.count;
                 $leftList.append(Mustache.render(leftListItem, beer));
             }
