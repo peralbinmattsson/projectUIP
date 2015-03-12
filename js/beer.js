@@ -7,6 +7,7 @@ $(document).ready(function() {
     jQueryBindings.payBind();
     jQueryBindings.undoBind();
     jQueryBindings.redoBind();
+    dnd.prepareDrag();
 
     $(window).bind('scroll', function() {
         var navHeight = $(window).height() - 200;

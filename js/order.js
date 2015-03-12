@@ -9,7 +9,8 @@ var leftListItem =
     "</span><span>{{pub_price}} kr</span>" +
     "<button id='add' data-id='{{beer_id}}' name='{{namn}}' class='button' data-i18n='button.addtocart'" +
     "price='{{pub_price}}' data-i18n='addCart'>Add to cart</button><img src='../img/beer-icon.png'" +
-    "height='40' width='40'></li>";
+    "height='40' width='40' id='icon' draggable='true' ondragstart='dnd.drag(event)'" +
+    "dataid='{{beer_id}}' name='{{namn}}' price='{{pub_price}}'></li>";
 
 var rightListItem = 
     "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
@@ -163,5 +164,38 @@ var jQueryBindings = {
             localStorage.setItem("total", priceObj.total.toString());
             localStorage.setItem("stockCount", JSON.stringify(beerList.stockCount));
         });
+    },
+    //dndBind: function() {
+    //    $leftList.delegate('', '' 
+    //},
+};
+var dnd = {
+    id: null,
+    name: null,
+    price: null,
+    //Methods
+    prepareDrag: function() {
+        $leftList.delegate('#icon', 'mouseover', function() {
+            dnd.id = $(this).attr('dataid');
+            dnd.name = $(this).attr('name');
+            dnd.price = $(this).attr('price');
+        });
+    },
+    drag: function(e) {
+        e.dataTransfer.setData("id", this.id);
+        e.dataTransfer.setData("name", this.name);
+        e.dataTransfer.setData("price", this.price);
+    }, 
+    allow: function(e) {
+        e.preventDefault();
+    },
+    drop: function(e) {
+        e.preventDefault();
+        var id = e.dataTransfer.getData("id");
+        var name = e.dataTransfer.getData("name");
+        var price = e.dataTransfer.getData("price");
+        var command = new addToOrder(order, id, name, price);
+        undoRedoStack.push(command);
+        button.click(command);
     },
 };
