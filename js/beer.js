@@ -1,13 +1,13 @@
 $(document).ready(function() {
     //AJAX REQUESTS AND JQUERY EVENTS
-    jQueryBindings.getAll();
+    items.getAll();
     jQueryBindings.searchBind();
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
     jQueryBindings.payBind();
     jQueryBindings.undoBind();
     jQueryBindings.redoBind();
-    dnd.prepareDrag();
+    jQueryBindings.prepareDrag();
 
     $(window).bind('scroll', function() {
         var navHeight = $(window).height() - 200;
