@@ -24,10 +24,21 @@ span {
     margin-bottom: 10px;
     margin-left: 30px;
 }
-
-
+button.typeButton {
+    cursor: pointer;
+    background-color: white;
+}
+button.typeButton:active {
+    color: white;
+    background-color: black;
+}
+button.typeButton:focus {
+    color: white;
+    background-color: black;
+}
 input.search {
     height: 20px;
+    width: 150px;
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
@@ -38,4 +49,7 @@ input.search {
 }
 #cost p {
     font-weight: bold;
+}
+#icon {
+    cursor: pointer;
 }

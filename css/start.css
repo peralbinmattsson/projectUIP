@@ -104,7 +104,8 @@ body{
 
 .button {
     cursor: pointer;   
-    position:relative;
+    position: relative;
+    float: left;
     width:200px;
     color:#000;
     display:block;

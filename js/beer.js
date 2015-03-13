@@ -9,6 +9,7 @@ $(document).ready(function() {
     jQueryBindings.undoBind();
     jQueryBindings.redoBind();
     jQueryBindings.prepareDrag();
+    jQueryBindings.showAll();
     jQueryBindings.showBeer();
     jQueryBindings.showWine();
 

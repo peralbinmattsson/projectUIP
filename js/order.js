@@ -236,6 +236,11 @@ var jQueryBindings = {
             dnd.type = $(this).attr('itemType');
         });
     },
+    showAll: function() {
+        $('#showAll').on('click', function() {
+            items.load("all");
+        });
+    },
     showBeer: function() {
         $('#showBeer').on('click', function() {
             items.load("beer");
