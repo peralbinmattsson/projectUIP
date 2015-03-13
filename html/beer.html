@@ -3,7 +3,7 @@
 <head>
     <link id="mainStyle" rel="stylesheet" type="text/css" href="../css/start.css">
     <link rel="stylesheet" type="text/css" href="../css/beer.css">
-    <meta charset="utf-8" />
+    <meta charset="utf-8" >
 </head>
 <body>
 
@@ -17,6 +17,9 @@
                     <img class="icon_language" draggable='true' id='sw' onclick='changeS();' src='../img/drapeau_suedois.jpg'/>
                 </div>
             </div>
+            <div id="change-theme">
+                <button class="button" id="changeTheme" data-i18n="changeTheme">Change theme</button>
+            </div>
             <div id="logout">
                 <button class="button" onclick="logout()" id= "logout-btn" data-i18n="button.logout">Logout</button>
             </div>
@@ -28,9 +31,8 @@
     <div id="container" class="center">
         <div id="leftSide">
            <input class="search" placeholder="Search..." type="search" data-i18n="[placeholder]search.search_input"/>
-           <button id="changeTheme">Change theme</button>
-           <button id="showBeer">Beer</button>
-           <button id="showWine">Wine</button>
+           <button  id="showBeer" data-i18n="showBeer">Beer</button>
+           <button  id="showWine" data-i18n="showWine">Wine</button>
             <ul id="leftList">
             </ul>
         </div>

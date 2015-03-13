@@ -13,6 +13,8 @@
 span {
     width: 300px;
 }
+
+
 #payButton {
     float: left;
     width: 64px;
@@ -24,6 +26,7 @@ span {
     margin-bottom: 10px;
     margin-left: 30px;
 }
+
 
 
 input.search {
