@@ -1,9 +1,6 @@
 $(document).ready(function() {
     //AJAX REQUESTS AND JQUERY EVENTS
-    items.itemTypes = JSON.parse(localStorage.getItem("itemTypes"));
     items.getAll();
-    items.setTypes();
-    //items.load();
 
     jQueryBindings.searchBind();
     jQueryBindings.addBind();
@@ -13,6 +10,7 @@ $(document).ready(function() {
     jQueryBindings.redoBind();
     jQueryBindings.prepareDrag();
     jQueryBindings.showBeer();
+    jQueryBindings.showWine();
 
     $(window).bind('scroll', function() {
         var navHeight = $(window).height() - 200;

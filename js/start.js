@@ -42,14 +42,6 @@ $(document).ready(function() {
         $(this).css('border-color', 'black');
     });
 
-    $('#left').on('homeMadeEvent', function() {
-        items.setTypes();
-        console.log(items.itemTypes);
-        localStorage.setItem("itemTypes", JSON.stringify(items.itemTypes));
-    });
-
-    $('#left').trigger('homeMadeEvent');
-
     setTheme();
     $('#changeTheme').on('click', function() {
         var $link = $('#mainStyle');

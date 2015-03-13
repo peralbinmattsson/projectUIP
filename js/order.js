@@ -11,11 +11,21 @@ var leftListItem =
     "data-i18n='button.addtocart'" +
     "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/{{type}}-icon.png'" +
     "height='40' width='40' id='icon' draggable='true' ondragstart='dnd.drag(event)'" +
+    "dataid='{{id}}' name='{{name}}' price='{{price}}' itemType='{{type}}'></li>";
+
+var leftListItemLoad =
+    "<li id='item' class='listItem' name='{{name}}'><span>{{name}}" +
+    "</span><span>{{price}} kr</span>" +
+    "<button id='add' data-id='{{id}}' name='{{name}}' itemType='{{type}}' class='button'" +
+    "data-i18n='button.addtocart'" +
+    "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/load-icon.gif'" +
+    "height='35' width='35'" +
     "dataid='{{id}}' name='{{name}}' price='{{price}}'></li>";
 
 var rightListItem = 
     "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
-    "{{price}} kr</p><button class='button' data-id='{{id}}'" +
+    "{{price}} kr <img src='../img/{{type}}-icon.png' height='20' width='20'></p>" +
+    "<button class='button' data-id='{{id}}'" +
     "id=remove price='{{price}}' name='{{name}}'>X</button></li>";
 
 var costItem = 
@@ -35,21 +45,31 @@ function partOf(value, name) {
 var items = {
     stockCount: {}, 
     itemList: {},
-    itemTypes: {},
+    typeCount: 0,
+    itemListLength: 0,
     //Methods
     listItem: function(item) {
         if (item.name != "") {
             if (item.count > 0) {
                 this.stockCount[item.id] = item.count;
-                $leftList.append(Mustache.render(leftListItem, item));
+                if (item.type == "load") {
+                    //console.log('dask');
+                    $leftList.append(Mustache.render(leftListItemLoad, item));
+                } else {
+                    $leftList.append(Mustache.render(leftListItem, item));
+                }
             }
         }
     },
-    load: function() {
+    load: function(type) {
         $leftList.empty();
-        $.each(this.itemList, function(key, value) {
-            if (value['type'] == 'beer') {
+        $.each(items.itemList, function(key, value) {
+            if (type == "all") {
                 items.listItem(value);
+            } else {
+                if (type == value.type) {
+                    items.listItem(value);
+                }
             }
         }); 
     },
@@ -59,36 +79,41 @@ var items = {
             url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
             success: function(object) {
                 var data = object['payload'];
+                items.itemListLength = Object.keys(data).length;
                 $.each(data, function(i, item) {
                     var id = item.beer_id;
                     var name = item.namn;
                     var price = item.pub_price;
                     var count = item.count;
-                    items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': items.itemTypes[id]};
+                    items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'load'};
                     items.listItem(items.itemList[id]);
+                    items.setType(id);
                 });
             }
         });
     },
-    setTypes: function() {
-        $.each(this.itemList, function(key, value) {
-            $.ajax({
-                type: 'GET',
-                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + value.id,
-                success: function(object) {
-                    var data = object['payload'];
-                    if (data[0] != undefined) {
-                        var typeDesc = data[0]['varugrupp'];
-                        if (partOf("öl", typeDesc)) {
-                            items.itemTypes[value.id] = 'beer';
-                        } else if (partOf("vin", typeDesc)) {
-                            items.itemTypes[value.id] = 'wine';
-                        } else {
-                            items.itemTypes[value.id] = 'other';
-                        }
+    setType: function(id) {
+        $.when($.ajax({
+            type: 'GET',
+            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
+            success: function(object) {
+                var data = object['payload'];
+                if (data[0] != undefined) {
+                    var typeDesc = data[0]['varugrupp'];
+                    if (partOf("öl", typeDesc)) {
+                        items.itemList[id]['type'] = 'beer';
+                    } else if (partOf("vin", typeDesc)) {
+                        items.itemList[id]['type'] = 'wine';
+                    } else {
+                        items.itemList[id]['type'] = 'other';
                     }
                 }
-            });
+                items.typeCount++;
+            }
+        })).then(function() {
+            if (items.typeCount == items.itemListLength) {
+                items.load("all");
+            }
         });
     }
 };
@@ -213,7 +238,12 @@ var jQueryBindings = {
     },
     showBeer: function() {
         $('#showBeer').on('click', function() {
-            items.load();
+            items.load("beer");
+        });
+    },
+    showWine: function() {
+        $('#showWine').on('click', function() {
+            items.load("wine");
         });
     },
 };
@@ -227,7 +257,7 @@ var dnd = {
         e.dataTransfer.setData("id", this.id);
         e.dataTransfer.setData("name", this.name);
         e.dataTransfer.setData("price", this.price);
-        e.dataTransfer.setData("type", this.price);
+        e.dataTransfer.setData("type", this.type);
     }, 
     allow: function(e) {
         e.preventDefault();
