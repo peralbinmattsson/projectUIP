@@ -1,3 +1,4 @@
+//Invoker
 var button = {
     //Methods
     click: function(theCommand) {

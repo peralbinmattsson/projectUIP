@@ -23,7 +23,6 @@ var costItem =
 
 //INDEPENDENT FUNCTIONS
 function partOf(value, name) {
-    index = 1;
     valueLow = value.toLowerCase();
     nameLow = name.toLowerCase();
     if (nameLow.search(valueLow) == -1) {
@@ -36,6 +35,7 @@ function partOf(value, name) {
 var items = {
     stockCount: {}, 
     itemList: {},
+    itemTypes: {},
     //Methods
     listItem: function(item) {
         if (item.name != "") {
@@ -46,42 +46,51 @@ var items = {
         }
     },
     load: function() {
+        $leftList.empty();
         $.each(this.itemList, function(key, value) {
-            this.listItem(value);
+            if (value['type'] == 'beer') {
+                items.listItem(value);
+            }
         }); 
     },
     getAll: function() {
         $.ajax({
             type: 'GET',
             url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
-            success: function(object1) {
-                var data1 = object1['payload'];
-                $.each(data1, function(i, item) {
+            success: function(object) {
+                var data = object['payload'];
+                $.each(data, function(i, item) {
                     var id = item.beer_id;
                     var name = item.namn;
                     var price = item.pub_price;
                     var count = item.count;
-                    $.ajax({
-                        type: 'GET',
-                        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
-                        success: function(object2) {
-                            var data2 = object2['payload'];
-                            if (data2[0] != undefined) {
-                                var typeDesc = data2[0]['varugrupp'];
-                                if (partOf("öl", typeDesc)) {
-                                    items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'beer'};
-                                    items.listItem(items.itemList[id]);
-                                } else if (partOf("vin", typeDesc)) {
-                                    items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'wine'};
-                                    items.listItem(items.itemList[id]);
-                                }
-                            }
-                        }
-                    });
+                    items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': items.itemTypes[id]};
+                    items.listItem(items.itemList[id]);
                 });
             }
         });
     },
+    setTypes: function() {
+        $.each(this.itemList, function(key, value) {
+            $.ajax({
+                type: 'GET',
+                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + value.id,
+                success: function(object) {
+                    var data = object['payload'];
+                    if (data[0] != undefined) {
+                        var typeDesc = data[0]['varugrupp'];
+                        if (partOf("öl", typeDesc)) {
+                            items.itemTypes[value.id] = 'beer';
+                        } else if (partOf("vin", typeDesc)) {
+                            items.itemTypes[value.id] = 'wine';
+                        } else {
+                            items.itemTypes[value.id] = 'other';
+                        }
+                    }
+                }
+            });
+        });
+    }
 };
 var order = {
     orderList: {},
@@ -200,6 +209,11 @@ var jQueryBindings = {
             dnd.name = $(this).attr('name');
             dnd.price = $(this).attr('price');
             dnd.type = $(this).attr('itemType');
+        });
+    },
+    showBeer: function() {
+        $('#showBeer').on('click', function() {
+            items.load();
         });
     },
 };
