@@ -1,10 +1,7 @@
 
 $(document).ready(function() {
-    //var $rightList = $('#rightList');
-    //var rightListItem =
-    //    "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
-    //    "{{price}} kr</p><button class='button' data-id='{{id}}'" +
-    //    "id=remove price='{{price}}'>X</button></li>";
+    var costItem = 
+        "<p cost='{{total}}'>Total: {{total}} kr</p>";
     orderList = JSON.parse( localStorage.getItem("order"));
     totalPrice = JSON.parse( localStorage.getItem("total"));
     credit =  JSON.parse( localStorage.getItem("assets"));
@@ -13,7 +10,7 @@ $(document).ready(function() {
     items.stockCount = stockCount;
     order.load();
     priceObj.total = totalPrice;
-    priceObj.addCost();
+    $('#finalCost').html(Mustache.render(costItem, priceObj));
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
     jQueryBindings.undoBind();

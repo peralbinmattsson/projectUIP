@@ -8,14 +8,6 @@ function logout () {
 	window.location.href = "index.html";
 
 }
-//function storeTheme() {
-//    var theme = $('#mainStyle').attr("href");
-//    if (theme == "start80s.css") {
-//        localStorage.setItem("theme", "start80s.css");
-//    } else {
-//        localStorage.setItem("theme", "start.css");
-//    }
-//}
 function setTheme() {
     var theme = localStorage.getItem("theme");
     if (theme != null) {
@@ -55,5 +47,11 @@ $(document).ready(function() {
         }
     });
 
-
+    $(window).bind('scroll', function() {
+        if ($(window).scrollTop() == 0) {
+            $('#user_info').css('opacity', '1');
+        } else {
+            $('#user_info').css('opacity', '0.5');
+        }
+    });
 });

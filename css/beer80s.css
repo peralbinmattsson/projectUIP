@@ -24,6 +24,17 @@ span {
     margin-bottom: 10px;
     margin-left: 45px;
 }
+button.typeButton {
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid white;
+}
+button.typeButton:hover {
+    font-weight: bold;
+    background-color: #26C6B0;
+    color: #D76DA9;
+    border: 3px solid #639BF1;
+}
 input.search {
     height: 20px;
     width: 150px;

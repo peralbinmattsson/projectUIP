@@ -192,18 +192,19 @@ li.listItem{
 #rightSide {
     margin-top: 10px;
     width: 330px;
-    height: 320px;
+    height: 300px;
     margin-left: 650px;
     background-color: #4EB1BA;
     overflow: auto;
     border: 5px solid #4EB1BA;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
+    padding: 5px;
 }
 #cost {
     position: fixed;
     margin-left: 650px;
-    margin-top: 360px;
+    margin-top: 20px;
     position: fixed;
     width: 330px;
     height: 40px;
@@ -212,6 +213,7 @@ li.listItem{
     border: 5px solid #4EB1BA;
     border-radius: 5px;
     box-shadow: 10px 10px 5px black;
+    padding: 5px;
 }
 #undoButton {
     float: left;
@@ -222,7 +224,7 @@ li.listItem{
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
     background-image:url("../img/Undo-icon.png");
     background-position: center;
 }
@@ -235,19 +237,29 @@ li.listItem{
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
     background-image:url("../img/Redo-icon.png");
     background-position: center;
 }
-
+button.typeButton {
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid white;
+}
+button.typeButton:hover {
+    font-weight: bold;
+    background-color: #26C6B0;
+    color: black;
+    border: 3px solid #639BF1;
+}
 article#user_info{
     position : fixed !important;
     left:50%;
     margin-left: -517px;
     width: 2000px;
     margin-top: -100px;
-    background-color: #639BF1;
-    opacity: 0.5;
+    background-color: #4EB1BA;
+    opacity: 1;
     height: 50px;
     border: 5px solid #610A3B;
     border-radius: 8px;
@@ -260,7 +272,6 @@ article#user_info:hover{
     margin-left: -517px;
     width: 2000px;
     margin-top: -100px;
-    background-color: #639BF1;
     opacity: 1;
     height: 50px;
     border: 5px solid #610A3B;
