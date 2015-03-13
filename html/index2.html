@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/start.css">
+    <link id="mainStyle" rel="stylesheet" type="text/css" href="../css/start.css">
+
 </head>
 <body>
     <article id="user_info" class="center"><label style="float:right" onclick="logout()"></label>
@@ -13,6 +14,9 @@
                 <img class="icon_language" draggable='true' ondragstart='drag(event)' id='en' onclick='changeE();' src='../img/drapeau_anglais.jpg'/>
                 <img class="icon_language" draggable='true' ondragstart='drag(event)' id='sw' onclick='changeS();' src='../img/drapeau_suedois.jpg'/>
             </div>
+        </div>
+        <div id="change-theme">
+            <button class="button" id="changeTheme" data-i18n="changeTheme">Change theme</button>
         </div>
         <div id="logout">
             <button class="button" onclick="logout()" id= "logout-btn" data-i18n="button.logout">Logout</button>
@@ -34,11 +38,13 @@
         </a>
     </div>
     <div id="footer"></div>
+
     <script src="../js/jquery.js"></script>
     <script src="../js/start.js"></script>
     <script src="../js/order.js"></script>
     <script src="../js/i18next-1.7.7.js"></script>
     <script src="../js/i18next-1.7.7.min.js"></script>
     <script src="../js/translation.js"></script>
+
 </body>
 </html>

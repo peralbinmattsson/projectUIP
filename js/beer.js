@@ -1,7 +1,6 @@
 $(document).ready(function() {
     //AJAX REQUESTS AND JQUERY EVENTS
     items.getAll();
-
     jQueryBindings.searchBind();
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
@@ -14,11 +13,13 @@ $(document).ready(function() {
     jQueryBindings.showWine();
 
     $(window).bind('scroll', function() {
-        var navHeight = $(window).height() - 200;
-        if ($(window).scrollTop() > navHeight) {
-            $('#rightSide').css({'position': 'fixed', 'top': '10px'});
+        var roof = 160;
+        if ($(window).scrollTop() > roof) {
+            $('#rightSide').css({'position': 'fixed', 'top': '60px'});
+            $('#cost').css({'position': 'fixed', 'top': '380px'});
         } else {
-            $('#rightSide').css('position', 'absolute');
+            $('#rightSide').css({'position': 'absolute', 'top': '0px'});
+            $('#cost').css({'position': 'absolute', 'top': '320px'});
         }
     });
 

@@ -13,6 +13,8 @@
 span {
     width: 300px;
 }
+
+
 #payButton {
     float: left;
     width: 64px;
@@ -27,14 +29,10 @@ span {
 button.typeButton {
     cursor: pointer;
     background-color: white;
+    border: 3px solid white;
 }
-button.typeButton:active {
-    color: white;
-    background-color: black;
-}
-button.typeButton:focus {
-    color: white;
-    background-color: black;
+button.typeButton:hover {
+    font-weight: bold;
 }
 input.search {
     height: 20px;
