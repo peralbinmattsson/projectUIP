@@ -330,7 +330,6 @@ article#user_info:hover{
     float: right;
 
 }
-
 .anim {
     width: 50px;
     height: 50px;
@@ -343,7 +342,6 @@ article#user_info:hover{
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 2s;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
     /* Standard syntax */
     animation-name: myfirst;
@@ -351,21 +349,20 @@ article#user_info:hover{
     animation-timing-function: linear;
     animation-delay: 2s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
     animation-play-state: running;
 }
 /* Chrome, Safari, Opera */
 @-webkit-keyframes myfirst {
-    0%   {left:480px; top:0px;}
-    50%  {left:-480px; top:0px;}
-    100% {left:480px; top:0px;}
+    0% {left: 480px;}
+    50% {left: 0px;}
+    100% {left: -480px;}
 }
 
 /* Standard syntax */
 @keyframes myfirst {
-    0%   {left:480px; top:0px;}
-    50%  {left:-480px; top:0px;}
-    100% {left:480px; top:0px;}
+    0% {left: 480px;}
+    50% {left: 0px;}
+    100% {left: -480px;}
 }
 
 #user_info > .profil {
