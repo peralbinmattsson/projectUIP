@@ -72,7 +72,7 @@
     function changeE() {
           var options ={
            lng: "en",
-           resGetPath: '../locales/en/translation.json'
+           resGetPath: '../locales/__lng__/translation.json'
         };
 
         i18n.init(options, function(t) {
@@ -114,7 +114,7 @@
     function changeS() {
           var options ={
            lng: "sw",
-           resGetPath: '../locales/sw/translation.json'
+           resGetPath: '../locales/__lng__/translation.json'
         };
 
         i18n.init(options, function(t) {
