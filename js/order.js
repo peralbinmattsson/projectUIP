@@ -24,7 +24,7 @@ var leftListItemLoad =
 var rightListItem = 
     "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
     "{{price}} kr <img src='../img/{{type}}-icon.png' height='20' width='20'></p>" +
-    "<button class='button' data-id='{{id}}'" +
+    "<button class='button' data-id='{{id}}' itemType='{{type}}'" +
     "id=remove price='{{price}}' name='{{name}}'>X</button></li>";
 
 var costItem = 
