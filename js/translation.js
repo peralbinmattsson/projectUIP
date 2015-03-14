@@ -145,7 +145,7 @@
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Anv\344ndaren'));
 
-                    $('#loginas').html('<b>Logga in som : </b>'+ localStorage.getItem("user"));
+                    $('#loginas').text($('<b>Logga in som  : </b>'+ localStorage.getItem("user")));
                     $('#assets').html('<b>Tillg\345ngar : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Loggar ut'));
         });
