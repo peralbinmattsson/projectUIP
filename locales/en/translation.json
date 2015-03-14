@@ -24,8 +24,14 @@
   "cancel" : {
     "href.cancel" : "Cancel"
   },
-  "add": {
-    "addCart" : "Add to cart"
+  "edit_btn": {
+    "edit" : "Edit"
+  },
+  "confirm_text": {
+    "confirm" : "Confirmation"
+  },
+  "success": {
+    "message" : "Successful purchase!"
   }
 
 }
