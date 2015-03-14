@@ -35,7 +35,7 @@
                     $('#stock_btn').text($.t('Stock'));
                     $('#user_btn').text($.t('User'));
                     
-                    $('#loginas').html('<b>Login as : </b>'+ localStorage.getItem("user"));
+                    $('#loginas').text($('<b>Login as : </b>'+ localStorage.getItem("user")));
                     $('#assets').html('<b>Assets : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logout'));
                 }
