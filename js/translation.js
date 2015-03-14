@@ -24,6 +24,7 @@
                     $('#PaymentButton').text($.t('Pay Now'));
                     $('#stock_btn').text($.t('Stock'));
                     $('#user_btn').text($.t('User'));
+                    $("#edit_btn").text($.t('Edit'));
                 }
 
                 if (options.lng == "sw") {
@@ -33,6 +34,7 @@
                     $('#PaymentButton').text($.t('Betala nu'));
                     $('#stock_btn').text($.t('Lager'));
                     $('#user_btn').text($.t('Anv\344ndaren'));
+                    $("#edit_btn").text($.t('Redigera'));
                 }
             });
 
@@ -53,19 +55,20 @@
                    
                    $('.search').i18n();
                    $('#payButton').text($.t('PAY'));
-                $("#add.button").text($.t('Add to cart'));
+                   $("#add.button").text($.t('Add to cart'));
 
-            $('#changeTheme').text($.t('Change Theme'));
-            $('#showBeer').text($.t('Beer'));
-            $('#showWine').text($.t('Wine'));
+                   $('#changeTheme').text($.t('Change Theme'));
+                   $('#showBeer').text($.t('Beer'));
+                   $('#showWine').text($.t('Wine'));
+                   $("#edit_btn").text($.t('Edit'));
 
 
-            $('.Part1').i18n();
+                   $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));
                    $('#credit').text($.t('Credit:'));
                    $('#cancelButton').text($.t('Cancel'));
                    $('#paymentButton').text($.t('Pay Now'));
-                $('#cancel').text($.t('Cancel'));
+                   $('#cancel').text($.t('Cancel'));
                    
                    $('#stock_btn').text($.t('Stock'));
                    $('#user_btn').text($.t('User'));
@@ -101,6 +104,7 @@
                    $('#changeTheme').text($.t('f\366r\344ndring tema'));
                     $('#showBeer').text($.t('\366l'));
                     $('#showWine').text($.t('vin'));
+                    $("#edit_btn").text($.t('Redigera'));
 
 
 
