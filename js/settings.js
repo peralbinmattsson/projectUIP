@@ -4,7 +4,7 @@ var stockItem =
     "<span id='name2'>{{namn2}} </span>" + 
     "<span id='count'>{{count}}</span>" +
     "<button class='button' data-id='{{beer_id}}' data-type='drink' name='{{namn}}' name2='{{namn2}}' count='{{count}}'" +
-    " id='add'>Edit</button>" +
+    " id='edit_btn'>Edit</button>" +
     "</li>";
 
 var userList =
@@ -14,7 +14,7 @@ var userList =
     "<span id='lname'>{{last_name}}</span>" + 
     "<span id='assets'>{{assets}}</span>" +
     "<button class='button' data-id='{{username}}' data-type='user' name='{{username}}' fname='{{first_name}}' lname='{{last_name}}'' assets='{{assets}}' " +
-    " id='add'>Edit</button>" +
+    " id='edit_btn'>Edit</button>" +
     "</li>";
 
 var $beer = $('#stock_container');
