@@ -24,7 +24,7 @@
                     $('#PaymentButton').text($.t('Pay Now'));
                     $('#stock_btn').text($.t('Stock'));
                     $('#user_btn').text($.t('User'));
-                    $("#edit_btn").text($.t('Edit'));
+                    $("#edit_btn.button").text($.t('Edit'));
                 }
 
                 if (options.lng == "sw") {
@@ -34,7 +34,7 @@
                     $('#PaymentButton').text($.t('Betala nu'));
                     $('#stock_btn').text($.t('Lager'));
                     $('#user_btn').text($.t('Anv\344ndaren'));
-                    $("#edit_btn").text($.t('Redigera'));
+                    $("#edit_btn.button").text($.t('Redigera'));
                 }
             });
 
@@ -60,7 +60,7 @@
                    $('#changeTheme').text($.t('Change Theme'));
                    $('#showBeer').text($.t('Beer'));
                    $('#showWine').text($.t('Wine'));
-                   $("#edit_btn").text($.t('Edit'));
+                   $("#edit_btn.button").text($.t('Edit'));
 
 
                    $('.Part1').i18n();
@@ -104,7 +104,7 @@
                    $('#changeTheme').text($.t('f\366r\344ndring tema'));
                     $('#showBeer').text($.t('\366l'));
                     $('#showWine').text($.t('vin'));
-                    $("#edit_btn").text($.t('Redigera'));
+                    $("#edit_btn.button").text($.t('Redigera'));
 
 
 
