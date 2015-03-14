@@ -28,12 +28,6 @@ $(document).ready(function() {
     	$("#user_info").append("<div class='profil' id='assets' data-i18n='assets'><b>Assets : </b>" + localStorage.getItem("assets") + "</div>");
     };
 
-    $('#left, #right').hover(function() {
-        $(this).css('border-color', '#26C6B0');
-    }, function() {
-        $(this).css('border-color', 'black');
-    });
-
     setTheme();
     $('#changeTheme').on('click', function() {
         var $link = $('#mainStyle');
@@ -48,7 +42,7 @@ $(document).ready(function() {
     });
 
     $(window).bind('scroll', function() {
-        if ($(window).scrollTop() == 0) {
+        if ($(window).scrollTop() < 20) {
             $('#user_info').css('opacity', '1');
         } else {
             $('#user_info').css('opacity', '0.5');

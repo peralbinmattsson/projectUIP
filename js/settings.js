@@ -148,7 +148,7 @@ function printInfo (id) {
         url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
         success: function (data) {
             if (data.type != "error") {
-                var content = "<table>";
+                var content = "<img src='../img/beverages/" + id + ".png'><table>";
                 $.each(data['payload'][0], function (index, value) {
                     content += "<tr><td>" + index + "</td><td>" + value + "</td></tr>";
                 });
@@ -230,6 +230,15 @@ $(document).ready(function() {
     //On background press, fade out the background
     $("#black_wrapper").on("click", function () {
         $("#black_wrapper, #item_editer").fadeOut();
+    });
+
+    $(window).bind('scroll', function() {
+        var roof = 160;
+        if ($(window).scrollTop() > roof) {
+            $('#rightSide').css({'position': 'fixed', 'top': '60px'});
+        } else {
+            $('#rightSide').css({'position': 'absolute', 'top': '0px'});
+        }
     });
 
 });

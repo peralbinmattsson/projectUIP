@@ -74,6 +74,12 @@ header{
     margin-top: 100px;
     position: absolute;
 }
+#left:hover {
+    border-color: #639BF1;
+}
+#right:hover {
+    border-color: #639BF1;
+}
 #beerImg {
     width: 140px;
     height: 130px;
@@ -189,6 +195,10 @@ li.listItem{
 #rightList > li > button:hover {
     color: #639BF1;
 }
+#leftSide {
+    float: left;
+    margin-bottom: 20px;
+}
 #rightSide {
     margin-top: 10px;
     width: 330px;
@@ -295,8 +305,11 @@ article#user_info:hover{
     margin-left: 5px;
     margin-right: 10px;
 }
-
-
+#backArrow {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 #icon>#logout{
 
     margin-top: 5px;
