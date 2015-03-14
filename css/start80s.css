@@ -308,6 +308,11 @@ article#user_info:hover{
     margin-left: 5px;
     margin-right: 10px;
 }
+#backArrow {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 #icon>#logout{
 
     margin-top: 5px;
