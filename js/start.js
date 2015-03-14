@@ -46,11 +46,13 @@ $(document).ready(function() {
             $('#user_info').css('opacity', '1');
         } else {
             $('#user_info').css('opacity', '0.5');
-            $('#user_info').hover(function() {
-                $('#user_info').css('opacity', '1');
-            }, function() {
-                $('#user_info').css('opacity', '0.5');
-            }); 
         }
     });
+    $('#user_info').hover(function() {
+        $('#user_info').css('opacity', '1');
+    }, function() {
+        if ($(window).scrollTop() >= 20) {
+            $('#user_info').css('opacity', '0.5');
+        }
+    }); 
 });
