@@ -96,6 +96,10 @@ div#confirm_editer{
     box-shadow: 10px 10px 5px black;
 }
 
+#confirm_btn{
+	float: left;
+}
+
 .hidden{
 	visibility: hidden;
 	display: none;
