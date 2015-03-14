@@ -35,7 +35,7 @@ $('#confirm_btn').on('click', function(){
             });
         }
         //Show the message "Successful purchase!"
-        $("#success").fadeIn().removeClass("hidden");  
+        $("#success").removeClass("hidden");  
     });
 });
 
