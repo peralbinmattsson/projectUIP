@@ -98,14 +98,14 @@ div#confirm_editer{
 
 #confirm_btn{
 	float: left;
-	margin-left: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #cancel_btn{
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .hidden{
