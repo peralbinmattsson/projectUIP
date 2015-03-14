@@ -85,14 +85,14 @@ function saveItem (arg) {
             var id;
             $.ajax({
                 type: 'GET',
-                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=' + user + '&password=' + user + '&action=iou_get',
+                url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=iou_get',
                 success: function(data) {
                     if(data.type != "error") {
                         print("got user_id succesfull");
                         id = data.payload[0].user_id; 
                         $.ajax({
                             type: 'GET',
-                            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=payments_append&user_id='+id+'&amount='+add,
+                            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=payments_append&user_id='+id+'&amount='+add,
                             success: function(data2) {if(data2.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
                         });
                         var new_value = parseInt(old_value) + parseInt(add);
@@ -128,7 +128,7 @@ function saveItem (arg) {
             if (new_value<0) {add = parseInt(add) + Math.abs(new_value);new_value=0;}; 
             $.ajax({
                 type: 'GET',
-                url: "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_append&beer_id=" + id + "&amount=" + add + "&price=''",
+                url: "http://pub.jamaica-inn.net/fpdb/api.php?username="+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_append&beer_id=' + id + "&amount=" + add + "&price=''",
                 success: function(object) {if(data.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
             });
             $(itemInList).text(new_value);
@@ -145,7 +145,7 @@ function printInfo (id) {
     $("#rightSide").empty();
     $.ajax({
         type: 'GET',
-        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
+        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=beer_data_get&beer_id=' + id,
         success: function (data) {
             if (data.type != "error") {
                 var content = "<img src='../img/beverages/" + id + ".png'><table>";
@@ -165,7 +165,7 @@ $(document).ready(function() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
+        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
         success: function(object) {
             data = object['payload'];
             $.each(data, function(i, beer) {
@@ -175,7 +175,7 @@ $(document).ready(function() {
     });
     $.ajax({
         type: 'GET',
-        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=iou_get_all',
+        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=iou_get_all',
         success: function(object) {
             data = object['payload'];
             $.each(data, function(i, user) {

@@ -75,7 +75,7 @@ var items = {
     getAll: function() {
         $.ajax({
             type: 'GET',
-            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=inventory_get',
+            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
             success: function(object) {
                 var data = object['payload'];
                 items.itemListLength = Object.keys(data).length;
@@ -94,7 +94,7 @@ var items = {
     setType: function(id) {
         $.when($.ajax({
             type: 'GET',
-            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=beer_data_get&beer_id=' + id,
+            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=beer_data_get&beer_id=' + id,
             success: function(object) {
                 var data = object['payload'];
                 if (data[0] != undefined) {
