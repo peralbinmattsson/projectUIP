@@ -34,7 +34,8 @@ $('#confirm_btn').on('click', function(){
                 }
             });
         }
-        alert("Succesful purchase!");
+        //Show the message "Successful purchase!"
+        $("#success").removeClass("hidden");  
     });
 });
 
