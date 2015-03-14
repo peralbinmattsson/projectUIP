@@ -35,7 +35,7 @@
                     $('#stock_btn').text($.t('Stock'));
                     $('#user_btn').text($.t('User'));
                     
-                    $('#loginas').text($('<b>Login as : </b>'+ localStorage.getItem("user")));
+                    $('#loginas').html('<b>Login as : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Assets : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logout'));
                 }
@@ -60,7 +60,7 @@
                     $('#stock_btn').text($.t('Lager'));
                     $('#user_btn').text($.t('Anv\344ndaren'));
                     
-                    $('#loginas').text($('<b>Logga in som  : </b>'+ localStorage.getItem("user")));
+                    $('#loginas').html('<b>Logga in som  : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Tillg\345ngar : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Loggar ut'));
                     
@@ -145,7 +145,7 @@
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Anv\344ndaren'));
 
-                    $('#loginas').text($('<b>Logga in som  : </b>'+ localStorage.getItem("user")));
+                    $('#loginas').html('<b>Logga in som  : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Tillg\345ngar : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Loggar ut'));
         });
