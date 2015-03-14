@@ -24,9 +24,6 @@
   "cancel" : {
     "href.cancel" : "Cancel"
   },
-  "edit_btn": {
-    "edit" : "Edit"
-  },
   "confirm_text": {
     "confirm" : "Confirmation"
   },
