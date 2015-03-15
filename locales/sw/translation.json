@@ -23,10 +23,5 @@
   "cancel" : {
     "href.cancel" : "Avbryt"
   }
-  "confirm_text": {
-    "confirm" : "Bekräfta"
-  },
-  "success": {
-    "message" : "Lyckat köp!"
-  }
+  
 }
