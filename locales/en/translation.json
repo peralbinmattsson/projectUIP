@@ -18,17 +18,11 @@
     "credit" : "Credit:"
   },
 
-  "paymentbutton": {
+  "PaymentButton": {
     "button.pay": "Pay Now"
   },
   "cancel" : {
     "href.cancel" : "Cancel"
-  },
-  "confirm_text": {
-    "confirm" : "Confirmation"
-  },
-  "success": {
-    "message" : "Successful purchase!"
   }
 
 }
