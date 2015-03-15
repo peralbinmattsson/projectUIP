@@ -52,7 +52,6 @@ $("#paymentButton").on("click", function () {
     $("#black_wrapper").on("click", function () {
         $("#black_wrapper, #confirm_editer").fadeOut();
     });
-
 });
 
 

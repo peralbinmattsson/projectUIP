@@ -1,14 +1,32 @@
+#container {
+    position: relative;
+    width: 2000px;
+    /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
+    background-color:  #222930;
+   /* background-image:url("../img/Kronor.gif");*/
+    border: 5px solid black;
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: auto;
+
+    min-height: 420px;
+
+}
+
 
 
 #leftBox {
     position: fixed;
     width: 500px;
-    background-color: #FFFFFF;
+    background-color: #D1E0FF;
+
+    border: 5px solid#639BF1;
     border-radius: 8px;
     margin-top:10px;
     margin-left: 100px;
     overflow: auto;
     min-height: 350px;
+
 }
 /*rightBox is in start.css*/
 #paymentButton{
@@ -28,7 +46,9 @@
     display: inline-block;
     margin-left: 280px;
     margin-top: 280px;
+    opacity: 1;
 }
+
 #cancel{
     font-family:"Verdana", Verdana, sans-serif ;
     color: #000000;
