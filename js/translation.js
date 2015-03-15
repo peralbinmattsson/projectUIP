@@ -35,8 +35,8 @@
                     $('#stock_btn').text($.t('Stock'));
                     $('#user_btn').text($.t('User'));
                     
-                    $('#loginas').html('<b>Login as : </b>'+ localStorage.getItem("user"));
-                    $('#assets').html('<b>Assets : </b>'+ localStorage.getItem("assets"));
+                    $('#loginas').html('<b>Logged in as : </b>'+ localStorage.getItem("user"));
+                    $('#assets').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logout'));
                 }
 
@@ -44,8 +44,8 @@
                     $('#login-btn').text($.t('Logga in'));
                     $('#payButton').text($.t('Betala'));
 
-                    $("#add.button").text($.t('l\344gg i varukorg'));
-                    $('#changeTheme').text($.t('f\366r\344ndring tema'));
+                    $("#add.button").text($.t('L\344gg i varukorgen'));
+                    $('#changeTheme').text($.t('\344ndra tema'));
                     $('#showBeer').text($.t('\366l'));
                     $('#showWine').text($.t('vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
@@ -53,15 +53,15 @@
                     $('#finalCost').text($.t('Totalsumma:'));
                     $('#credit').text($.t('Kredit:'));
                     $('#cancelButton').text($.t('Avboka'));
-                    $('#PaymentButton').text($.t('Betala nu'));
+                    $('#PaymentButton').text($.t('Betala'));
                     $('#cancel').text($.t('Avbryt'));
-                    $('#CancelButton').text($.t('Avboka'));
+                    $('#CancelButton').text($.t('Avbryt'));
                     
                     $('#stock_btn').text($.t('Lager'));
                     $('#user_btn').text($.t('Anv\344ndaren'));
                     
-                    $('#loginas').html('<b>Logga in som  : </b>'+ localStorage.getItem("user"));
-                    $('#assets').html('<b>Tillg\345ngar : </b>'+ localStorage.getItem("assets"));
+                    $('#loginas').html('<b>Inloggad som  : </b>'+ localStorage.getItem("user"));
+                    $('#assets').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Loggar ut'));
                     
                 }
@@ -93,8 +93,8 @@
                    $('.Part1').i18n();
                    $('#finalCost').text($.t('Total:'));
                    $('#credit').text($.t('Credit:'));
-                   $('#cancelButton').text($.t('Cancel'));
-                   $('#paymentButton').text($.t('Pay Now'));
+                   $('#CancelButton').text($.t('Cancel'));
+                   $('#PaymentButton').text($.t('Pay Now'));
                    $('#cancel').text($.t('Cancel'));
                    
                    $('#stock_btn').text($.t('Stock'));
@@ -128,25 +128,25 @@
                    $('#payButton').text($.t('Betala'));
                     $("#add.button").text($.t('l\344gg i varukorg'));
 
-                   $('#changeTheme').text($.t('f\366r\344ndring tema'));
+                   $('#changeTheme').text($.t('\344ndra tema'));
                     $('#showBeer').text($.t('\366l'));
-                    $('#showWine').text($.t('vin'));
+                    $('#showWine').text($.t('Vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
 
 
 
 
                    $('.Part1').i18n();
-                   $('#finalCost').text($.t('Totalsumma:'));
+                   $('#finalCost').text($.t('Summa:'));
                    $('#credit').text($.t('Kredit:'));
                    $('#cancel').text($.t('Avbryt'));
-                   $('#paymentButton').text($.t('Betala nu'));
+                   $('#PaymentButton').text($.t('Betala'));
                    
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Anv\344ndaren'));
 
-                    $('#loginas').html('<b>Logga in som  : </b>'+ localStorage.getItem("user"));
-                    $('#assets').html('<b>Tillg\345ngar : </b>'+ localStorage.getItem("assets"));
+                    $('#loginas').html('<b>Inloggad som  : </b>'+ localStorage.getItem("user"));
+                    $('#assets').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Loggar ut'));
         });
     /*Store swedish as a selected language*/   
