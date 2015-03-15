@@ -2,6 +2,7 @@ var $leftList = $('#leftList');
 var $rightList = $('#rightList');
 var $rightSide = $('#rightSide');
 var $cost = $('#cost');
+var $finalCost = $('#finalCost');
 //HTML VARIABLES
 var leftListItem =
     "<li id='item' class='listItem' name='{{name}}'><span>{{name}}" +
@@ -29,6 +30,9 @@ var rightListItem =
 
 var costItem = 
     "<p>---</p><p cost='{{total}}'>Total: {{total}} kr</p>";
+
+var costItemPP = 
+    "<p cost='{{total}}'>Total: {{total}} kr</p>";
 
 //INDEPENDENT FUNCTIONS
 function partOf(value, name) {
@@ -170,6 +174,7 @@ var priceObj = {
     addCost: function() {
         var priceObject = this;
         $cost.html(Mustache.render(costItem, priceObject));
+        $finalCost.html(Mustache.render(costItemPP, priceObject));
     }
 };
 var jQueryBindings = {
