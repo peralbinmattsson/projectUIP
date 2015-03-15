@@ -25,8 +25,10 @@
                     $('#showWine').text($.t('Wine'));
                     $("#edit_btn.button").text($.t('Edit'));
                     
-                    $('#finalCost').text($.t('Total:'));
-                    $('#credit').text($.t('Credit:'));
+                    $('#finalCost').html('<b>Total : </b>'+ localStorage.getItem("total"));
+                    $('#credit').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
+                    //$('#finalCost').text($.t('Total:'));
+                    //$('#credit').text($.t('Credit:'));
                     $('#cancelButton').text($.t('Cancel'));
                     $('#PaymentButton').text($.t('Pay Now'));
                     $('#cancel').text($.t('Cancel'));
@@ -50,8 +52,10 @@
                     $('#showWine').text($.t('vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
                     
-                    $('#finalCost').text($.t('Totalsumma:'));
-                    $('#credit').text($.t('Kredit:'));
+                    $('#finalCost').html('<b>Totalsumma : </b>'+ localStorage.getItem("total"));
+                    $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
+                    //$('#finalCost').text($.t('Totalsumma:'));
+                    //$('#credit').text($.t('Kredit:'));
                     $('#cancelButton').text($.t('Avboka'));
                     $('#PaymentButton').text($.t('Betala'));
                     $('#cancel').text($.t('Avbryt'));
@@ -91,8 +95,10 @@
 
 
                    $('.Part1').i18n();
-                   $('#finalCost').text($.t('Total:'));
-                   $('#credit').text($.t('Credit:'));
+                   $('#finalCost').html('<b>Total : </b>'+ localStorage.getItem("total"));
+                   $('#credit').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
+                   //$('#finalCost').text($.t('Total:'));
+                   //$('#credit').text($.t('Credit:'));
                    $('#CancelButton').text($.t('Cancel'));
                    $('#PaymentButton').text($.t('Pay Now'));
                    $('#cancel').text($.t('Cancel'));
@@ -137,8 +143,10 @@
 
 
                    $('.Part1').i18n();
-                   $('#finalCost').text($.t('Summa:'));
-                   $('#credit').text($.t('Kredit:'));
+                   $('#finalCost').html('<b>Totalsumma : </b>'+ localStorage.getItem("total"));
+                   $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
+                   //$('#finalCost').text($.t('Summa:'));
+                   //$('#credit').text($.t('Kredit:'));
                    $('#cancel').text($.t('Avbryt'));
                    $('#PaymentButton').text($.t('Betala'));
                    
