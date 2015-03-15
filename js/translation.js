@@ -22,6 +22,7 @@
                     
                     $("#add.button").text($.t('Add to cart'));
                     $('#changeTheme').text($.t('Change Theme'));
+                    $('#showAll').text($.t('All'));
                     $('#showBeer').text($.t('Beer'));
                     $('#showWine').text($.t('Wine'));
                     $("#edit_btn.button").text($.t('Edit'));
@@ -30,7 +31,7 @@
                     $('#credit').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
 
                     $('#cancelButton').text($.t('Cancel'));
-                    $('#PaymentButton').text($.t('Pay Now'));
+                    $('#paymentButton').text($.t('Pay Now'));
                     $('#cancel').text($.t('Cancel'));
                     $('#CancelButton').text($.t('Cancel'));
                     
@@ -51,6 +52,7 @@
 
                     $("#add.button").text($.t('L\xE4gg i varukorgen'));
                     $('#changeTheme').text($.t('\xC4ndra tema'));
+                    $('#showAll').text($.t('Alla'));
                     $('#showBeer').text($.t('\xD6l'));
                     $('#showWine').text($.t('Vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
@@ -58,12 +60,12 @@
                     $('#finalCost').html('<b>Summa : </b>'+ localStorage.getItem("total"));
                     $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
                     $('#cancelButton').text($.t('Avboka'));
-                    $('#PaymentButton').text($.t('Betala'));
+                    $('#paymentButton').text($.t('Betala'));
                     $('#cancel').text($.t('Avbryt'));
                     $('#CancelButton').text($.t('Avbryt'));
                     
                     $('#stock_btn').text($.t('Lager'));
-                    $('#user_btn').text($.t('Användare'));
+                    $('#user_btn').text($.t('Anv\xE4ndare'));
                     
                     $('#loginas').html('<b>Anv\xE4ndare : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
@@ -92,6 +94,7 @@
                    $("#add.button").text($.t('Add to cart'));
 
                    $('#changeTheme').text($.t('Change Theme'));
+                     $('#showAll').text($.t('All'));
                    $('#showBeer').text($.t('Beer'));
                    $('#showWine').text($.t('Wine'));
                    $("#edit_btn.button").text($.t('Edit'));
@@ -102,7 +105,7 @@
                    $('#credit').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
 
                    $('#CancelButton').text($.t('Cancel'));
-                   $('#PaymentButton').text($.t('Pay Now'));
+                   $('#paymentButton').text($.t('Pay Now'));
                    $('#cancel').text($.t('Cancel'));
                    $('#confirm_text').i18n();
                    
@@ -140,6 +143,7 @@
                     $("#add.button").text($.t('L\xE4gg i varukorg'));
 
                    $('#changeTheme').text($.t('\xC4ndra Tema'));
+                    $('#showAll').text($.t('Alla'));
                     $('#showBeer').text($.t('\xD6l'));
                     $('#showWine').text($.t('Vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
@@ -152,7 +156,7 @@
                    $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
 
                    $('#cancel').text($.t('Avbryt'));
-                   $('#PaymentButton').text($.t('Betala'));
+                   $('#paymentButton').text($.t('Betala'));
                    $('#confirm_text').i18n();
                    
                    $('#stock_btn').text($.t('Lager'));
