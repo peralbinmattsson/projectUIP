@@ -23,12 +23,6 @@
   },
   "cancel" : {
     "href.cancel" : "Cancel"
-  },
-  "confirm_text": {
-    "confirm" : "Confirmation"
-  },
-  "success": {
-    "message" : "Successful purchase!"
   }
 
 }
