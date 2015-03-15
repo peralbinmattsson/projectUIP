@@ -14,6 +14,7 @@
                 $('.Part1').i18n();
                 $('#total').i18n();
                 $('#credit').i18n();
+                $('#confirm_text').i18n();
 
                 if (options.lng == "en") {
                     $('#login-btn').text($.t('Login'));
@@ -39,6 +40,9 @@
                     $('#loginas').html('<b>User : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logout'));
+                    $('#confirm_btn').text($.t('Ok'));
+                    $('#cancel_btn').text($.t('Cancel'));
+                    
                 }
 
                 if (options.lng == "sw") {
@@ -64,6 +68,8 @@
                     $('#loginas').html('<b>Anv\xE4ndare : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logga ut'));
+                    $('#confirm_btn').text($.t('Ok'));
+                    $('#cancel_btn').text($.t('Avbryt'));
                     
                 }
             });
@@ -98,6 +104,7 @@
                    $('#CancelButton').text($.t('Cancel'));
                    $('#PaymentButton').text($.t('Pay Now'));
                    $('#cancel').text($.t('Cancel'));
+                   $('#confirm_text').i18n();
                    
                    $('#stock_btn').text($.t('Stock'));
                    $('#user_btn').text($.t('User'));
@@ -105,6 +112,8 @@
                     $('#loginas').html('<b>User : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Credit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logout'));
+                    $('#confirm_btn').text($.t('Ok'));
+                    $('#cancel_btn').text($.t('Cancel'));
                    
         });
     /*Store english as a selected language*/     
@@ -130,7 +139,7 @@
                    $('#payButton').text($.t('Betala'));
                     $("#add.button").text($.t('L\xE4gg i varukorg'));
 
-                   $('#changeTheme').text($.t('\xC4ndra tema'));
+                   $('#changeTheme').text($.t('\xC4ndra Tema'));
                     $('#showBeer').text($.t('\xD6l'));
                     $('#showWine').text($.t('Vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
@@ -144,6 +153,7 @@
 
                    $('#cancel').text($.t('Avbryt'));
                    $('#PaymentButton').text($.t('Betala'));
+                   $('#confirm_text').i18n();
                    
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Anv\xE4ndare'));
@@ -151,6 +161,8 @@
                     $('#loginas').html('<b>Anv\xE4ndare : </b>'+ localStorage.getItem("user"));
                     $('#assets').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
                     $('#logout-btn').text($.t('Logga ut'));
+                    $('#confirm_btn').text($.t('Ok'));
+                    $('#cancel_btn').text($.t('Avbryt'));
         });
     /*Store swedish as a selected language*/   
         window.localStorage.setItem("language", "sw");
