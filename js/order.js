@@ -108,12 +108,10 @@ var items = {
                 var data = object['payload'];
                 if (data[0] != undefined) {
                     var typeDesc = data[0]['varugrupp'];
-                    if (partOf("öl", typeDesc)) {
-                        items.itemList[id]['type'] = 'beer';
-                    } else if (partOf("vin", typeDesc)) {
+                    if (partOf("vin", typeDesc)) {
                         items.itemList[id]['type'] = 'wine';
                     } else {
-                        items.itemList[id]['type'] = 'other';
+                        items.itemList[id]['type'] = 'beer';
                     }
                 }
                 items.typeCount++;
