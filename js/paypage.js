@@ -1,7 +1,5 @@
 
 $(document).ready(function() {
-    var costItem = 
-        "<p cost='{{total}}'>Total: {{total}} kr</p>";
     orderList = JSON.parse( localStorage.getItem("order"));
     totalPrice = JSON.parse( localStorage.getItem("total"));
     credit =  JSON.parse( localStorage.getItem("assets"));
@@ -10,7 +8,6 @@ $(document).ready(function() {
     items.stockCount = stockCount;
     order.load();
     priceObj.total = totalPrice;
-    $('#finalCost').html(Mustache.render(costItem, priceObj));
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
     jQueryBindings.undoBind();

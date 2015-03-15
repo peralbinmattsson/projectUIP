@@ -2,13 +2,14 @@ var $leftList = $('#leftList');
 var $rightList = $('#rightList');
 var $rightSide = $('#rightSide');
 var $cost = $('#cost');
+var $finalCost = $('#finalCost');
 //HTML VARIABLES
 var leftListItem =
     "<li id='item' class='listItem' name='{{name}}'><span>{{name}}" +
     "</span><span>{{price}} kr</span>" +
     "<button id='add' data-id='{{id}}' name='{{name}}' itemType='{{type}}' class='button'" +
     "data-i18n='button.addtocart'" +
-    "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/{{type}}-icon.png'" +
+    "price='{{price}}' data-i18n='addCart'>{{lang}}</button><img src='../img/{{type}}-icon.png'" +
     "height='40' width='40' id='icon' draggable='true' ondragstart='dnd.drag(event)'" +
     "dataid='{{id}}' name='{{name}}' price='{{price}}' itemType='{{type}}'></li>";
 
@@ -17,7 +18,7 @@ var leftListItemLoad =
     "</span><span>{{price}} kr</span>" +
     "<button id='add' data-id='{{id}}' name='{{name}}' itemType='{{type}}' class='button'" +
     "data-i18n='button.addtocart'" +
-    "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/load-icon.gif'" +
+    "price='{{price}}' data-i18n='addCart'>{{lang}}</button><img src='../img/load-icon.gif'" +
     "height='35' width='35'" +
     "dataid='{{id}}' name='{{name}}' price='{{price}}'></li>";
 
@@ -29,6 +30,9 @@ var rightListItem =
 
 var costItem = 
     "<p>---</p><p cost='{{total}}'>Total: {{total}} kr</p>";
+
+var costItemPP = 
+    "<p cost='{{total}}'>Total: {{total}} kr</p>";
 
 //INDEPENDENT FUNCTIONS
 function partOf(value, name) {
@@ -85,6 +89,11 @@ var items = {
                     var price = item.pub_price;
                     var count = item.count;
                     items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'load'};
+                    if (localStorage.getItem("language") == "sw") {
+                        items.itemList[id]['lang'] = 'Lägg i varukorg';
+                    } else {
+                        items.itemList[id]['lang'] = 'Add to cart';
+                    }
                     items.listItem(items.itemList[id]);
                     items.setType(id);
                 });
@@ -99,12 +108,10 @@ var items = {
                 var data = object['payload'];
                 if (data[0] != undefined) {
                     var typeDesc = data[0]['varugrupp'];
-                    if (partOf("öl", typeDesc)) {
-                        items.itemList[id]['type'] = 'beer';
-                    } else if (partOf("vin", typeDesc)) {
+                    if (partOf("vin", typeDesc)) {
                         items.itemList[id]['type'] = 'wine';
                     } else {
-                        items.itemList[id]['type'] = 'other';
+                        items.itemList[id]['type'] = 'beer';
                     }
                 }
                 items.typeCount++;
@@ -165,6 +172,7 @@ var priceObj = {
     addCost: function() {
         var priceObject = this;
         $cost.html(Mustache.render(costItem, priceObject));
+        $finalCost.html(Mustache.render(costItemPP, priceObject));
     }
 };
 var jQueryBindings = {

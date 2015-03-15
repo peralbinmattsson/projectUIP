@@ -251,7 +251,16 @@ li.listItem{
     background-image:url("../img/Redo-icon.png");
     background-position: center;
 }
+input.search {
+    height: 25px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
 button.typeButton {
+    height: 30px;
+    min-width: 60px;
     cursor: pointer;
     background-color: white;
     border: 3px solid white;

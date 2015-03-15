@@ -49,13 +49,6 @@ span {
 	width: 300px;
 }
 
-input.search {
-	height: 20px;
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-bottom: 20px;
-}
-
 div#black_wrapper{
 	background-color: rgba(0, 0, 0, 0.7);
 	width: 100%;
