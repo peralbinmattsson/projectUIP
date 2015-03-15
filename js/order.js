@@ -8,7 +8,7 @@ var leftListItem =
     "</span><span>{{price}} kr</span>" +
     "<button id='add' data-id='{{id}}' name='{{name}}' itemType='{{type}}' class='button'" +
     "data-i18n='button.addtocart'" +
-    "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/{{type}}-icon.png'" +
+    "price='{{price}}' data-i18n='addCart'>{{lang}}</button><img src='../img/{{type}}-icon.png'" +
     "height='40' width='40' id='icon' draggable='true' ondragstart='dnd.drag(event)'" +
     "dataid='{{id}}' name='{{name}}' price='{{price}}' itemType='{{type}}'></li>";
 
@@ -17,7 +17,7 @@ var leftListItemLoad =
     "</span><span>{{price}} kr</span>" +
     "<button id='add' data-id='{{id}}' name='{{name}}' itemType='{{type}}' class='button'" +
     "data-i18n='button.addtocart'" +
-    "price='{{price}}' data-i18n='addCart'>Add to cart</button><img src='../img/load-icon.gif'" +
+    "price='{{price}}' data-i18n='addCart'>{{lang}}</button><img src='../img/load-icon.gif'" +
     "height='35' width='35'" +
     "dataid='{{id}}' name='{{name}}' price='{{price}}'></li>";
 
@@ -85,6 +85,11 @@ var items = {
                     var price = item.pub_price;
                     var count = item.count;
                     items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'load'};
+                    if (localStorage.getItem("language") == "sw") {
+                        items.itemList[id]['lang'] = 'Lägg i varukorg';
+                    } else {
+                        items.itemList[id]['lang'] = 'Add to cart';
+                    }
                     items.listItem(items.itemList[id]);
                     items.setType(id);
                 });
