@@ -27,7 +27,7 @@
     margin: 200px 150px 0px;
 	*/
 	position: relative;
-	float: left;
+	/*float: left;*/
 	margin-bottom: 20px;
 }
 /*
@@ -79,10 +79,10 @@ div#item_editer{
     box-shadow: 10px 10px 5px black;
 }
 
-#user_btn, #stock_btn{
+/*#user_btn, #stock_btn{
 	background-color: #FFF;
  	   border: 0;
-}
+}*/
 
 .hidden{
 	visibility: hidden;
@@ -99,8 +99,8 @@ div#item_editer{
 }
 
 #rightSide{
-	margin-top: 0px;
 	height: 400px;
+    color: white;
 }
 #rightSide table{
 	margin-left: 10px;
@@ -108,6 +108,5 @@ div#item_editer{
 
 #confirm_button{
 	float: left;	
-}
 }
 

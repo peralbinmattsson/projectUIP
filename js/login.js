@@ -6,6 +6,7 @@ function authentification(login, pass, ref) {
     if(data.type != "error"){
       //TO DO: get id
         localStorage.setItem("user", login);
+        localStorage.setItem("password", pass);
         localStorage.setItem("user_id", data.payload[0].user_id);
         localStorage.setItem("assets", data.payload[0].assets);
         localStorage["isLoggedIn"] =  true;

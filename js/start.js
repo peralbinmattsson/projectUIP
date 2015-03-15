@@ -8,14 +8,6 @@ function logout () {
 	window.location.href = "index.html";
 
 }
-//function storeTheme() {
-//    var theme = $('#mainStyle').attr("href");
-//    if (theme == "start80s.css") {
-//        localStorage.setItem("theme", "start80s.css");
-//    } else {
-//        localStorage.setItem("theme", "start.css");
-//    }
-//}
 function setTheme() {
     var theme = localStorage.getItem("theme");
     if (theme != null) {
@@ -36,15 +28,8 @@ $(document).ready(function() {
     	$("#user_info").append("<div class='profil' id='assets' data-i18n='assets'><b>Assets : </b>" + localStorage.getItem("assets") + "</div>");
     };
 
-    $('#left, #right').hover(function() {
-        $(this).css('border-color', '#26C6B0');
-    }, function() {
-        $(this).css('border-color', 'black');
-    });
-
     setTheme();
     $('#changeTheme').on('click', function() {
-        console.log(localStorage.getItem("theme"));
         var $link = $('#mainStyle');
         var theme = localStorage.getItem("theme");
         if (theme == "start80s.css") {
@@ -56,5 +41,18 @@ $(document).ready(function() {
         }
     });
 
-
+    $(window).bind('scroll', function() {
+        if ($(window).scrollTop() < 20) {
+            $('#user_info').css('opacity', '1');
+        } else {
+            $('#user_info').css('opacity', '0.5');
+        }
+    });
+    $('#user_info').hover(function() {
+        $('#user_info').css('opacity', '1');
+    }, function() {
+        if ($(window).scrollTop() >= 20) {
+            $('#user_info').css('opacity', '0.5');
+        }
+    }); 
 });

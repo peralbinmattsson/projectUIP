@@ -1,0 +1,54 @@
+#beerContainer {
+    position: relative;
+    height: 600px;
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+#leftSide {
+    /*position: relative;*/
+    float: left;
+    margin-bottom: 20px;
+}
+span {
+    width: 300px;
+}
+#payButton {
+    float: left;
+    width: 64px;
+    height: 40px;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 45px;
+}
+button.typeButton {
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid white;
+}
+button.typeButton:hover {
+    font-weight: bold;
+    background-color: #26C6B0;
+    color: #D76DA9;
+    border: 3px solid #639BF1;
+}
+input.search {
+    height: 20px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+#add{
+    background-color: #FFF;
+    border: 0;
+}
+#cost p {
+    font-weight: bold;
+}
+#icon {
+    cursor: pointer;
+}

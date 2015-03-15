@@ -1,3 +1,4 @@
+//Invoker
 var button = {
     //Methods
     click: function(theCommand) {
@@ -10,33 +11,35 @@ var button = {
         theCommand.redo();
     },
 };
-function addToOrder(theReceiver, theId, theName, thePrice) {
+function addToOrder(theReceiver, theId, theName, thePrice, theType) {
     this.id = theId;
     this.name = theName;
     this.price = thePrice;
+    this.type = theType;
     this.receiver = theReceiver;
     //Methods
     this.execute = function() {
-        this.receiver.addOrder(this.id, this.name, this.price);
+        this.receiver.addOrder(this.id, this.name, this.price, this.type);
     };
     this.undo = function() {
         this.receiver.removeOrder(this.id, this.price);
     };
     this.redo = function() {
-        this.receiver.addOrder(this.id, this.name, this.price);
+        this.receiver.addOrder(this.id, this.name, this.price, this.type);
     };
 };
-function removeFromOrder(theReceiver, theId, theName, thePrice) {
+function removeFromOrder(theReceiver, theId, theName, thePrice, theType) {
     this.id = theId;
     this.name = theName;
     this.price = thePrice;
+    this.type = theType;
     this.receiver = theReceiver;
     //Methods
     this.execute = function() {
         this.receiver.removeOrder(this.id, this.price);
     };
     this.undo = function() {
-        this.receiver.addOrder(this.id, this.name, this.price);
+        this.receiver.addOrder(this.id, this.name, this.price, this.type);
     };
     this.redo = function() {
         this.receiver.removeOrder(this.id, this.price);

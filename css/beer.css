@@ -5,11 +5,6 @@
     margin-left: 150px;
     margin-right: 150px;
 }
-#leftSide {
-    /*position: relative;*/
-    float: left;
-    margin-bottom: 20px;
-}
 span {
     width: 300px;
 }
@@ -22,12 +17,11 @@ span {
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
 }
-
-
 input.search {
     height: 20px;
+    width: 150px;
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 20px;
@@ -38,4 +32,7 @@ input.search {
 }
 #cost p {
     font-weight: bold;
+}
+#icon {
+    cursor: pointer;
 }

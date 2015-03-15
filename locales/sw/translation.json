@@ -22,8 +22,11 @@
   },
   "cancel" : {
     "href.cancel" : "Avbryt"
+  }
+  "confirm_text": {
+    "confirm" : "Bekräftelse"
   },
-  "add": {
-    "addCart" : "Lägg till varukorg"
+  "success": {
+    "message" : "Lyckat köp!"
   }
 }

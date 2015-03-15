@@ -1,19 +1,16 @@
 
 $(document).ready(function() {
-    //var $rightList = $('#rightList');
-    //var rightListItem =
-    //    "<li data-id='{{id}}'>{{name}} <span id='{{id}}'>({{amount}})</span><p><br>" +
-    //    "{{price}} kr</p><button class='button' data-id='{{id}}'" +
-    //    "id=remove price='{{price}}'>X</button></li>";
+    var costItem = 
+        "<p cost='{{total}}'>Total: {{total}} kr</p>";
     orderList = JSON.parse( localStorage.getItem("order"));
     totalPrice = JSON.parse( localStorage.getItem("total"));
     credit =  JSON.parse( localStorage.getItem("assets"));
     stockCount =  JSON.parse( localStorage.getItem("stockCount"));
     order.orderList = orderList;
-    beerList.stockCount = stockCount;
+    items.stockCount = stockCount;
     order.load();
     priceObj.total = totalPrice;
-    priceObj.addCost();
+    $('#finalCost').html(Mustache.render(costItem, priceObj));
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
     jQueryBindings.undoBind();
@@ -28,7 +25,7 @@ $('#confirm_btn').on('click', function(){
         for (var i = 0; i < value.amount; i++){
             $.ajax({
                 type: 'POST',
-                url:'http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=purchases_append&beer_id=' + key,
+                url:'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=purchases_append&beer_id=' + key,
 
                 success: function (object) {
                     console.log("success");
@@ -37,7 +34,8 @@ $('#confirm_btn').on('click', function(){
                 }
             });
         }
-        alert("Succesful purchase!");
+        //Show the message "Successful purchase!"
+        $("#success").removeClass("hidden");  
     });
 });
 

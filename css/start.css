@@ -38,11 +38,10 @@ header{
     font-family: "Old English";
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #222930;
+    background-color: #639BF1;
     border: 5px solid black;
     border-radius: 8px;
-    background-color: #192156;
-    color: white;
+    color: black;
 }
 #container {
     position: relative;
@@ -75,6 +74,12 @@ header{
     margin-top: 100px;
     position: absolute;
 }
+#left:hover {
+    border-color: #639BF1;
+}
+#right:hover {
+    border-color: #639BF1;
+}
 #beerImg {
     width: 140px;
     height: 130px;
@@ -94,7 +99,7 @@ a:active {
 }
 body{
     min-height: 100%;
-    background: url('../img/pints-of-beer.jpg') no-repeat 0px 0px fixed;
+    background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -104,7 +109,8 @@ body{
 
 .button {
     cursor: pointer;   
-    position:relative;
+    position: relative;
+    float: left;
     width:200px;
     color:#000;
     display:block;
@@ -152,7 +158,7 @@ li.listItem{
     */
 }
 .listItem:hover {
-    background-color: #4EB1BA;
+    font-weight: bold;
 }
 #add{
     background-color: #FFF;
@@ -174,7 +180,7 @@ li.listItem{
 }
 
 #rightList > li > button {
-    background-color: #2C2C33;
+    background-color: white;
     width: 60px;
     height: 60px;
     /*margin: 50px auto;*/
@@ -189,27 +195,31 @@ li.listItem{
 #rightList > li > button:hover {
     color: #639BF1;
 }
+#leftSide {
+    float: left;
+    margin-bottom: 20px;
+}
 #rightSide {
     margin-top: 10px;
     width: 330px;
     height: 300px;
     margin-left: 650px;
-    background-color: #4EB1BA;
+    background-color: #222930;
     overflow: auto;
-    border: 5px solid #4EB1BA;
+    border: 5px solid #639BF1;
+    padding: 5px;
     border-radius: 5px;
 }
 #cost {
-    position: fixed;
     margin-left: 650px;
-    margin-top: 340px;
-    position: fixed;
+    margin-top: 20px;
     width: 330px;
     height: 40px;
-    background-color: #4EB1BA;
-    overflow: auto;
-    border: 5px solid #4EB1BA;
+    background-color: #222930;
+    border: 5px solid #639BF1;
+    padding: 5px;
     border-radius: 5px;
+    color: white;
 }
 #undoButton {
     float: left;
@@ -220,7 +230,7 @@ li.listItem{
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
     background-image:url("../img/Undo-icon.png");
     background-position: center;
 }
@@ -233,12 +243,21 @@ li.listItem{
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
     background-image:url("../img/Redo-icon.png");
     background-position: center;
 }
-
-
+button.typeButton {
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid white;
+}
+button.typeButton:hover {
+    font-weight: bold;
+    background-color: #639BF1;
+    color: black;
+    border: 3px solid #639BF1;
+}
 article#user_info{
     position : fixed !important;
     left:50%;
@@ -246,7 +265,7 @@ article#user_info{
     width: 2000px;
     margin-top: -100px;
     background-color: #639BF1;
-    opacity: 0.5;
+    opacity: 1;
     height: 50px;
     border: 5px solid black;
     border-radius: 8px;
@@ -285,14 +304,31 @@ article#user_info:hover{
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 10px;
+    cursor: pointer;
+}
+#backArrow {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 #icon>#logout{
-    float: right;
+
     margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+    float: left;
+}
+
+#changeTheme{
+    width: auto;
+    margin-top: 5px;
+    margin-left: 5px;
     margin-right: 10px;
     float: right;
 
 }
+
+
 .anim {
     width: 50px;
     height: 50px;
@@ -305,7 +341,6 @@ article#user_info:hover{
     -webkit-animation-timing-function: linear;
     -webkit-animation-delay: 2s;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-direction: alternate;
     -webkit-animation-play-state: running;
     /* Standard syntax */
     animation-name: myfirst;
@@ -313,21 +348,20 @@ article#user_info:hover{
     animation-timing-function: linear;
     animation-delay: 2s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
     animation-play-state: running;
 }
 /* Chrome, Safari, Opera */
 @-webkit-keyframes myfirst {
-    0%   {left:480px; top:0px;}
-    50%  {left:-480px; top:0px;}
-    100% {left:480px; top:0px;}
+    0% {left: 480px;}
+    50% {left: 0px;}
+    100% {left: -480px;}
 }
 
 /* Standard syntax */
 @keyframes myfirst {
-    0%   {left:480px; top:0px;}
-    50%  {left:-480px; top:0px;}
-    100% {left:480px; top:0px;}
+    0% {left: 480px;}
+    50% {left: 0px;}
+    100% {left: -480px;}
 }
 
 #user_info > .profil {
