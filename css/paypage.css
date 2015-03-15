@@ -4,7 +4,6 @@
     /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
     background-color:  #222930;
    /* background-image:url("../img/Kronor.gif");*/
-    border: 5px solid black;
     border-radius: 8px;
     margin-top: 20px;
     overflow: auto;
@@ -16,14 +15,14 @@
 
 
 #leftBox {
-    position: fixed;
+    position: absolute;
     width: 500px;
     background-color: #D1E0FF;
 
     border: 5px solid#639BF1;
     border-radius: 8px;
     margin-top:10px;
-    margin-left: 100px;
+    margin-left: 25px;
     overflow: auto;
     min-height: 350px;
 
@@ -42,7 +41,7 @@
     font-style: italic;
 
     /*hover*/
-    position: fixed;
+    position: absolute;
     display: inline-block;
     margin-left: 280px;
     margin-top: 280px;
@@ -53,7 +52,7 @@
     font-family:"Verdana", Verdana, sans-serif ;
     color: #000000;
     text-decoration: underline;
-    position: fixed;
+    position: absolute;
     margin-left:40px;
     margin-top: 310px;
 }
