@@ -90,7 +90,7 @@ var items = {
                     var count = item.count;
                     items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'load'};
                     if (localStorage.getItem("language") == "sw") {
-                        items.itemList[id]['lang'] = 'Lägg i varukorg';
+                        items.itemList[id]['lang'] = 'L\xE4gg i varukorg';
                     } else {
                         items.itemList[id]['lang'] = 'Add to cart';
                     }

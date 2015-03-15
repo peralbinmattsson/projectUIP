@@ -148,7 +148,7 @@
 
 
                    $('.Part1').i18n();
-                   $('#finalCost').html('<b>Totalsumma : </b>'+ localStorage.getItem("total"));
+                   $('#finalCost').html('<b>Summa : </b>'+ localStorage.getItem("total"));
                    $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
 
                    $('#cancel').text($.t('Avbryt'));
