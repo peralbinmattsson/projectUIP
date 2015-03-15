@@ -132,7 +132,7 @@ body{
     -webkit-box-shadow: 0px 3px 0px #261319;
     -moz-box-shadow: 0px 3px 0px #261319;
     box-shadow: 0px 3px 0px #261319;
-    background-color: #FFF;
+    background-color: #C8C8C8;
     border: 0;
 }
 .button:active{
@@ -164,7 +164,7 @@ li.listItem{
     font-weight: bold;
 }
 #add{
-    background-color: #FFF;
+    background-color: #C8C8C8;
     border: 0;
 }
 #rightList > li {
@@ -225,12 +225,23 @@ li.listItem{
     border-radius: 5px;
     color: #000000;
 }
+#payButton {
+    float: left;
+    width: 64px;
+    height: 40px;
+    background-color: #C8C8C8;
+    border: 5px solid #C8C8C8;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 45px;
+}
 #undoButton {
     float: left;
     width: 40px;
     height: 40px;
-    background-color: white;
-    border: 5px solid white;
+    background-color: #C8C8C8;
+    border: 5px solid #C8C8C8;
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -242,8 +253,8 @@ li.listItem{
     float: left;
     width: 40px;
     height: 40px;
-    background-color: white;
-    border: 5px solid white;
+    background-color: #C8C8C8;
+    border: 5px solid #C8C8C8;
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 10px;
