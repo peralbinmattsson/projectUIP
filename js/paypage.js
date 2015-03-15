@@ -37,7 +37,7 @@ $('#confirm_btn').on('click', function(){
 });
 
 $('#cancel_btn').on('click', function(){
-    window.location.href='beer.html';
+    $("#black_wrapper, #confirm_editer").fadeOut();
 });
 
 $("#paymentButton").on("click", function () {
