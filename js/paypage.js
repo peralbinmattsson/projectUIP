@@ -21,6 +21,7 @@ $(document).ready(function() {
     var successCount = 0;
     $('#confirm_btn').on('click', function(){
         $.when($.each(orderList, function(key,value) {
+            $('#confirm_editer').html('<img src="../img/load-icon.gif">');
             for (var i=0; i < value.amount; i++){
                 itemCount++;
                 $.ajax({

@@ -83,40 +83,42 @@ function saveItem (arg) {
             
             var old_value = itemInList.text();
             var id;
-            $.ajax({
+            $('#item_editer').html('<img src="../img/load-icon.gif">');
+            $.when($.ajax({
                 type: 'GET',
                 url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=iou_get',
                 success: function(data) {
-                    if(data.type != "error") {
-                        print("got user_id succesfull");
-                        id = data.payload[0].user_id; 
-                        $.ajax({
-                            type: 'GET',
-                            url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=payments_append&user_id='+id+'&amount='+add,
-                            success: function(data2) {if(data2.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
-                        });
-                        var new_value = parseInt(old_value) + parseInt(add);
-                        $(itemInList).text(new_value);
-                        $("#item_" + user + " button.button").attr('assets', new_value);
-                    }else{
-                        print("Error: Didn't find user_id");
-                    };                    
+                    var id = data.payload[0].user_id; 
+                    var assets = data.payload[0].assets; 
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=payments_append&user_id='+id+'&amount='+add,
+                        async: false,
+                        success: function(data2) {
+                            var newAsset = parseInt(assets)+parseInt(add);
+                            localStorage.setItem("assets", newAsset);
+                        }
+                    });
+                    var new_value = parseInt(old_value) + parseInt(add);
+                    $(itemInList).text(new_value);
+                    $("#item_" + user + " button.button").attr('assets', new_value);
                 }
-            });
+            }),
             $.ajax({
                 type: 'GET',
                 url: "http://pub.jamaica-inn.net/fpdb/api.php?username=jorass&password=jorass&action=user_edit&new_username=" + user + "&new_password=" + user + "&first_name=" + fname + "&last_name=" + lname + "&email=''&phone=''",
                 success: function (data) {
-                    if(data.type != "error") {
-                        $(itemInListFN).text(fname);
-                        $(itemInListLN).text(lname);
-                        print("Update names succesfull");
-                    }else{
-                        print("Error: Didn't update names");
-                    };
+                    $(itemInListFN).text(fname);
+                    $(itemInListLN).text(lname);
+                    print("Update names succesfull");
+                },
+                error: function(data) {
+                    print("Error: Didn't update names");
                 }
+            })).then(function() {
+                $("#black_wrapper, #item_editer").fadeOut();
+                window.location.reload();
             });
-            $("#black_wrapper, #item_editer").fadeOut();
             break;
 
         case "drink":
@@ -126,14 +128,19 @@ function saveItem (arg) {
             var old_value = itemInList.text();            
             var new_value = parseInt(old_value) + parseInt(add);
             if (new_value<0) {add = parseInt(add) + Math.abs(new_value);new_value=0;}; 
-            $.ajax({
+            $('#item_editer').html('<img src="../img/load-icon.gif">');
+            $.when($.ajax({
                 type: 'GET',
                 url: "http://pub.jamaica-inn.net/fpdb/api.php?username="+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_append&beer_id=' + id + "&amount=" + add + "&price=''",
-                success: function(object) {if(data.type != "error") {print("saved user succesfull");}else{print("Error :(")};}
+                success: function(object) {
+                    print("saved drink succesfull");
+                }
+            })).then(function() {
+                $("#black_wrapper, #item_editer").fadeOut();
+                window.location.reload();
             });
-            $(itemInList).text(new_value);
-            $("#item_" + id + " button.button").attr('count', new_value);
-            $("#black_wrapper, #item_editer").fadeOut();
+            //$(itemInList).text(new_value);
+            //$("#item_" + id + " button.button").attr('count', new_value);
             break;
         
         default: 
@@ -179,6 +186,9 @@ $(document).ready(function() {
         success: function(object) {
             data = object['payload'];
             $.each(data, function(i, user) {
+                if (localStorage.getItem("user") == user.username) {
+                    localStorage.setItem("assets", parseInt(user.assets));
+                }
                 addUser(user);
             });
         }
@@ -186,13 +196,13 @@ $(document).ready(function() {
     // function to hide and show user and stock on a click
     $user.hide();
     $("#stock_btn").on("click", function () {
-        $beer.show();
         $user.hide();
-        $("#rightSide").show().text("Click on the dink for more info");
+        $beer.show();
+        $("#rightSide").show().text("Click on the list item for more info.");
     });
     $("#user_btn").on("click", function () {
-        $user.show();
         $beer.hide();
+        $user.show();
         $("#rightSide").hide()
     });
     
