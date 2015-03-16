@@ -17,16 +17,16 @@ function setTheme() {
 
 $(document).ready(function() {
     
-    if (localStorage["isLoggedIn"] != "true") {
-	    window.location.href='index.html';
-	    //console.log("WTF");
-	    //console.log(localStorage["isLoggedIn"]);
-		
-	}
-    else{
-        $("#user_info").append("<div class='profil' id='loginas' data-i18n='loginas'><b>User : </b>" + localStorage.getItem("user") + "</div>");
-    	$("#user_info").append("<div class='profil' id='assets' data-i18n='assets'><b>Credit : </b>" + localStorage.getItem("assets") + "</div>");
-    };
+    //if (localStorage["isLoggedIn"] != "true") {
+	//    window.location.href='index.html';
+	//    //console.log("WTF");
+	//    //console.log(localStorage["isLoggedIn"]);
+	//	
+	//}
+    //else{
+    //    $("#user_info").append("<div class='profil' id='loginas' data-i18n='loginas'><b>User : </b>" + localStorage.getItem("user") + "</div>");
+    //	$("#user_info").append("<div class='profil' id='assets' data-i18n='assets'><b>Credit : </b>" + localStorage.getItem("assets") + "</div>");
+    //};
 
     setTheme();
     $('#changeTheme').on('click', function() {
