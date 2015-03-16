@@ -22,6 +22,12 @@
   },
   "cancel" : {
     "href.cancel" : "Avbryt"
+  },
+  "confirm_text" : {
+    "confirm" : "Bekräftelset"
+  },
+  "success" : {
+    "message" : "Lyckat köp!"
   }
   
 }

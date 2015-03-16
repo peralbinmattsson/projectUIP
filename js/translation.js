@@ -15,6 +15,7 @@
                 $('#total').i18n();
                 $('#credit').i18n();
                 $('#confirm_text').i18n();
+                $('#success').i18n();
 
                 if (options.lng == "en") {
                     $('#login-btn').text($.t('Login'));
@@ -108,6 +109,7 @@
                    $('#paymentButton').text($.t('Pay Now'));
                    $('#cancel').text($.t('Cancel'));
                    $('#confirm_text').i18n();
+                   $('#success').i18n();
                    
                    $('#stock_btn').text($.t('Stock'));
                    $('#user_btn').text($.t('User'));
@@ -148,9 +150,6 @@
                     $('#showWine').text($.t('Vin'));
                     $("#edit_btn.button").text($.t('Redigera'));
 
-
-
-
                    $('.Part1').i18n();
                    $('#finalCost').html('<b>Summa : </b>'+ localStorage.getItem("total"));
                    $('#credit').html('<b>Kredit : </b>'+ localStorage.getItem("assets"));
@@ -158,6 +157,7 @@
                    $('#cancel').text($.t('Avbryt'));
                    $('#paymentButton').text($.t('Betala'));
                    $('#confirm_text').i18n();
+                   $('#success').i18n();
                    
                    $('#stock_btn').text($.t('Lager'));
                    $('#user_btn').text($.t('Anv\xE4ndare'));
