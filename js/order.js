@@ -79,6 +79,7 @@ var items = {
     getAll: function() {
         $.ajax({
             type: 'GET',
+            //url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
             url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
             success: function(object) {
                 var data = object['payload'];

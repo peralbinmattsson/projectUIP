@@ -18,7 +18,7 @@ function setTheme() {
 $(document).ready(function() {
     
     if (localStorage["isLoggedIn"] != "true") {
-	    window.location.href='index.html';
+	    //window.location.href='index.html';
 	    //console.log("WTF");
 	    //console.log(localStorage["isLoggedIn"]);
 		
