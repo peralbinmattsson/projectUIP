@@ -6,8 +6,9 @@ $(document).ready(function() {
     stockCount =  JSON.parse( localStorage.getItem("stockCount"));
     order.orderList = orderList;
     items.stockCount = stockCount;
-    order.load();
     priceObj.total = totalPrice;
+    priceObj.addCost();
+    order.load();
     jQueryBindings.addBind();
     jQueryBindings.removeBind();
     jQueryBindings.undoBind();
@@ -16,32 +17,40 @@ $(document).ready(function() {
     var $credit = $('#credit');
     $credit.html("<p>Credit: " + credit +"</p>");
 
-
-$('#confirm_btn').on('click', function(){
-    $.each(orderList, function(key,value) {
-        for (var i = 0; i < value.amount; i++){
-            $.ajax({
-                type: 'POST',
-                url:'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=purchases_append&beer_id=' + key,
-                success: function (object) {
-                }
-            });
-        }
-        //Show the message "Successful purchase!"
-        $("#success").removeClass("hidden");  
+    var itemCount = 0;
+    var successCount = 0;
+    $('#confirm_btn').on('click', function(){
+        $.when($.each(orderList, function(key,value) {
+            for (var i=0; i < value.amount; i++){
+                itemCount++;
+                $.ajax({
+                    type: 'POST',
+                    url:'http://pub.jamaica-inn.net/fpdb/api.php?username='localStorage.getItem("user")'&password='localStorage.getItem("password")'&action=purchases_append&beer_id=' + key,
+                    async: false,
+                    success: function (object) {
+                        successCount++; 
+                    }
+                });            
+            }
+        })).then(function() {
+            if (successCount == itemCount) {
+                $("#success").removeClass("hidden");  
+                var tmpAssets = localStorage.getItem("assets");
+                localStorage.setItem("assets", tmpAssets-priceObj.total);
+                window.location.href = "beer.html";
+            } else {
+                alert("Error while making purchase!");
+            }
+        });
     });
-    var tmpAssets = localStorage.getItem("assets");
-    localStorage.setItem("assets", JSON.stringify(tmpAssets+priceObj.total));
-    window.location.href = "beer.html";
-});
 
-$('#cancel_btn').on('click', function(){
-    $("#black_wrapper, #confirm_editer").fadeOut();
-});
+    $('#cancel_btn').on('click', function(){
+        $("#black_wrapper, #confirm_editer").fadeOut();
+    });
 
-$("#paymentButton").on("click", function () {
-    $("#black_wrapper, #confirm_editer, #confirm_btn, #cancel_btn").fadeIn().removeClass("hidden");    
-    //$("#black_wrapper, #confirm_editer").fadeIn().addClass("showing");    
+    $("#paymentButton").on("click", function () {
+        $("#black_wrapper, #confirm_editer, #confirm_btn, #cancel_btn").fadeIn().removeClass("hidden");    
+        //$("#black_wrapper, #confirm_editer").fadeIn().addClass("showing");    
     });
 
     //On background press, fade out the background
