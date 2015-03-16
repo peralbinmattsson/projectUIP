@@ -76,10 +76,55 @@ var items = {
             }
         }); 
     },
+    //getAll: function() {
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
+    //        success: function(object) {
+    //            var data = object['payload'];
+    //            items.itemListLength = Object.keys(data).length;
+    //            $.each(data, function(i, item) {
+    //                var id = item.beer_id;
+    //                var name = item.namn;
+    //                var price = item.pub_price;
+    //                var count = item.count;
+    //                items.itemList[id] = {'id': id, 'name': name, 'price': price, 'count': count, 'type': 'load'};
+    //                if (localStorage.getItem("language") == "sw") {
+    //                    items.itemList[id]['lang'] = 'L\xE4gg i varukorg';
+    //                } else {
+    //                    items.itemList[id]['lang'] = 'Add to cart';
+    //                }
+    //                items.listItem(items.itemList[id]);
+    //                items.setType(id);
+    //            });
+    //        }
+    //    });
+    //},
+    //setType: function(id) {
+    //    $.when($.ajax({
+    //        type: 'GET',
+    //        url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=beer_data_get&beer_id=' + id,
+    //        success: function(object) {
+    //            var data = object['payload'];
+    //            if (data[0] != undefined) {
+    //                var typeDesc = data[0]['varugrupp'];
+    //                if (partOf("vin", typeDesc)) {
+    //                    items.itemList[id]['type'] = 'wine';
+    //                } else {
+    //                    items.itemList[id]['type'] = 'beer';
+    //                }
+    //            }
+    //            items.typeCount++;
+    //        }
+    //    })).then(function() {
+    //        if (items.typeCount == items.itemListLength) {
+    //            items.load("all");
+    //        }
+    //    });
+    //}
     getAll: function() {
         $.ajax({
             type: 'GET',
-            //url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
             url: 'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=inventory_get',
             success: function(object) {
                 var data = object['payload'];
