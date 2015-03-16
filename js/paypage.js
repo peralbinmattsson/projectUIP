@@ -23,17 +23,16 @@ $('#confirm_btn').on('click', function(){
             $.ajax({
                 type: 'POST',
                 url:'http://pub.jamaica-inn.net/fpdb/api.php?username='+localStorage.getItem("user")+'&password='+localStorage.getItem("password")+'&action=purchases_append&beer_id=' + key,
-
                 success: function (object) {
-                    console.log("success");
-                 //  alert("Succesful purchase!");
-                   // print("Bought drink succesfull");
                 }
             });
         }
         //Show the message "Successful purchase!"
         $("#success").removeClass("hidden");  
     });
+    var tmpAssets = localStorage.getItem("assets");
+    localStorage.setItem("assets", JSON.stringify(tmpAssets+priceObj.total));
+    window.location.href = "beer.html";
 });
 
 $('#cancel_btn').on('click', function(){
