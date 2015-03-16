@@ -32,12 +32,13 @@
     width: 200px;
     height: 20px;
     padding: 25px;
-    border-radius: 3px;
     line-height: 1px;
-    background-color: green;
-    /*text style*/
-    text-align:center;
+    background-color: mediumseagreen;
+    /*
     color: white;
+    text style
+    */
+    text-align:center;
     font-style: italic;
 
     /*hover*/
@@ -49,12 +50,11 @@
 }
 
 #cancel{
-    font-family:"Verdana", Verdana, sans-serif ;
-    color: #000000;
-    text-decoration: underline;
-    position: absolute;
-    margin-left:40px;
-    margin-top: 310px;
+  color: #000000;
+  position: absolute;
+  margin-left: 27px;
+  margin-top: 289px;
+  background: salmon;
 }
 
 
