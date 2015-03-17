@@ -24,7 +24,7 @@
     "href.cancel" : "Avbryt"
   },
   "confirm_text" : {
-    "confirm" : "Bekräftelset"
+    "confirm" : "Bekräfta Köp?"
   },
   "success" : {
     "message" : "Lyckat köp!"
