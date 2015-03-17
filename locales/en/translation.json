@@ -25,7 +25,7 @@
     "href.cancel" : "Cancel"
   },
   "confirm_text" : {
-    "confirm" : "Confirmation"
+    "confirm" : "Confirm Purcase?"
   },
   "success" : {
     "message" : "Successful purchase!"
