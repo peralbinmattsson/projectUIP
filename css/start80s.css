@@ -67,6 +67,18 @@ header{
     width: 50px;
     float: right;
 }
+#leftBox {
+    position: absolute;
+    width: 500px;
+    background-color: #4EB1BA;
+    border: 5px solid #4EB1BA;
+    border-radius: 8px;
+    margin-top:10px;
+    margin-left: 25px;
+    overflow: auto;
+    min-height: 350px;
+    box-shadow: 10px 10px 5px black;
+}
 #left {
     width: 140px;
     height: 140px;
