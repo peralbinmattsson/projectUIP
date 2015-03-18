@@ -77,9 +77,11 @@ header{
 }
 
 #left:hover {
+    background-color: #639BF1;
     border-color: #639BF1;
 }
 #right:hover {
+    background-color: #639BF1;
     border-color: #639BF1;
 }
 #beerImg {
