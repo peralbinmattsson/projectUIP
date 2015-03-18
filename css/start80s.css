@@ -305,7 +305,7 @@ button.typeButton:hover {
     font-weight: bold;
     background-color: #26C6B0;
     color: black;
-    border: 3px solid #639BF1;
+    border: 3px solid #26C6B0;
 }
 article#user_info{
     position : fixed !important;
