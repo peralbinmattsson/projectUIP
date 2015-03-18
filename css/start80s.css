@@ -46,7 +46,6 @@ header{
 #container {
     position: relative;
     width: 2000px;
-    /**background: url('../img/wood1.jpg')no-repeat 0px 0px fixed;**/
     background-color: #222930;
     border: 5px solid #610A3B;
     border-radius: 8px;
@@ -54,7 +53,19 @@ header{
     overflow: auto;
 
     min-height: 420px;
-    /*opacity: 0.6;*/
+}
+#settingsIconMenu {
+    margin-top: 5px;
+    margin-right: 35px;
+    width: 70px;
+    float: right;
+    border-right: 3px solid black;
+}
+#beerIconMenu {
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 50px;
+    float: right;
 }
 #left {
     width: 140px;
@@ -75,9 +86,11 @@ header{
     position: absolute;
 }
 #left:hover {
+    background-color: #26C6B0;
     border-color: #26C6B0;
 }
 #right:hover {
+    background-color: #26C6B0;
     border-color: #26C6B0;
 }
 #beerImg {

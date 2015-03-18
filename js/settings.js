@@ -64,7 +64,6 @@ function insertItemValues (item, type) {
     };
     content += '<br/><br/><br/>';
     content += '<button class="button" id="' + type + '_save" onclick="saveItem(\'' + type + '\')">Save</button>';
-    //content += '<button class="button" id="' + type + '_save">Save</button>';
     $("#" + type + "_values").append(content);
 
 }
@@ -99,9 +98,6 @@ function saveItem (arg) {
                             localStorage.setItem("assets", newAsset);
                         }
                     });
-                    var new_value = parseInt(old_value) + parseInt(add);
-                    $(itemInList).text(new_value);
-                    $("#item_" + user + " button.button").attr('assets', new_value);
                 }
             }),
             $.ajax({
@@ -110,7 +106,6 @@ function saveItem (arg) {
                 success: function (data) {
                     $(itemInListFN).text(fname);
                     $(itemInListLN).text(lname);
-                    print("Update names succesfull");
                 },
                 error: function(data) {
                     print("Error: Didn't update names");
@@ -139,8 +134,6 @@ function saveItem (arg) {
                 $("#black_wrapper, #item_editer").fadeOut();
                 window.location.reload();
             });
-            //$(itemInList).text(new_value);
-            //$("#item_" + id + " button.button").attr('count', new_value);
             break;
         
         default: 
@@ -220,7 +213,6 @@ $(document).ready(function() {
     
     // On button press, show the edit-divs
     $("#stock_container, #user_container").on("click", "li .button", function (item) {
-        //var itemData = "#item_" + $(this).attr("data-id");
         var itemData = $(this);
         var type;
         if ($(this).attr('data-type') == "drink") {
@@ -234,7 +226,6 @@ $(document).ready(function() {
 
 
         $("#black_wrapper, #item_editer").fadeIn().removeClass("hidden");    
-        //$("#black_wrapper, #item_editer").fadeIn().addClass("showing");    
     });
 
     //On background press, fade out the background

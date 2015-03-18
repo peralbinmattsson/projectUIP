@@ -8,6 +8,10 @@
 <body>
     <article id="user_info" class="center"><label style="float:right" onclick="logout()"></label>
         <div id="icon">
+            <a href="index2.html"><img id="backArrow" src="../img/back-arrow.png" width="50" height="50"></a>
+            <div id="logout">
+                <button class="button" onclick="logout()" id= "logout-btn" data-i18n="button.logout">Logout</button>
+            </div>
             <div id='trans_container'>
                 <div id='click_flag' ></div>
                 <div class="translation_menu">
@@ -18,9 +22,11 @@
             <div id="change-theme">
                 <button class="button" id="changeTheme" data-i18n="changeTheme">Change theme</button>
             </div>
-            <a href="index2.html"><img id="backArrow" src="../img/back-arrow.png" width="50" height="50"></a>
-            <div id="logout">
-                <button class="button" onclick="logout()" id= "logout-btn" data-i18n="button.logout">Logout</button>
+            <div id="settingsIconMenu">
+                <a href="settings.html"><img src="../img/cogwheels.png" width="40" height="35" title="Settings"></a>
+            </div>
+            <div id="beerIconMenu">
+                <a href="beer.html"><img src="../img/beer.png" width="40" height="35" title="Beer and wine"></a>
             </div>
         </div>
     </article>
